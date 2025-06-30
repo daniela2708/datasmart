@@ -1525,7 +1525,7 @@ html {
 }
 
 .animate-robot-intro {
-  animation: robot-intro 2s ease-out 3s both;
+  animation: robot-intro 2s ease-out 0.5s both;
 }
 
 .animate-robot-float {
@@ -1613,7 +1613,7 @@ html {
 /* Responsive para el robot en móviles */
 @media (max-width: 768px) {
   .animate-robot-intro {
-    animation: robot-intro 2s ease-out 1s both;
+    animation: robot-intro 2s ease-out 0.3s both;
   }
   
   .w-20 {
