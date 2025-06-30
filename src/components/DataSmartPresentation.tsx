@@ -236,179 +236,108 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
             <CarouselContent>
               {/* Slide 1: Hero */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-3xl mx-auto px-4 py-6 relative z-10">
-                    {/* Logo Oficial DataSmart */}
-                    <div className="mb-3">
-                      <div className="logo-small">Data<span>Smart</span></div>
-                    </div>
-                    <p className="subtitle-enhanced text-center text-blue-600 text-xs">{t('company.tagline')}</p>
-                    <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 leading-tight">
-                      {t('hero.title')}
-                    </h2>
-                    <p className="text-xs sm:text-sm lg:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed max-w-2xl mx-auto">
-                      {t('hero.subtitle')}
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-                      <button className="btn-modern text-xs px-3 py-1.5">
-                        {t('hero.cta')}
-                      </button>
-                      <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 animate-pulse hidden sm:block" />
-                    </div>
-                  </div>
-                  
-                  {/* Neural Network Graphic */}
-                  <div className="neural-network-container absolute right-8 top-1/2 transform -translate-y-1/2 w-80 h-80 z-0 hidden lg:block">
-                    <svg className="w-full h-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                      {/* Gradient Definitions */}
-                      <defs>
-                        <radialGradient id="neuronGrad" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.9"/>
-                          <stop offset="100%" stopColor="#2563eb" stopOpacity="0.6"/>
-                        </radialGradient>
-                        <radialGradient id="neuronGradGreen" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#34d399" stopOpacity="0.9"/>
-                          <stop offset="100%" stopColor="#10b981" stopOpacity="0.6"/>
-                        </radialGradient>
-                        <linearGradient id="connectionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.4"/>
-                          <stop offset="100%" stopColor="#34d399" stopOpacity="0.4"/>
-                        </linearGradient>
-                      </defs>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] rounded-lg">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 h-full items-center p-8 lg:p-12">
+                    
+                    {/* Text Section */}
+                    <div className="text-section lg:pr-8">
+                      <div className="category-tag inline-block bg-green-50 text-green-600 px-6 py-2 border-l-4 border-green-400 text-sm font-semibold tracking-wide mb-8 uppercase">
+                        ANÁLISIS DE DATOS Y AUTOMATIZACIÓN
+                      </div>
                       
-                      {/* Background Neural Field */}
-                      <circle cx="200" cy="200" r="180" fill="rgba(37, 99, 235, 0.02)" />
-                      <circle cx="200" cy="200" r="140" fill="rgba(37, 99, 235, 0.03)" />
-                      <circle cx="200" cy="200" r="100" fill="rgba(37, 99, 235, 0.04)" />
+                      <h1 className="text-3xl lg:text-5xl font-extrabold text-gray-800 leading-tight mb-6">
+                        Transformamos<br/>
+                        tus datos<br/>
+                        en <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">decisiones</span><br/>
+                        <span className="bg-gradient-to-r from-green-500 to-green-700 bg-clip-text text-transparent">inteligentes</span>
+                      </h1>
                       
-                      {/* Neural Connections - Animated */}
-                      <g className="neural-connections">
-                        <path d="M120,100 Q200,150 280,100" stroke="url(#connectionGrad)" strokeWidth="2" fill="none" opacity="0.6">
-                          <animate attributeName="stroke-dasharray" values="0,300;150,150;300,0;0,300" dur="4s" repeatCount="indefinite"/>
-                          <animate attributeName="stroke-dashoffset" values="0;-300" dur="4s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M120,150 Q200,200 280,150" stroke="url(#connectionGrad)" strokeWidth="2" fill="none" opacity="0.6">
-                          <animate attributeName="stroke-dasharray" values="0,300;150,150;300,0;0,300" dur="4.5s" repeatCount="indefinite"/>
-                          <animate attributeName="stroke-dashoffset" values="0;-300" dur="4.5s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M120,250 Q200,200 280,250" stroke="url(#connectionGrad)" strokeWidth="2" fill="none" opacity="0.6">
-                          <animate attributeName="stroke-dasharray" values="0,300;150,150;300,0;0,300" dur="3.8s" repeatCount="indefinite"/>
-                          <animate attributeName="stroke-dashoffset" values="0;-300" dur="3.8s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M120,300 Q200,250 280,300" stroke="url(#connectionGrad)" strokeWidth="2" fill="none" opacity="0.6">
-                          <animate attributeName="stroke-dasharray" values="0,300;150,150;300,0;0,300" dur="4.2s" repeatCount="indefinite"/>
-                          <animate attributeName="stroke-dashoffset" values="0;-300" dur="4.2s" repeatCount="indefinite"/>
-                        </path>
+                      <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                        Ofrecemos soluciones personalizadas de análisis de datos y 
+                        automatización adaptadas a tu negocio, ayudándote a 
+                        optimizar procesos, reducir costos y mejorar la toma de 
+                        decisiones.
+                      </p>
+                    </div>
+
+                    {/* Visual Section */}
+                    <div className="visual-section flex items-center justify-center relative hidden lg:flex">
+                      <div className="tech-visualization relative w-96 h-96">
+                        {/* Glow Effect */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-radial from-purple-400/20 to-transparent rounded-full animate-pulse-glow"></div>
                         
-                        {/* Cross connections */}
-                        <line x1="120" y1="100" x2="280" y2="300" stroke="url(#connectionGrad)" strokeWidth="1.5" opacity="0.3">
-                          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="120" y1="300" x2="280" y2="100" stroke="url(#connectionGrad)" strokeWidth="1.5" opacity="0.3">
-                          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3.5s" repeatCount="indefinite"/>
-                        </line>
-                        <line x1="120" y1="150" x2="280" y2="250" stroke="url(#connectionGrad)" strokeWidth="1.5" opacity="0.3">
-                          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4s" repeatCount="indefinite"/>
-                        </line>
-                      </g>
-                      
-                      {/* Input Layer Neurons */}
-                      <g className="input-layer">
-                        <circle cx="120" cy="100" r="18" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="16;22;16" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="120" cy="150" r="16" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="14;20;14" dur="3.5s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="120" cy="200" r="15" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="13;19;13" dur="4s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="120" cy="250" r="16" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="14;20;14" dur="2.8s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="120" cy="300" r="18" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="16;22;16" dur="3.2s" repeatCount="indefinite"/>
-                        </circle>
-                      </g>
-                      
-                      {/* Hidden Layer Neurons */}
-                      <g className="hidden-layer">
-                        <circle cx="200" cy="120" r="14" fill="url(#neuronGradGreen)" stroke="#10b981" strokeWidth="2">
-                          <animate attributeName="r" values="12;18;12" dur="3.3s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="200" cy="170" r="16" fill="url(#neuronGradGreen)" stroke="#10b981" strokeWidth="2">
-                          <animate attributeName="r" values="14;20;14" dur="3.8s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="200" cy="200" r="24" fill="url(#neuronGradGreen)" stroke="#10b981" strokeWidth="3">
-                          <animate attributeName="r" values="22;28;22" dur="2.5s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="200" cy="230" r="16" fill="url(#neuronGradGreen)" stroke="#10b981" strokeWidth="2">
-                          <animate attributeName="r" values="14;20;14" dur="3.6s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="200" cy="280" r="14" fill="url(#neuronGradGreen)" stroke="#10b981" strokeWidth="2">
-                          <animate attributeName="r" values="12;18;12" dur="4.1s" repeatCount="indefinite"/>
-                        </circle>
-                      </g>
-                      
-                      {/* Output Layer Neurons */}
-                      <g className="output-layer">
-                        <circle cx="280" cy="100" r="18" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="16;22;16" dur="3.4s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="280" cy="150" r="16" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="14;20;14" dur="3.9s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="280" cy="200" r="20" fill="url(#neuronGradGreen)" stroke="#10b981" strokeWidth="2">
-                          <animate attributeName="r" values="18;24;18" dur="2.7s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="280" cy="250" r="16" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="14;20;14" dur="3.1s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="280" cy="300" r="18" fill="url(#neuronGrad)" stroke="#2563eb" strokeWidth="2">
-                          <animate attributeName="r" values="16;22;16" dur="3.7s" repeatCount="indefinite"/>
-                        </circle>
-                      </g>
-                      
-                      {/* Data Flow Particles */}
-                      <g className="data-particles">
-                        <circle r="3" fill="#60a5fa" opacity="0.8">
-                          <animateMotion dur="3s" repeatCount="indefinite">
-                            <path d="M120,100 Q200,150 280,100"/>
-                          </animateMotion>
-                        </circle>
-                        <circle r="3" fill="#34d399" opacity="0.8">
-                          <animateMotion dur="3.5s" repeatCount="indefinite">
-                            <path d="M120,150 Q200,200 280,150"/>
-                          </animateMotion>
-                        </circle>
-                        <circle r="3" fill="#60a5fa" opacity="0.8">
-                          <animateMotion dur="4s" repeatCount="indefinite">
-                            <path d="M120,250 Q200,200 280,250"/>
-                          </animateMotion>
-                        </circle>
-                        <circle r="3" fill="#34d399" opacity="0.8">
-                          <animateMotion dur="3.2s" repeatCount="indefinite">
-                            <path d="M120,300 Q200,250 280,300"/>
-                          </animateMotion>
-                        </circle>
-                      </g>
-                      
-                      {/* Central AI Brain Icon */}
-                      <g className="ai-brain">
-                        <circle cx="200" cy="200" r="35" fill="rgba(37, 99, 235, 0.1)" stroke="#2563eb" strokeWidth="2" strokeDasharray="5,5">
-                          <animateTransform attributeName="transform" type="rotate" values="0 200 200;360 200 200" dur="20s" repeatCount="indefinite"/>
-                        </circle>
-                        <path d="M185,190 Q200,185 215,190 Q215,200 200,205 Q185,200 185,190 Z" fill="#1d4ed8" opacity="0.8">
-                          <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
-                        </path>
-                        <circle cx="195" cy="195" r="2" fill="#60a5fa">
-                          <animate attributeName="r" values="1;3;1" dur="1.5s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="205" cy="195" r="2" fill="#60a5fa">
-                          <animate attributeName="r" values="1;3;1" dur="1.8s" repeatCount="indefinite"/>
-                        </circle>
-                      </g>
-                    </svg>
+                        {/* Orbit 1 */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-44 h-44 border-2 border-gray-100 rounded-full animate-spin-slow">
+                          {/* Satellites for Orbit 1 */}
+                          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute top-1/2 -right-6 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute top-1/2 -left-6 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                          </div>
+                        </div>
+
+                        {/* Orbit 2 */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-gray-100 rounded-full animate-spin-slow-reverse">
+                          {/* Satellites for Orbit 2 */}
+                          <div className="absolute -top-6 right-10 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute bottom-10 -right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute -bottom-6 right-10 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute top-10 -left-6 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                            </svg>
+                          </div>
+                        </div>
+
+                        {/* Orbit 3 */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-84 h-84 border-2 border-gray-100 rounded-full animate-spin-slower">
+                          {/* Satellites for Orbit 3 */}
+                          <div className="absolute -top-6 left-1/5 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                          </div>
+                          <div className="absolute top-1/5 -right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-100">
+                            <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                          </div>
+                        </div>
+
+                        {/* Central Hub */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-xl z-20">
+                          <div className="text-white text-2xl font-bold">@</div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </CarouselItem>
@@ -607,22 +536,22 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
           </Carousel>
 
           {/* Botones de Navegación Manuales - Fuera del slide */}
-          <>
-            <button
-              onClick={navigatePrev}
+            <>
+              <button
+                onClick={navigatePrev}
               className={`absolute ${isFullscreenActive ? '-left-8' : '-left-12'} top-1/2 transform -translate-y-1/2 z-50 w-8 h-8 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 flex items-center justify-center group`}
-              disabled={currentSlide === 0}
-            >
-              <ChevronLeft className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-colors" />
-            </button>
+                disabled={currentSlide === 0}
+              >
+                <ChevronLeft className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-colors" />
+              </button>
 
-            <button
-              onClick={navigateNext}
+              <button
+                onClick={navigateNext}
               className={`absolute ${isFullscreenActive ? '-right-8' : '-right-12'} top-1/2 transform -translate-y-1/2 z-50 w-8 h-8 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 flex items-center justify-center group`}
-            >
-              <ChevronRight className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-colors" />
-            </button>
-          </>
+              >
+                <ChevronRight className="w-4 h-4 text-gray-600 group-hover:text-gray-900 transition-colors" />
+              </button>
+            </>
 
           {/* Indicadores de Slides - Números Elegantes con Paginación */}
           <div className="numbers-indicators flex justify-center items-center mt-12 mb-6 gap-3 z-50 relative">
