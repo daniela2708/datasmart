@@ -554,63 +554,286 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
               <CarouselItem>
                 <style>
                   {`
+                    .automation-slide-container {
+                      min-height: 68vh;
+                      background: linear-gradient(135deg, #c8d5ff 0%, #e1ebff 50%, #f0f4ff 100%);
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      overflow: hidden;
+                      border-radius: 12px;
+                    }
+                    
+                    .automation-content {
+                      width: 90%;
+                      max-width: 1000px;
+                      background: rgba(255, 255, 255, 0.95);
+                      backdrop-filter: blur(20px);
+                      border-radius: 24px;
+                      padding: 60px 50px;
+                      text-align: center;
+                      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    
+                    .automation-content::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      height: 6px;
+                      background: linear-gradient(90deg, #4A90E2, #5BA2F5, #6BB5FF, #4A90E2);
+                      background-size: 400% 100%;
+                      animation: gradientMove 3s ease-in-out infinite;
+                    }
+                    
+                    @keyframes gradientMove {
+                      0%, 100% { background-position: 0% 50%; }
+                      50% { background-position: 100% 50%; }
+                    }
+                    
+                    .automation-icon-container {
+                      margin-bottom: 40px;
+                      position: relative;
+                    }
+                    
+                    .automation-main-icon {
+                      width: 120px;
+                      height: 120px;
+                      background: linear-gradient(45deg, #4A90E2, #5BA2F5);
+                      border-radius: 30px;
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-shadow: 0 15px 35px rgba(74, 144, 226, 0.3);
+                      position: relative;
+                      z-index: 2;
+                      animation: iconPulse 2s ease-in-out infinite;
+                    }
+                    
+                    @keyframes iconPulse {
+                      0%, 100% { transform: scale(1); }
+                      50% { transform: scale(1.05); }
+                    }
+                    
+                    .automation-gear-icon {
+                      width: 60px;
+                      height: 60px;
+                      color: white;
+                      animation: rotate 6s linear infinite;
+                    }
+                    
                     @keyframes rotate {
                       from { transform: rotate(0deg); }
                       to { transform: rotate(360deg); }
                     }
-                    @keyframes pulse {
-                      0%, 100% { opacity: 1; transform: scale(1); }
-                      50% { opacity: 0.8; transform: scale(1.05); }
-                    }
-                    @keyframes fadeInUp {
-                      from { opacity: 0; transform: translateY(30px); }
-                      to { opacity: 1; transform: translateY(0); }
-                    }
-                    .automation-icon {
-                      animation: rotate 8s linear infinite;
-                    }
-                    .automation-card {
-                      animation: pulse 3s ease-in-out infinite;
-                    }
-                    .automation-text {
-                      animation: fadeInUp 1s ease-out forwards;
-                    }
-                    .floating-gears::before,
-                    .floating-gears::after {
-                      content: '⚙️';
+                    
+                    .automation-floating-elements {
                       position: absolute;
-                      font-size: 1.5rem;
-                      opacity: 0.1;
-                      animation: float 4s ease-in-out infinite;
+                      width: 100%;
+                      height: 100%;
+                      top: 0;
+                      left: 0;
+                      pointer-events: none;
+                      z-index: 1;
                     }
-                    .floating-gears::before {
+                    
+                    .automation-floating-element {
+                      position: absolute;
+                      width: 60px;
+                      height: 60px;
+                      background: rgba(74, 144, 226, 0.08);
+                      border-radius: 50%;
+                      animation: floatAnim 4s ease-in-out infinite;
+                    }
+                    
+                    .automation-floating-element:nth-child(1) {
                       top: 20%;
-                      left: 10%;
+                      left: 15%;
                       animation-delay: 0s;
                     }
-                    .floating-gears::after {
-                      bottom: 20%;
-                      right: 10%;
+                    
+                    .automation-floating-element:nth-child(2) {
+                      top: 30%;
+                      right: 20%;
+                      animation-delay: 1s;
+                    }
+                    
+                    .automation-floating-element:nth-child(3) {
+                      bottom: 25%;
+                      left: 10%;
                       animation-delay: 2s;
                     }
-                    @keyframes float {
-                      0%, 100% { transform: translateY(0px) rotate(0deg); }
-                      50% { transform: translateY(-20px) rotate(180deg); }
+                    
+                    .automation-floating-element:nth-child(4) {
+                      bottom: 35%;
+                      right: 15%;
+                      animation-delay: 3s;
+                    }
+                    
+                    @keyframes floatAnim {
+                      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+                      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+                    }
+                    
+                    .automation-title {
+                      font-size: 3.2rem;
+                      font-weight: 700;
+                      background: linear-gradient(45deg, #4A90E2, #2E5A8A);
+                      -webkit-background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                      background-clip: text;
+                      margin-bottom: 30px;
+                      letter-spacing: -1px;
+                      line-height: 1.2;
+                    }
+                    
+                    .automation-subtitle {
+                      font-size: 1.3rem;
+                      color: #4A5568;
+                      line-height: 1.6;
+                      max-width: 800px;
+                      margin: 0 auto 40px;
+                      font-weight: 400;
+                    }
+                    
+                    .automation-benefits-container {
+                      display: flex;
+                      justify-content: center;
+                      gap: 40px;
+                      margin-top: 50px;
+                      flex-wrap: wrap;
+                    }
+                    
+                    .automation-benefit-item {
+                      background: rgba(255, 255, 255, 0.95);
+                      backdrop-filter: blur(10px);
+                      padding: 25px 30px;
+                      border-radius: 20px;
+                      box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+                      border: 1px solid rgba(74, 144, 226, 0.2);
+                      transition: all 0.3s ease;
+                      min-width: 200px;
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    
+                    .automation-benefit-item::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: -100%;
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                      transition: left 0.6s ease;
+                    }
+                    
+                    .automation-benefit-item:hover::before {
+                      left: 100%;
+                    }
+                    
+                    .automation-benefit-item:hover {
+                      transform: translateY(-8px);
+                      box-shadow: 0 12px 48px rgba(74, 144, 226, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15);
+                      border: 1px solid rgba(74, 144, 226, 0.3);
+                    }
+                    
+                    .automation-benefit-icon {
+                      width: 60px;
+                      height: 60px;
+                      margin: 0 auto 15px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 16px;
+                      font-size: 28px;
+                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    .automation-benefit-icon.efficiency {
+                      background: linear-gradient(135deg, #4F46E5, #7C3AED);
+                    }
+                    
+                    .automation-benefit-icon.accuracy {
+                      background: linear-gradient(135deg, #DC2626, #EF4444);
+                    }
+                    
+                    .automation-benefit-icon.time {
+                      background: linear-gradient(135deg, #059669, #10B981);
+                    }
+                    
+                    .automation-benefit-text {
+                      font-size: 1rem;
+                      color: #4A5568;
+                      font-weight: 500;
+                      position: relative;
+                      z-index: 2;
+                    }
+                    
+                    @media (max-width: 768px) {
+                      .automation-content {
+                        padding: 40px 30px;
+                        margin: 20px;
+                      }
+                      
+                      .automation-title {
+                        font-size: 2.5rem;
+                      }
+                      
+                      .automation-subtitle {
+                        font-size: 1.1rem;
+                      }
+                      
+                      .automation-benefits-container {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 20px;
+                      }
+                      
+                      .automation-benefit-item {
+                        width: 100%;
+                        max-width: 300px;
+                      }
                     }
                   `}
                 </style>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg relative floating-gears">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-xl automation-card">
-                        <Cog className="w-10 h-10 text-white drop-shadow-sm automation-icon" />
+                <div className="automation-slide-container">
+                  <div className="automation-content">
+                    <div className="automation-floating-elements">
+                      <div className="automation-floating-element"></div>
+                      <div className="automation-floating-element"></div>
+                      <div className="automation-floating-element"></div>
+                      <div className="automation-floating-element"></div>
+                    </div>
+                    
+                    <div className="automation-icon-container">
+                      <div className="automation-main-icon">
+                        <Cog className="automation-gear-icon" />
                       </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 automation-text">
-                        {t('services.automation.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto automation-text" style={{animationDelay: '0.3s'}}>
-                        {t('services.automation.desc')}
-                      </p>
+                    </div>
+                    
+                    <h1 className="automation-title">{t('services.automation.title')}</h1>
+                    
+                    <p className="automation-subtitle">
+                      {t('services.automation.subtitle')}
+                    </p>
+                    
+                    <div className="automation-benefits-container">
+                      <div className="automation-benefit-item">
+                        <div className="automation-benefit-icon efficiency">⚡</div>
+                        <div className="automation-benefit-text">{t('services.automation.benefits.efficiency')}</div>
+                      </div>
+                      <div className="automation-benefit-item">
+                        <div className="automation-benefit-icon accuracy">🎯</div>
+                        <div className="automation-benefit-text">{t('services.automation.benefits.accuracy')}</div>
+                      </div>
+                      <div className="automation-benefit-item">
+                        <div className="automation-benefit-icon time">🕐</div>
+                        <div className="automation-benefit-text">{t('services.automation.benefits.time')}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
