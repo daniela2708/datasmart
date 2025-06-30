@@ -556,7 +556,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                   {`
                     .automation-slide-container {
                       min-height: 68vh;
-                      background: linear-gradient(135deg, #c8d5ff 0%, #e1ebff 50%, #f0f4ff 100%);
+                      background: white;
                       display: flex;
                       justify-content: center;
                       align-items: center;
@@ -565,14 +565,14 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-content {
-                      width: 90%;
-                      max-width: 1000px;
+                      width: 85%;
+                      max-width: 800px;
                       background: rgba(255, 255, 255, 0.95);
                       backdrop-filter: blur(20px);
-                      border-radius: 24px;
-                      padding: 60px 50px;
+                      border-radius: 20px;
+                      padding: 40px 35px;
                       text-align: center;
-                      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+                      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
                       position: relative;
                       overflow: hidden;
                     }
@@ -583,7 +583,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       top: 0;
                       left: 0;
                       right: 0;
-                      height: 6px;
+                      height: 4px;
                       background: linear-gradient(90deg, #4A90E2, #5BA2F5, #6BB5FF, #4A90E2);
                       background-size: 400% 100%;
                       animation: gradientMove 3s ease-in-out infinite;
@@ -595,19 +595,19 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-icon-container {
-                      margin-bottom: 40px;
+                      margin-bottom: 25px;
                       position: relative;
                     }
                     
                     .automation-main-icon {
-                      width: 120px;
-                      height: 120px;
+                      width: 80px;
+                      height: 80px;
                       background: linear-gradient(45deg, #4A90E2, #5BA2F5);
-                      border-radius: 30px;
+                      border-radius: 20px;
                       display: inline-flex;
                       align-items: center;
                       justify-content: center;
-                      box-shadow: 0 15px 35px rgba(74, 144, 226, 0.3);
+                      box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
                       position: relative;
                       z-index: 2;
                       animation: iconPulse 2s ease-in-out infinite;
@@ -619,8 +619,8 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-gear-icon {
-                      width: 60px;
-                      height: 60px;
+                      width: 40px;
+                      height: 40px;
                       color: white;
                       animation: rotate 6s linear infinite;
                     }
@@ -642,80 +642,80 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     
                     .automation-floating-element {
                       position: absolute;
-                      width: 60px;
-                      height: 60px;
-                      background: rgba(74, 144, 226, 0.08);
+                      width: 40px;
+                      height: 40px;
+                      background: rgba(74, 144, 226, 0.06);
                       border-radius: 50%;
                       animation: floatAnim 4s ease-in-out infinite;
                     }
                     
                     .automation-floating-element:nth-child(1) {
-                      top: 20%;
-                      left: 15%;
+                      top: 15%;
+                      left: 10%;
                       animation-delay: 0s;
                     }
                     
                     .automation-floating-element:nth-child(2) {
-                      top: 30%;
-                      right: 20%;
+                      top: 25%;
+                      right: 15%;
                       animation-delay: 1s;
                     }
                     
                     .automation-floating-element:nth-child(3) {
-                      bottom: 25%;
-                      left: 10%;
+                      bottom: 20%;
+                      left: 8%;
                       animation-delay: 2s;
                     }
                     
                     .automation-floating-element:nth-child(4) {
-                      bottom: 35%;
-                      right: 15%;
+                      bottom: 30%;
+                      right: 12%;
                       animation-delay: 3s;
                     }
                     
                     @keyframes floatAnim {
                       0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-                      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+                      50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
                     }
                     
                     .automation-title {
-                      font-size: 3.2rem;
+                      font-size: 2.2rem;
                       font-weight: 700;
                       background: linear-gradient(45deg, #4A90E2, #2E5A8A);
                       -webkit-background-clip: text;
                       -webkit-text-fill-color: transparent;
                       background-clip: text;
-                      margin-bottom: 30px;
+                      margin-bottom: 20px;
                       letter-spacing: -1px;
                       line-height: 1.2;
                     }
                     
                     .automation-subtitle {
-                      font-size: 1.3rem;
+                      font-size: 1rem;
                       color: #4A5568;
-                      line-height: 1.6;
-                      max-width: 800px;
-                      margin: 0 auto 40px;
+                      line-height: 1.5;
+                      max-width: 600px;
+                      margin: 0 auto 30px;
                       font-weight: 400;
                     }
                     
                     .automation-benefits-container {
                       display: flex;
                       justify-content: center;
-                      gap: 40px;
-                      margin-top: 50px;
+                      gap: 25px;
+                      margin-top: 30px;
                       flex-wrap: wrap;
                     }
                     
                     .automation-benefit-item {
                       background: rgba(255, 255, 255, 0.95);
                       backdrop-filter: blur(10px);
-                      padding: 25px 30px;
-                      border-radius: 20px;
-                      box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
-                      border: 1px solid rgba(74, 144, 226, 0.2);
+                      padding: 18px 22px;
+                      border-radius: 16px;
+                      box-shadow: 0 6px 24px rgba(74, 144, 226, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+                      border: 1px solid rgba(74, 144, 226, 0.15);
                       transition: all 0.3s ease;
-                      min-width: 200px;
+                      min-width: 160px;
                       position: relative;
                       overflow: hidden;
                     }
@@ -736,21 +736,21 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-benefit-item:hover {
-                      transform: translateY(-8px);
-                      box-shadow: 0 12px 48px rgba(74, 144, 226, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15);
-                      border: 1px solid rgba(74, 144, 226, 0.3);
+                      transform: translateY(-6px);
+                      box-shadow: 0 10px 36px rgba(74, 144, 226, 0.2), 0 4px 12px rgba(0, 0, 0, 0.12);
+                      border: 1px solid rgba(74, 144, 226, 0.25);
                     }
                     
                     .automation-benefit-icon {
-                      width: 60px;
-                      height: 60px;
-                      margin: 0 auto 15px;
+                      width: 45px;
+                      height: 45px;
+                      margin: 0 auto 12px;
                       display: flex;
                       align-items: center;
                       justify-content: center;
-                      border-radius: 16px;
-                      font-size: 28px;
-                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                      border-radius: 12px;
+                      font-size: 20px;
+                      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
                     }
                     
                     .automation-benefit-icon.efficiency {
@@ -766,7 +766,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-benefit-text {
-                      font-size: 1rem;
+                      font-size: 0.9rem;
                       color: #4A5568;
                       font-weight: 500;
                       position: relative;
@@ -775,32 +775,43 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     
                     @media (max-width: 768px) {
                       .automation-content {
-                        padding: 40px 30px;
-                        margin: 20px;
+                        padding: 30px 25px;
+                        margin: 15px;
+                        max-width: 90%;
                       }
                       
                       .automation-title {
-                        font-size: 2.5rem;
+                        font-size: 1.8rem;
                       }
                       
                       .automation-subtitle {
-                        font-size: 1.1rem;
+                        font-size: 0.9rem;
                       }
                       
                       .automation-benefits-container {
                         flex-direction: column;
                         align-items: center;
-                        gap: 20px;
+                        gap: 15px;
                       }
                       
                       .automation-benefit-item {
                         width: 100%;
-                        max-width: 300px;
+                        max-width: 250px;
+                      }
+                      
+                      .automation-main-icon {
+                        width: 70px;
+                        height: 70px;
+                      }
+                      
+                      .automation-gear-icon {
+                        width: 35px;
+                        height: 35px;
                       }
                     }
                   `}
                 </style>
-                <div className="automation-slide-container">
+                <div className="automation-slide-container datasmart-slide">
                   <div className="automation-content">
                     <div className="automation-floating-elements">
                       <div className="automation-floating-element"></div>
