@@ -1149,9 +1149,483 @@ html {
 
 @keyframes pulseNode {
   0%, 100% {
-    r: 25;
+    opacity: 0.6; 
+    transform: scale(1); 
   }
   50% {
-    r: 28;
+    opacity: 1; 
+    transform: scale(1.3); 
+  }
+}
+
+/* ===== NUEVAS ANIMACIONES PARA EL HERO SLIDE ===== */
+
+/* Animaciones de entrada */
+@keyframes slide-in-left {
+  from { 
+    opacity: 0; 
+    transform: translateX(-50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes slide-in-right {
+  from { 
+    opacity: 0; 
+    transform: translateX(50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* Animaciones flotantes para el fondo */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: translateY(-15px) scale(1.2); 
+    opacity: 0.6; 
+  }
+}
+
+@keyframes connection-flow {
+  0%, 100% { 
+    opacity: 0.1; 
+    transform: scaleX(1); 
+  }
+  50% { 
+    opacity: 0.4; 
+    transform: scaleX(1.2); 
+  }
+}
+
+/* Animaciones de pulso neural */
+@keyframes neural-pulse {
+  0%, 100% { 
+    opacity: 0.7; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.3); 
+  }
+}
+
+/* Animaciones de barras AI */
+@keyframes ai-bar-1 {
+  0%, 100% { 
+    transform: scaleY(0.5); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scaleY(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes ai-bar-2 {
+  0%, 100% { 
+    transform: scaleY(0.5); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scaleY(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes ai-bar-3 {
+  0%, 100% { 
+    transform: scaleY(0.5); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scaleY(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes ai-bar-4 {
+  0%, 100% { 
+    transform: scaleY(0.5); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scaleY(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes ai-bar-5 {
+  0%, 100% { 
+    transform: scaleY(0.5); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scaleY(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes ai-bar-6 {
+  0%, 100% { 
+    transform: scaleY(0.5); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: scaleY(1); 
+    opacity: 1; 
+  }
+}
+
+/* Animación de giro lento */
+@keyframes spin-slow {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+/* Animaciones de conteo */
+@keyframes count-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Animaciones del robot */
+@keyframes robot-intro {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes robot-float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+@keyframes eye-blink {
+  0%, 85%, 100% { 
+    transform: scaleY(1); 
+  }
+  90%, 95% { 
+    transform: scaleY(0.1); 
+  }
+}
+
+@keyframes smile {
+  0%, 70%, 100% { 
+    transform: scaleY(1); 
+  }
+  75%, 95% { 
+    transform: scaleY(1.2); 
+  }
+}
+
+@keyframes power-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); 
+    transform: translateX(-50%) scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.8), 0 0 30px rgba(56, 189, 248, 0.4); 
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+@keyframes arm-wave {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(15deg); 
+  }
+  75% { 
+    transform: rotate(-5deg); 
+  }
+}
+
+@keyframes arm-wave-delay {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-15deg); 
+  }
+  75% { 
+    transform: rotate(5deg); 
+  }
+}
+
+@keyframes bubble-float {
+  0%, 50%, 100% { 
+    opacity: 0; 
+    transform: translateY(15px) scale(0.8); 
+  }
+  55%, 95% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes gear-float {
+  0%, 85%, 100% { 
+    opacity: 0; 
+    transform: translateY(0px) scale(0.5) rotate(0deg); 
+  }
+  20%, 80% { 
+    opacity: 0.7; 
+    transform: translateY(-25px) scale(1) rotate(180deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-40px) scale(1.1) rotate(360deg); 
+  }
+}
+
+/* Clases de animación con delay */
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.animate-slide-in-left-delay {
+  animation: slide-in-left 0.8s ease-out 0.2s both;
+}
+
+.animate-slide-in-left-delay-2 {
+  animation: slide-in-left 0.8s ease-out 0.4s both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out 0.6s both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delay-1 {
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+.animate-float-delay-2 {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.animate-float-delay-3 {
+  animation: float 6s ease-in-out infinite 3s;
+}
+
+.animate-float-delay-4 {
+  animation: float 6s ease-in-out infinite 4s;
+}
+
+.animate-connection-flow {
+  animation: connection-flow 4s ease-in-out infinite 0.5s;
+}
+
+.animate-connection-flow-delay {
+  animation: connection-flow 4s ease-in-out infinite 2.5s;
+}
+
+.animate-pulse-delay {
+  animation: pulse 2s ease-in-out infinite 0.5s;
+}
+
+.animate-pulse-delay-2 {
+  animation: pulse 2s ease-in-out infinite 1s;
+}
+
+.animate-neural-pulse {
+  animation: neural-pulse 2s ease-in-out infinite;
+}
+
+.animate-neural-pulse-delay {
+  animation: neural-pulse 2s ease-in-out infinite 0.3s;
+}
+
+.animate-neural-pulse-delay-2 {
+  animation: neural-pulse 2s ease-in-out infinite 0.6s;
+}
+
+.animate-neural-pulse-delay-3 {
+  animation: neural-pulse 2s ease-in-out infinite 0.9s;
+}
+
+.animate-neural-pulse-delay-4 {
+  animation: neural-pulse 2s ease-in-out infinite 1.2s;
+}
+
+.animate-neural-pulse-delay-5 {
+  animation: neural-pulse 2s ease-in-out infinite 1.5s;
+}
+
+.animate-ai-bar-1 {
+  animation: ai-bar-1 1.5s ease-in-out infinite;
+}
+
+.animate-ai-bar-2 {
+  animation: ai-bar-2 1.5s ease-in-out infinite 0.1s;
+}
+
+.animate-ai-bar-3 {
+  animation: ai-bar-3 1.5s ease-in-out infinite 0.2s;
+}
+
+.animate-ai-bar-4 {
+  animation: ai-bar-4 1.5s ease-in-out infinite 0.3s;
+}
+
+.animate-ai-bar-5 {
+  animation: ai-bar-5 1.5s ease-in-out infinite 0.4s;
+}
+
+.animate-ai-bar-6 {
+  animation: ai-bar-6 1.5s ease-in-out infinite 0.5s;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s ease-in-out infinite;
+}
+
+.animate-count-up {
+  animation: count-up 2s ease-out 1s both;
+}
+
+.animate-count-up-delay {
+  animation: count-up 2s ease-out 1.2s both;
+}
+
+.animate-count-up-delay-2 {
+  animation: count-up 2s ease-out 1.4s both;
+}
+
+.animate-robot-intro {
+  animation: robot-intro 2s ease-out 3s both;
+}
+
+.animate-robot-float {
+  animation: robot-float 3s ease-in-out infinite;
+}
+
+.animate-eye-blink {
+  animation: eye-blink 4s ease-in-out infinite;
+}
+
+.animate-smile {
+  animation: smile 3s ease-in-out infinite;
+}
+
+.animate-power-glow {
+  animation: power-glow 2s ease-in-out infinite;
+}
+
+.animate-arm-wave {
+  animation: arm-wave 2.5s ease-in-out infinite;
+}
+
+.animate-arm-wave-delay {
+  animation: arm-wave-delay 2.5s ease-in-out infinite 1.2s;
+}
+
+.animate-bubble-float {
+  animation: bubble-float 6s ease-in-out infinite;
+}
+
+.animate-gear-float {
+  animation: gear-float 4s ease-in-out infinite;
+}
+
+.animate-gear-float-delay {
+  animation: gear-float 4s ease-in-out infinite 1.5s;
+}
+
+.animate-gear-float-delay-2 {
+  animation: gear-float 4s ease-in-out infinite 3s;
+}
+
+/* Utilidades de posicionamiento del robot */
+.top-13 {
+  top: 3.25rem;
+}
+
+.top-17 {
+  top: 4.25rem;
+}
+
+.top-23 {
+  top: 5.75rem;
+}
+
+.top-29 {
+  top: 7.25rem;
+}
+
+.top-34 {
+  top: 8.5rem;
+}
+
+/* Nuevas posiciones para robot más pequeño */
+.top-10 {
+  top: 2.5rem;
+}
+
+.top-18 {
+  top: 4.5rem;
+}
+
+.top-22 {
+  top: 5.5rem;
+}
+
+.top-26 {
+  top: 6.5rem;
+}
+
+.h-18 {
+  height: 4.5rem;
+}
+
+/* Responsive para el robot en móviles */
+@media (max-width: 768px) {
+  .animate-robot-intro {
+    animation: robot-intro 2s ease-out 1s both;
+  }
+  
+  .w-20 {
+    width: 4rem;
+  }
+  
+  .h-16 {
+    height: 3rem;
+  }
+  
+  /* Escalado adicional para móviles */
+  .scale-75 {
+    transform: scale(0.6);
   }
 }

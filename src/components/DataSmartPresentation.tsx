@@ -26,7 +26,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
   const [isFullscreenActive, setIsFullscreenActive] = useState(false);
   const [indicatorPage, setIndicatorPage] = useState(0);
 
-  const totalSlides = 15;
+  const totalSlides = 17;
   const slidesPerPage = 6; // Número de indicadores visibles por página
 
   const allServices = [
@@ -268,125 +268,225 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
             setApi={setApi}
           >
             <CarouselContent>
-              {/* Slide 1: Hero */}
+              {/* Slide 1: Hero - Introducción con diseño moderno */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="hero-content-container">
-                    {/* Text Section */}
-                    <div className="hero-text-section">
-                      <div className="hero-category-tag">
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg relative overflow-hidden">
+                  {/* Background Neural Network */}
+                  <div className="absolute inset-0 pointer-events-none opacity-10 z-0">
+                    <div className="absolute w-2 h-2 bg-emerald-500 rounded-full top-[15%] left-[10%] animate-float"></div>
+                    <div className="absolute w-2 h-2 bg-purple-500 rounded-full top-[25%] right-[20%] animate-float-delay-1"></div>
+                    <div className="absolute w-2 h-2 bg-emerald-500 rounded-full bottom-[30%] left-[15%] animate-float-delay-2"></div>
+                    <div className="absolute w-2 h-2 bg-purple-500 rounded-full top-[60%] right-[10%] animate-float-delay-3"></div>
+                    <div className="absolute w-2 h-2 bg-emerald-500 rounded-full bottom-[15%] right-[25%] animate-float-delay-4"></div>
+                    
+                    <div className="absolute top-[20%] left-[12%] w-20 h-px bg-gradient-to-r from-emerald-500 to-purple-500 opacity-30 transform rotate-[25deg] animate-connection-flow"></div>
+                    <div className="absolute bottom-[35%] right-[15%] w-15 h-px bg-gradient-to-r from-emerald-500 to-purple-500 opacity-30 transform rotate-[-45deg] animate-connection-flow-delay"></div>
+                  </div>
+
+                                    {/* Main Content Grid */}
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl w-full mx-auto px-6 items-center relative z-10">
+                    {/* Text Content - Left Side */}
+                    <div className="lg:col-span-7 space-y-5">
+                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-xs uppercase tracking-wide shadow-lg animate-slide-in-left border-l-4 border-purple-500">
+                        <span className="text-sm">🧠</span>
                         {t('hero.category')}
                     </div>
                       
-                      <h1 className="hero-main-title">
-                        {t('hero.title').split(' ').map((word, index) => {
-                          if (word === 'decisiones' || word === 'decisions') {
-                            return <span key={index} className="hero-highlight-blue">{word} </span>;
-                          } else if (word === 'inteligentes' || word === 'smart') {
-                            return <span key={index} className="hero-highlight-green">{word} </span>;
-                          } else {
-                            return word + ' ';
-                          }
-                        })}
+                      <h1 className="text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight text-slate-900 animate-slide-in-left-delay">
+                        <span className="block">{t('hero.title').split(' ').slice(0, 3).join(' ')}</span>
+                        <span className="block">
+                          <span className="text-slate-900">{t('hero.title').split(' ').slice(3, 4).join(' ')}</span>{' '}
+                          <span className="bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent font-black">
+                            {t('hero.title').split(' ').slice(4, 5).join(' ')}
+                          </span>{' '}
+                          <span className="bg-gradient-to-r from-purple-500 to-violet-500 bg-clip-text text-transparent font-black">
+                            {t('hero.title').split(' ').slice(5).join(' ')}
+                          </span>
+                        </span>
                       </h1>
                       
-                      <p className="hero-description">
+                      <p className="text-base text-slate-600 leading-relaxed max-w-xl animate-slide-in-left-delay-2">
                       {t('hero.subtitle')}
                     </p>
                     </div>
 
-                    {/* Visual Section */}
-                    <div className="hero-visual-section">
-                      <div className="orbit-container">
-                        {/* Efecto de resplandor sutil */}
-                        <div className="subtle-glow"></div>
-                        
-                        {/* Líneas de conexión sutiles */}
-                        <div className="connection-lines">
-                          <div className="connection-line line-1"></div>
-                          <div className="connection-line line-2"></div>
-                          <div className="connection-line line-3"></div>
-                          <div className="connection-line line-4"></div>
+                    {/* Visual Content - Right Side */}
+                    <div className="lg:col-span-5 flex justify-center items-center animate-slide-in-right">
+                      <div className="relative w-full max-w-sm">
+                        {/* AI Dashboard */}
+                        <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl border border-gray-200 overflow-hidden backdrop-blur-lg">
+                          {/* Dashboard Header */}
+                          <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-3 border-b border-gray-200 relative">
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-blue-500 via-purple-500 to-violet-500"></div>
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-base font-bold bg-gradient-to-r from-emerald-500 to-purple-500 bg-clip-text text-transparent">
+                                {t('hero.dashboard.title')}
+                              </h3>
+                              <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-1 bg-gradient-to-r from-emerald-500 to-purple-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-lg">
+                                  <span className="animate-pulse">⚡</span>
+                                  {t('hero.dashboard.live_data')}
+                                </div>
+                                <div className="flex gap-1">
+                                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                                  <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse-delay"></div>
+                                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse-delay-2"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Dashboard Content */}
+                          <div className="p-4 grid grid-cols-2 gap-3">
+                                                        {/* Data Processing Card */}
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-xl p-3 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-t-xl"></div>
+                              <div className="text-xs text-slate-600 uppercase tracking-wide font-semibold mb-1">
+                                {t('hero.dashboard.data_processing')}
+                              </div>
+                              <div className="text-lg font-bold text-slate-900 mb-2">
+                                {t('hero.dashboard.processing_active')}
+                              </div>
+                              <div className="flex justify-between items-center">
+                                <div className="flex gap-1">
+                                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-neural-pulse"></div>
+                                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-neural-pulse-delay"></div>
+                                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-neural-pulse-delay-2"></div>
+                                </div>
+                                <div className="flex gap-1">
+                                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-neural-pulse-delay-3"></div>
+                                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-neural-pulse-delay-4"></div>
+                                </div>
+                                <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-neural-pulse-delay-5"></div>
+                              </div>
                   </div>
                   
-                        {/* Partículas de datos discretas */}
-                        <div className="data-particles">
-                          <div className="particle p-1"></div>
-                          <div className="particle p-2"></div>
-                          <div className="particle p-3"></div>
-                          <div className="particle p-4"></div>
+                                                        {/* Real-time Analytics Card */}
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-xl p-3 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-violet-500 rounded-t-xl"></div>
+                              <div className="text-xs text-slate-600 uppercase tracking-wide font-semibold mb-1">
+                                {t('hero.dashboard.realtime_analytics')}
+                              </div>
+                              <div className="text-lg font-bold text-slate-900 mb-2">
+                                {t('hero.dashboard.analytics_running')}
+                              </div>
+                              <div className="flex items-end justify-center gap-1 h-8">
+                                <div className="w-1 bg-gradient-to-t from-emerald-500 to-purple-500 rounded-full animate-ai-bar-1" style={{height: '16px'}}></div>
+                                <div className="w-1 bg-gradient-to-t from-emerald-500 to-purple-500 rounded-full animate-ai-bar-2" style={{height: '24px'}}></div>
+                                <div className="w-1 bg-gradient-to-t from-emerald-500 to-purple-500 rounded-full animate-ai-bar-3" style={{height: '20px'}}></div>
+                                <div className="w-1 bg-gradient-to-t from-emerald-500 to-purple-500 rounded-full animate-ai-bar-4" style={{height: '28px'}}></div>
+                                <div className="w-1 bg-gradient-to-t from-emerald-500 to-purple-500 rounded-full animate-ai-bar-5" style={{height: '22px'}}></div>
+                                <div className="w-1 bg-gradient-to-t from-emerald-500 to-purple-500 rounded-full animate-ai-bar-6" style={{height: '26px'}}></div>
+                              </div>
                         </div>
                         
-                        {/* Órbita 1 - Interna */}
-                        <div className="orbit orbit-1">
-                          <div className="satellite sat-1">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                            </svg>
+                            {/* Data Accuracy Card */}
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-xl p-3 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-t-xl"></div>
+                              <div className="text-xs text-slate-600 uppercase tracking-wide font-semibold mb-1">
+                                {t('hero.dashboard.data_accuracy')}
                           </div>
-                          <div className="satellite sat-3">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                            </svg>
+                              <div className="text-lg font-bold text-slate-900 mb-2">98.7%</div>
+                              <div className="flex justify-center">
+                                <div className="relative w-10 h-10">
+                                  <div className="w-10 h-10 border-2 border-gray-200 border-t-emerald-500 border-r-purple-500 rounded-full animate-spin-slow"></div>
+                                  <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-slate-900">
+                                    DA
                           </div>
-                          <div className="satellite sat-5">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
+                                </div>
                           </div>
                         </div>
 
-                        {/* Órbita 2 */}
-                        <div className="orbit orbit-2">
-                          <div className="satellite sat-2">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                            </svg>
+                            {/* Key Metrics Card */}
+                            <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-xl p-3 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-purple-500 rounded-t-xl"></div>
+                              <div className="text-xs text-slate-600 uppercase tracking-wide font-semibold mb-1">
+                                {t('hero.dashboard.key_metrics')}
                           </div>
-                          <div className="satellite sat-4">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                            </svg>
+                              <div className="grid grid-cols-3 gap-1 text-center">
+                                <div>
+                                  <div className="text-xs font-bold bg-gradient-to-r from-emerald-500 to-purple-500 bg-clip-text text-transparent animate-count-up">12ms</div>
+                                  <div className="text-xs text-slate-600">{t('hero.dashboard.response')}</div>
                           </div>
-                          <div className="satellite sat-8">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
-                            </svg>
+                                <div>
+                                  <div className="text-xs font-bold bg-gradient-to-r from-emerald-500 to-purple-500 bg-clip-text text-transparent animate-count-up-delay">3.2M</div>
+                                  <div className="text-xs text-slate-600">{t('hero.dashboard.records')}</div>
                           </div>
-                          <div className="satellite sat-9">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                                <div>
+                                  <div className="text-xs font-bold bg-gradient-to-r from-emerald-500 to-purple-500 bg-clip-text text-transparent animate-count-up-delay-2">99.9%</div>
+                                  <div className="text-xs text-slate-600">{t('hero.dashboard.uptime')}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                           </div>
                         </div>
 
-                        {/* Órbita 3 - Externa */}
-                        <div className="orbit orbit-3">
-                          <div className="satellite sat-12">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                            </svg>
+                  {/* Cute AI Robot */}
+                  <div className="absolute bottom-16 left-1/3 z-50 animate-robot-intro">
+                    <div className="relative cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-2 scale-75">
+                      {/* Robot */}
+                      <div className="relative animate-robot-float">
+                        {/* Helmet */}
+                        <div className="w-16 h-12 bg-gradient-to-br from-gray-50 to-white rounded-[50%_50%_45%_45%] relative shadow-xl border-2 border-gray-200 ring-1 ring-blue-100">
+                          {/* Face */}
+                          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-8 bg-gradient-to-br from-blue-900 to-blue-700 rounded-[50%_50%_40%_40%] shadow-inner">
+                            {/* Eyes */}
+                            <div className="flex justify-between px-3 pt-2">
+                              <div className="w-2 h-2 bg-cyan-300 rounded-full animate-eye-blink shadow-lg shadow-cyan-400/60 ring-1 ring-cyan-500"></div>
+                              <div className="w-2 h-2 bg-cyan-300 rounded-full animate-eye-blink shadow-lg shadow-cyan-400/60 ring-1 ring-cyan-500"></div>
                           </div>
-                          <div className="satellite sat-15">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                            </svg>
+                            {/* Mouth */}
+                            <div className="w-3 h-1.5 border-2 border-cyan-300 border-t-0 rounded-b-full mx-auto mt-1 animate-smile shadow-sm"></div>
                           </div>
-                          <div className="satellite sat-6">
-                            <svg className="satellite-icon" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/>
-                            </svg>
                           </div>
+                        
+                        {/* Body */}
+                        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-11 h-14 bg-gradient-to-br from-gray-50 to-white rounded-xl border-2 border-gray-200 shadow-xl ring-1 ring-blue-100">
+                          {/* Power Button */}
+                          <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-br from-cyan-400 to-cyan-500 rounded-full flex items-center justify-center animate-power-glow shadow-lg shadow-cyan-400/60 ring-2 ring-cyan-300">
+                            <div className="w-1.5 h-1.5 border border-white border-b-0 rounded-t-md"></div>
+                            <div className="absolute w-0.5 h-1 bg-white top-0.5"></div>
                         </div>
 
-                        {/* Hub Central */}
-                        <div className="central-hub">
-                          <svg className="central-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 1.95c-5.52 0-10 4.48-10 10s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8c0 1.66-.51 3.19-1.38 4.46L21 18.73c1.37-2.07 2.18-4.56 2.18-7.27 0-5.52-4.48-10-10-10z"/>
-                            <path d="M12 6c-3.31 0-6 2.69-6 6 0 1.66.67 3.16 1.76 4.24l1.42-1.42C8.45 14.09 8 13.1 8 12c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.1-.45 2.09-1.18 2.82l1.42 1.42C17.33 15.16 18 13.66 18 12c0-3.31-2.69-6-6-6z"/>
-                            <circle cx="12" cy="12" r="2"/>
-                  </svg>
+                          {/* Chest Lines */}
+                          <div className="absolute top-8 left-1/2 transform -translate-x-1/2 space-y-1">
+                            <div className="w-8 h-0.5 bg-gradient-to-r from-blue-200 to-blue-300 rounded shadow-sm"></div>
+                            <div className="w-8 h-0.5 bg-gradient-to-r from-blue-200 to-blue-300 rounded shadow-sm"></div>
+                            <div className="w-8 h-0.5 bg-gradient-to-r from-blue-200 to-blue-300 rounded shadow-sm"></div>
                         </div>
+                      </div>
+                        
+                        {/* Arms */}
+                        <div className="absolute top-13 -left-4 w-3 h-6 bg-gradient-to-br from-gray-50 to-white rounded-lg border-2 border-gray-200 shadow-lg animate-arm-wave origin-top ring-1 ring-blue-100"></div>
+                        <div className="absolute top-13 -right-4 w-3 h-6 bg-gradient-to-br from-gray-50 to-white rounded-lg border-2 border-gray-200 shadow-lg animate-arm-wave-delay origin-top ring-1 ring-blue-100"></div>
+                        
+                        {/* Hands */}
+                        <div className="absolute top-18 -left-3 w-2 h-2 bg-gradient-to-br from-gray-50 to-white rounded-full border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        <div className="absolute top-18 -right-3 w-2 h-2 bg-gradient-to-br from-gray-50 to-white rounded-full border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        
+                        {/* Legs */}
+                        <div className="absolute top-22 left-1.5 w-2.5 h-5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        <div className="absolute top-22 right-1.5 w-2.5 h-5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        
+                        {/* Feet */}
+                        <div className="absolute top-26 left-0.5 w-3 h-1.5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        <div className="absolute top-26 right-0.5 w-3 h-1.5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                    </div>
+                      
+                      {/* Chat Bubble */}
+                      <div className="absolute top-4 left-20 bg-gradient-to-br from-white to-gray-50 backdrop-blur-lg text-blue-900 px-3 py-2 rounded-2xl rounded-tl-sm text-xs font-semibold shadow-xl border-2 border-blue-200 ring-1 ring-blue-100 whitespace-nowrap animate-bubble-float opacity-0">
+                        {t('hero.robot.greeting')}
+                        <div className="absolute top-3 -left-2 w-0 h-0 border-r-2 border-r-white border-t-2 border-t-transparent border-b-2 border-b-transparent drop-shadow-sm"></div>
+                      </div>
+                      
+                      {/* Gear Particles */}
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 pointer-events-none">
+                        <div className="absolute -left-5 text-sm text-cyan-400 animate-gear-float opacity-0">⚙️</div>
+                        <div className="absolute left-1 text-sm text-cyan-400 animate-gear-float-delay opacity-0">⚙️</div>
+                        <div className="absolute left-7 text-sm text-cyan-400 animate-gear-float-delay-2 opacity-0">⚙️</div>
                       </div>
                     </div>
                   </div>
@@ -397,7 +497,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
               <CarouselItem>
                 <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
                   <div className="text-center max-w-6xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-6 text-left max-w-5xl mx-auto">
+                    <div className="mb-8 text-left max-w-5xl mx-auto">
                       <div className="hero-category-tag" style={{ marginLeft: 0, marginRight: 'auto' }}>
                         {t('services.what_we_offer')}
                       </div>
@@ -562,7 +662,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                 </div>
               </CarouselItem>
 
-              {/* Slide 9: Integración con IA */}
+              {/* Slide 10: Integración con IA */}
               <CarouselItem>
                 <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
                   <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
@@ -581,15 +681,42 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                 </div>
               </CarouselItem>
 
-              {/* Slide 10: Proceso de Trabajo */}
+              {/* Slide 11: Proceso de Trabajo */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-6xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8 text-left max-w-5xl mx-auto">
-                      <div className="hero-category-tag process" style={{ marginLeft: 0, marginRight: 'auto' }}>
-                        {t('process.category')}
+                <style>
+                  {`
+                    @keyframes dashedLine {
+                      from {
+                        stroke-dashoffset: 0;
+                      }
+                      to {
+                        stroke-dashoffset: -24;
+                      }
+                    }
+                    .animated-line {
+                      animation: dashedLine 1.5s linear infinite;
+                    }
+                    .pipeline-circle {
+                      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+                    }
+                    .pipeline-circle::after {
+                      content: '';
+                      position: absolute;
+                      inset: -1px;
+                      border-radius: 50%;
+                      background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+                      z-index: 2;
+                    }
+                  `}
+                </style>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
+                  <div className="w-full max-w-6xl mx-auto">
+                    {/* Encabezado */}
+                    <div className="mb-12">
+                      <div className="hero-category-tag process text-xs inline-block font-medium uppercase tracking-wider mb-4" style={{ color: '#40E6D2', background: 'rgba(64, 230, 210, 0.08)', borderLeft: '3px solid #40E6D2' }}>
+                        Nuestra Metodología
                       </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                      <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 mb-4">
                         {t('process.title')}
                       </h2>
                       <p className="text-gray-600 text-lg leading-relaxed max-w-3xl">
@@ -597,292 +724,335 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       </p>
                     </div>
                     
-                    <div className="process-pipeline max-w-5xl mx-auto">
-                      <div className="process-steps">
-                        <div className="process-step step-1">
-                          <div className="step-number">1</div>
-                          <h3 className="step-title">{t('process.step1.title')}</h3>
-                          <p className="step-description">{t('process.step1.desc')}</p>
+                    <div className="process-pipeline relative px-8 mt-20">
+                      {/* Pasos del proceso */}
+                      <div className="grid grid-cols-4 gap-4 relative">
+                        {/* Línea base */}
+                        <div className="absolute top-[2.5rem] left-[40px] right-[40px] h-[3px] bg-gradient-to-r from-[#6366F1] via-[#10B981] via-[#EC4899] to-[#06B6D4] z-0 rounded-full"></div>
+                        {/* Línea animada */}
+                        <div className="absolute top-[2.5rem] left-[40px] right-[40px] flex z-[1]">
+                          <svg className="w-full h-[2px]" preserveAspectRatio="none">
+                            <line 
+                              x1="0" 
+                              y1="1" 
+                              x2="100%" 
+                              y2="1" 
+                              stroke="white" 
+                              strokeWidth="2" 
+                              strokeDasharray="6,6"
+                              className="animated-line"
+                              strokeOpacity="0.7"
+                            />
+                          </svg>
                         </div>
                         
-                        <div className="process-step step-2">
-                          <div className="step-number">2</div>
-                          <h3 className="step-title">{t('process.step2.title')}</h3>
-                          <p className="step-description">{t('process.step2.desc')}</p>
+                        {/* Paso 1 */}
+                        <div className="flex flex-col items-center relative z-10">
+                          <div className="relative pipeline-circle">
+                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
+                              1
+                        </div>
+                          </div>
+                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
+                            {t('process.step1.title')}
+                          </h3>
+                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
+                            {t('process.step1.desc')}
+                          </p>
                         </div>
                         
-                        <div className="process-step step-3">
-                          <div className="step-number">3</div>
-                          <h3 className="step-title">{t('process.step3.title')}</h3>
-                          <p className="step-description">{t('process.step3.desc')}</p>
-                        </div>
-                        
-                        <div className="process-step step-4">
-                          <div className="step-number">4</div>
-                          <h3 className="step-title">{t('process.step4.title')}</h3>
-                          <p className="step-description">{t('process.step4.desc')}</p>
+                        {/* Paso 2 */}
+                        <div className="flex flex-col items-center relative z-10">
+                          <div className="relative pipeline-circle">
+                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#10B981] to-[#06D6A0] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
+                              2
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 11: Diagrama de Proceso */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-6xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8 text-left max-w-5xl mx-auto">
-                      <div className="hero-category-tag process" style={{ marginLeft: 0, marginRight: 'auto' }}>
-                        {t('process.category')}
+                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
+                            {t('process.step2.title')}
+                          </h3>
+                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
+                            {t('process.step2.desc')}
+                          </p>
+                        </div>
+                        
+                        {/* Paso 3 */}
+                        <div className="flex flex-col items-center relative z-10">
+                          <div className="relative pipeline-circle">
+                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#EC4899] to-[#EF4444] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
+                              3
+                        </div>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('process.diagram.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl">
-                        {t('process.diagram.subtitle')}
+                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
+                            {t('process.step3.title')}
+                          </h3>
+                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
+                            {t('process.step3.desc')}
                       </p>
                     </div>
                     
-                    <svg className="process-diagram" viewBox="0 0 800 200">
-                      {/* Línea de flujo principal */}
-                      <path 
-                        d="M100,100 C200,50 600,150 700,100" 
-                        className="diagram-path"
-                        style={{
-                          strokeDasharray: "1000",
-                          strokeDashoffset: "1000",
-                          animation: "flowPath 10s linear infinite"
-                        }}
-                      />
-                      
-                      {/* Nodos del proceso */}
-                      <circle className="diagram-node" cx="100" cy="100" r="25">
-                        <animate attributeName="r" values="25;28;25" dur="3s" repeatCount="indefinite" />
-                      </circle>
-                      <text className="diagram-text" x="100" y="100">1</text>
-                      
-                      <circle className="diagram-node" cx="300" cy="80" r="25">
-                        <animate attributeName="r" values="25;28;25" dur="3s" repeatCount="indefinite" begin="0.5s" />
-                      </circle>
-                      <text className="diagram-text" x="300" y="80">2</text>
-                      
-                      <circle className="diagram-node" cx="500" cy="120" r="25">
-                        <animate attributeName="r" values="25;28;25" dur="3s" repeatCount="indefinite" begin="1s" />
-                      </circle>
-                      <text className="diagram-text" x="500" y="120">3</text>
-                      
-                      <circle className="diagram-node end" cx="700" cy="100" r="25">
-                        <animate attributeName="r" values="25;28;25" dur="3s" repeatCount="indefinite" begin="1.5s" />
-                      </circle>
-                      <text className="diagram-text" x="700" y="100">4</text>
-                      
-                      {/* Líneas de conexión */}
-                      <path 
-                        d="M125,100 L275,80" 
-                        className="diagram-connector"
-                        style={{
-                          strokeDasharray: "150",
-                          strokeDashoffset: "150",
-                          animation: "flowPath 2s ease-out forwards 0.5s"
-                        }}
-                      />
-                      
-                      <path 
-                        d="M325,80 L475,120" 
-                        className="diagram-connector"
-                        style={{
-                          strokeDasharray: "150",
-                          strokeDashoffset: "150",
-                          animation: "flowPath 2s ease-out forwards 2.5s"
-                        }}
-                      />
-                      
-                      <path 
-                        d="M525,120 L675,100" 
-                        className="diagram-connector"
-                        style={{
-                          strokeDasharray: "150",
-                          strokeDashoffset: "150",
-                          animation: "flowPath 2s ease-out forwards 4.5s"
-                        }}
-                      />
-                      
-                      {/* Etiquetas */}
-                      <text className="diagram-label" x="100" y="150">{t('process.step1.title')}</text>
-                      <text className="diagram-label" x="300" y="50">{t('process.step2.title')}</text>
-                      <text className="diagram-label" x="500" y="160">{t('process.step3.title')}</text>
-                      <text className="diagram-label" x="700" y="150">{t('process.step4.title')}</text>
-                    </svg>
+                        {/* Paso 4 */}
+                        <div className="flex flex-col items-center relative z-10">
+                          <div className="relative pipeline-circle">
+                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#06B6D4] to-[#3B82F6] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
+                              4
                   </div>
                 </div>
-              </CarouselItem>
-
-              {/* Slide 10: Analytics Service Detail */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-3xl mx-auto px-4 py-6 relative z-10">
-                    <div className="flex justify-center mb-3">
-                      <div className="service-icon float-animation">
-                        <BarChart3 className="h-6 w-6 text-blue-600" />
-                      </div>
-                    </div>
-                    <p className="subtitle-enhanced text-center text-blue-600 text-xs">Nuestro Impacto en Números</p>
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-3">
-                      {t('services.analytics.title')}
+                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
+                            {t('process.step4.title')}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed max-w-2xl mx-auto">
-                      {t('services.analytics.desc')}
+                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
+                            {t('process.step4.desc')}
                     </p>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
-                      {stats.map((stat, index) => (
-                        <div key={index} className="stat-item bg-gray-50 p-2 rounded-lg">
-                          <div className="flex justify-center mb-1 text-blue-600">
-                            <div className="w-3 h-3">{stat.icon}</div>
                           </div>
-                          <div className="stat-number text-gray-900 text-base font-bold">{stat.number}</div>
-                          <div className="stat-text text-gray-600 text-xs">{stat.label}</div>
                         </div>
-                      ))}
                     </div>
                   </div>
                 </div>
               </CarouselItem>
 
-              {/* Slide 4: Automation Service Detail */}
+              {/* Slide 9: Por Qué Elegirnos */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="absolute inset-0 pattern-hexagon opacity-5 rounded-lg"></div>
-                  
-                  <div className="text-center max-w-3xl mx-auto px-4 py-6 relative z-10">
-                    <div className="flex justify-center mb-3">
-                      <div className="service-icon float-animation">
-                        <Cog className="h-6 w-6 text-green-600 animate-spin" style={{animationDuration: '8s'}} />
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
+                  <div className="w-full max-w-6xl mx-auto">
+                    {/* Encabezado */}
+                    <div className="mb-8">
+                      <div className="hero-category-tag text-xs inline-block text-emerald-500 font-medium uppercase tracking-wider mb-2">
+                        {t('why_us.category')}
                       </div>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-blue-500 mb-3">
+                        {t('why_us.title')}
+                      </h2>
+                      <p className="text-gray-600 text-base leading-relaxed max-w-3xl">
+                        {t('why_us.subtitle')}
+                      </p>
                     </div>
-                    <p className="subtitle-enhanced text-center text-green-600 text-xs">Optimización de procesos</p>
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-3">
-                      {t('services.automation.title')}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed max-w-2xl mx-auto">
-                      {t('services.automation.desc')}
-                    </p>
                     
-                    {/* Benefits List */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left max-w-2xl mx-auto">
-                      <div className="flex items-start space-x-2 bg-gray-50 p-2 rounded-lg">
-                        <TrendingUp className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-xs">Mejora en Eficiencia</h4>
-                          <p className="text-gray-600 text-xs">Optimización operativa del 40%</p>
+                    {/* Grid de características */}
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      {/* Soluciones Escalables */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M20 12V8H4V12M20 12V16H4V12M20 12H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
                         </div>
+                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.scalable.title')}</h3>
                       </div>
-                      <div className="flex items-start space-x-2 bg-gray-50 p-2 rounded-lg">
-                        <Zap className="h-3 w-3 text-yellow-500 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-xs">Automatización Inteligente</h4>
-                          <p className="text-gray-600 text-xs">Procesos empresariales optimizados</p>
+                        <p className="text-gray-600 text-sm">{t('why_us.scalable.desc')}</p>
                         </div>
-                      </div>
-                      <div className="flex items-start space-x-2 bg-gray-50 p-2 rounded-lg">
-                        <Shield className="h-3 w-3 text-blue-600 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-xs">Reducción de Errores</h4>
-                          <p className="text-gray-600 text-xs">Mayor precisión en operaciones</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-2 bg-gray-50 p-2 rounded-lg">
-                        <Target className="h-3 w-3 text-purple-600 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-xs">Enfoque Estratégico</h4>
-                          <p className="text-gray-600 text-xs">Más tiempo para decisiones clave</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
 
-              {/* Slide 5: About DataSmart */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-3xl mx-auto px-4 py-6 relative z-10">
-                    <div className="flex justify-center mb-3">
-                      <div className="service-icon float-animation">
-                        <Award className="h-6 w-6 text-purple-600" />
+                      {/* Enfoque Integral */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
                       </div>
+                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.integral.title')}</h3>
+                        </div>
+                        <p className="text-gray-600 text-sm">{t('why_us.integral.desc')}</p>
+                      </div>
+
+                      {/* Procesamiento Inteligente */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-purple-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M19.4 15C19.1277 15.6171 19.0717 16.3081 19.2401 16.9584C19.4085 17.6087 19.7933 18.1807 20.3348 18.5858C20.8762 18.9909 21.5401 19.2063 22.2186 19.1993C22.8971 19.1923 23.5557 18.9633 24.0876 18.5473C24.0876 18.5473 21.8876 22.4473 19.3876 21.0473C16.8876 19.6473 19.4 15 19.4 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </div>
+                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.processing.title')}</h3>
+                      </div>
+                        <p className="text-gray-600 text-sm">{t('why_us.processing.desc')}</p>
                     </div>
-                    <p className="subtitle-enhanced text-center text-purple-600 text-xs">Nuestra propuesta de valor</p>
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
-                      {t('about.title')}
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
-                      {features.map((feature, index) => (
-                        <div key={index} className="feature-card text-center bg-gray-50 p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                          <div className="service-icon mb-2">
-                            <div className="w-5 h-5 mx-auto text-blue-400">
-                              {feature.icon}
+
+                      {/* Desarrollo a Medida */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-orange-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                  </div>
+                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.development.title')}</h3>
+                </div>
+                        <p className="text-gray-600 text-sm">{t('why_us.development.desc')}</p>
+                      </div>
+
+                      {/* Acompañamiento Continuo */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-pink-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M17 20H7C5.89543 20 5 19.1046 5 18V9C5 7.89543 5.89543 7 7 7H17C18.1046 7 19 7.89543 19 9V18C19 19.1046 18.1046 20 17 20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M12 14V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                      </div>
+                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.support.title')}</h3>
+                    </div>
+                        <p className="text-gray-600 text-sm">{t('why_us.support.desc')}</p>
                             </div>
+
+                      {/* Resultados Medibles */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M16 8V16M12 11V16M8 14V16M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                           </div>
-                          <h4 className="text-sm sm:text-base font-bold text-gray-900 mb-2">{feature.title}</h4>
-                          <p className="text-gray-600 leading-relaxed text-xs">{feature.description}</p>
+                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.results.title')}</h3>
                         </div>
-                      ))}
+                        <p className="text-gray-600 text-sm">{t('why_us.results.desc')}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </CarouselItem>
 
-              {/* Slide 6: Contact */}
+                            {/* Slide 10: Oportunidad de Mercado */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-xl mx-auto px-4 py-6 relative z-10">
-                    <div className="flex justify-center mb-3">
-                      <div className="service-icon float-animation">
-                        <ArrowRight className="h-6 w-6 text-blue-600" />
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
+                  <div className="w-full max-w-6xl mx-auto">
+                    {/* Encabezado */}
+                    <div className="mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-emerald-500 font-medium uppercase tracking-wider mb-2">
+                        {t('market.category')}
                       </div>
+                      <h2 className="text-xl sm:text-2xl font-bold text-blue-500 mb-2">
+                        {t('market.title')}
+                      </h2>
+                      <p className="text-gray-600 text-sm leading-relaxed max-w-4xl mb-3">
+                        {t('market.subtitle')}
+                      </p>
+                      <p className="text-gray-700 text-xs italic max-w-4xl">
+                        {t('market.intro')}
+                      </p>
                     </div>
-                    <p className="subtitle-enhanced text-center text-blue-600 text-xs">Comienza hoy</p>
-                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-3">
-                      {t('contact.title')}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed max-w-md mx-auto">
-                      {t('contact.subtitle')}
-                    </p>
-                    
-                    {/* Contact Form */}
-                    <div className="max-w-sm mx-auto">
-                      <div className="form-modern bg-gray-50 p-3 rounded-lg">
-                        <div className="space-y-2">
-                          <input 
-                            type="text" 
-                            placeholder="Nombre completo" 
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
-                          />
-                          <input 
-                            type="email" 
-                            placeholder="Correo electrónico" 
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
-                          />
-                          <input 
-                            type="text" 
-                            placeholder="Empresa" 
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs"
-                          />
-                          <textarea 
-                            placeholder="Cuéntanos sobre tu proyecto" 
-                            rows={2}
-                            className="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-xs"
-                          ></textarea>
-                          <button className="btn-modern w-full text-xs px-2 py-1.5">
-                            {t('contact.cta')}
-                          </button>
+                        
+                    {/* Grid de segmentos de mercado */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {/* PYMEs */}
+                      <div className="market-segment p-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:shadow-lg transition-all duration-300">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M19 7H5C3.89543 7 3 7.89543 3 9V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M8 7V5C8 4.46957 8.21071 3.96086 8.58579 3.58579C8.96086 3.21071 9.46957 3 10 3H14C14.5304 3 15.0391 3.21071 15.4142 3.58579C15.7893 3.96086 16 4.46957 16 5V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <h3 className="text-base font-bold text-blue-700">{t('market.pymes.title')}</h3>
+                        </div>
+                        <p className="text-gray-700 text-xs mb-2 leading-relaxed">
+                          {t('market.pymes.desc')}
+                        </p>
+                        <div className="bg-white/70 rounded-lg p-2 border-l-4 border-blue-500">
+                          <p className="text-blue-800 text-xs font-medium">
+                            💡 <strong>Nuestra Solución:</strong> {t('market.pymes.solution')}
+                          </p>
                         </div>
                       </div>
+
+                      {/* Startups */}
+                      <div className="market-segment p-4 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 hover:shadow-lg transition-all duration-300">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <h3 className="text-base font-bold text-emerald-700">{t('market.startups.title')}</h3>
+                        </div>
+                        <p className="text-gray-700 text-xs mb-2 leading-relaxed">
+                          {t('market.startups.desc')}
+                        </p>
+                        <div className="bg-white/70 rounded-lg p-2 border-l-4 border-emerald-500">
+                          <p className="text-emerald-800 text-xs font-medium">
+                            🚀 <strong>Nuestra Solución:</strong> {t('market.startups.solution')}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Empresas en Crecimiento */}
+                      <div className="market-segment p-4 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 hover:shadow-lg transition-all duration-300">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <h3 className="text-base font-bold text-purple-700">{t('market.growing.title')}</h3>
+                        </div>
+                        <p className="text-gray-700 text-xs mb-2 leading-relaxed">
+                          {t('market.growing.desc')}
+                        </p>
+                        <div className="bg-white/70 rounded-lg p-2 border-l-4 border-purple-500">
+                          <p className="text-purple-800 text-xs font-medium">
+                            📈 <strong>Nuestra Solución:</strong> {t('market.growing.solution')}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Departamentos Corporativos */}
+                      <div className="market-segment p-4 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 hover:shadow-lg transition-all duration-300">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3 21H21M5 21V7L13 2L21 7V21M9 9H11M9 13H11M9 17H11M15 9H17M15 13H17M15 17H17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <h3 className="text-base font-bold text-orange-700">{t('market.departments.title')}</h3>
+                        </div>
+                        <p className="text-gray-700 text-xs mb-2 leading-relaxed">
+                          {t('market.departments.desc')}
+                        </p>
+                        <div className="bg-white/70 rounded-lg p-2 border-l-4 border-orange-500">
+                          <p className="text-orange-800 text-xs font-medium">
+                            🏢 <strong>Nuestra Solución:</strong> {t('market.departments.solution')}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* ONGs */}
+                      <div className="market-segment p-4 rounded-xl bg-gradient-to-br from-pink-50 to-pink-100 border border-pink-200 hover:shadow-lg transition-all duration-300">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M20.84 4.61C19.32 3.04 17.16 3.04 15.64 4.61L12 8.25L8.36 4.61C6.84 3.04 4.68 3.04 3.16 4.61C1.54 6.22 1.54 8.78 3.16 10.39L12 19.61L20.84 10.39C22.46 8.78 22.46 6.22 20.84 4.61Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <h3 className="text-base font-bold text-pink-700">{t('market.ngos.title')}</h3>
+                        </div>
+                        <p className="text-gray-700 text-xs mb-2 leading-relaxed">
+                          {t('market.ngos.desc')}
+                        </p>
+                        <div className="bg-white/70 rounded-lg p-2 border-l-4 border-pink-500">
+                          <p className="text-pink-800 text-xs font-medium">
+                            ❤️ <strong>Nuestra Solución:</strong> {t('market.ngos.solution')}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Espacio vacío para centrar el grid cuando hay 5 elementos */}
+                      <div className="hidden lg:block"></div>
+                    </div>
+
+                    {/* Nota de acrónimos */}
+                    <div className="mt-4 text-center">
+                      <p className="text-xs text-gray-500 italic">
+                        {t('market.acronyms')}
+                      </p>
                     </div>
                   </div>
                 </div>
               </CarouselItem>
+
+
             </CarouselContent>
           </Carousel>
 
