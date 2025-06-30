@@ -797,6 +797,88 @@ html {
   }
 }
 
+/* Modern Services Cards */
+.service-card-modern {
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+}
+
+.service-card-modern:hover::before {
+  left: 100%;
+}
+
+.service-icon-modern {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+}
+
+.service-icon-container {
+  position: relative;
+}
+
+.service-icon-container::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card-modern:hover .service-icon-container::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments for services */
+@media (max-width: 1200px) {
+  .service-card-modern {
+    padding: 1.25rem;
+  }
+  
+  .service-icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .service-icon-modern {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card-modern {
+    padding: 1rem;
+  }
+  
+  .service-icon-container {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .service-icon-modern {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 
 
 /* Hero slide layout */
@@ -907,3 +989,169 @@ html {
     display: none;
   }
 } 
+
+/* =============================================================================
+   ESTILOS PARA PROCESO DE TRABAJO (PIPELINE)
+   ============================================================================= */
+
+.process-pipeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  margin-top: 3rem;
+}
+
+@media (max-width: 992px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+}
+
+.step-number {
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleIn 0.5s forwards;
+}
+
+.step-1 .step-number { animation-delay: 0.2s; }
+.step-2 .step-number { animation-delay: 0.4s; }
+.step-3 .step-number { animation-delay: 0.6s; }
+.step-4 .step-number { animation-delay: 0.8s; }
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.step-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tag del proceso */
+.hero-category-tag.process {
+  background: rgba(59, 130, 246, 0.08);
+  color: #2563eb;
+  border-left: 3px solid #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* =============================================================================
+   ESTILOS PARA DIAGRAMA DE PROCESO
+   ============================================================================= */
+
+.process-diagram {
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  overflow: visible;
+}
+
+.diagram-path {
+  stroke: #2563eb;
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 5,5;
+}
+
+.diagram-node {
+  fill: #2563eb;
+  transition: r 0.3s ease;
+}
+
+.diagram-node.end {
+  fill: #10b981;
+}
+
+.diagram-text {
+  font-size: 14px;
+  font-weight: bold;
+  fill: white;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.diagram-label {
+  font-size: 12px;
+  fill: #1f2937;
+  text-anchor: middle;
+  font-weight: 600;
+}
+
+.diagram-connector {
+  stroke: #2563eb;
+  stroke-width: 2;
+  fill: none;
+}
+
+@keyframes flowPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulseNode {
+  0%, 100% {
+    r: 25;
+  }
+  50% {
+    r: 28;
+  }
+}
