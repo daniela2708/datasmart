@@ -541,148 +541,198 @@ html {
   }
 }
 
-/* Estilos para el nuevo diseño del primer slide */
-
-/* Animaciones de órbitas */
-@keyframes spin-slow {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes spin-slow-reverse {
-  from {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-}
-
-@keyframes spin-slower {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* Clases de animación */
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.animate-spin-slow-reverse {
-  animation: spin-slow-reverse 30s linear infinite;
-}
-
-.animate-spin-slower {
-  animation: spin-slower 40s linear infinite;
-}
-
-/* Efecto de glow pulsante */
-@keyframes pulse-glow {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.15);
-    opacity: 0.9;
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-/* Tamaños de órbitas */
-.w-84 {
-  width: 21rem;
-}
-
-.h-84 {
-  height: 21rem;
-}
-
-/* Gradiente radial para efectos de glow */
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
-
-/* Estilos para satélites */
-.tech-visualization .satellite {
-  transition: all 0.3s ease;
-}
-
-.tech-visualization .satellite:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Efecto hover para el hub central */
-.tech-visualization .central-hub:hover {
-  transform: translate(-50%, -50%) scale(1.05);
-  transition: transform 0.3s ease;
-}
-
-/* Responsive para el diseño del primer slide */
-@media (max-width: 1024px) {
-  .tech-visualization {
-    width: 20rem !important;
-    height: 20rem !important;
-  }
-  
-  .grid-cols-1.lg\:grid-cols-2 {
-    grid-template-columns: 1fr;
-  }
-  
-  .hidden.lg\:flex {
-    display: none !important;
-  }
-}
-
-/* Mejoras en el texto del primer slide */
-.category-tag {
+/* Orbit Visualization Styles */
+.orbit-container {
   position: relative;
-  overflow: hidden;
+  width: 400px;
+  height: 400px;
 }
 
-.category-tag::before {
-  content: '';
+.orbit-container .central-hub {
   position: absolute;
-  top: 0;
-  left: -100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3);
+  z-index: 5;
+}
+
+.orbit-container .central-icon {
+  width: 36px;
+  height: 36px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.orbit-container .orbit {
+  position: absolute;
+  border: 2px solid rgba(107, 114, 128, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-container .orbit-1 {
+  width: 180px;
+  height: 180px;
+  animation: rotate 20s linear infinite;
+}
+
+.orbit-container .orbit-2 {
+  width: 260px;
+  height: 260px;
+  animation: rotate 30s linear infinite reverse;
+}
+
+.orbit-container .orbit-3 {
+  width: 340px;
+  height: 340px;
+  animation: rotate 40s linear infinite;
+}
+
+.orbit-container .satellite {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(107, 114, 128, 0.1);
+}
+
+.orbit-container .satellite-icon {
+  width: 20px;
+  height: 20px;
+  color: #22c55e;
+}
+
+/* Posiciones de los satélites */
+.orbit-container .sat-1 { top: -25px; left: calc(50% - 25px); }
+.orbit-container .sat-2 { top: calc(50% - 25px); right: -25px; }
+.orbit-container .sat-3 { bottom: -25px; left: calc(50% - 25px); }
+.orbit-container .sat-4 { top: calc(50% - 25px); left: -25px; }
+.orbit-container .sat-5 { top: -25px; right: 40px; }
+.orbit-container .sat-6 { bottom: 40px; right: -25px; }
+.orbit-container .sat-7 { bottom: -25px; right: 40px; }
+.orbit-container .sat-8 { top: 40px; left: -25px; }
+.orbit-container .sat-9 { top: -25px; left: 20%; }
+.orbit-container .sat-10 { top: 20%; right: -25px; }
+
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.orbit-container .glow-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes orbitPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+}
+
+/* Hero slide layout */
+.hero-content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: slide-shine 3s infinite;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-@keyframes slide-shine {
-  0% {
-    left: -100%;
-  }
-  50%, 100% {
-    left: 100%;
-  }
+.hero-text-section {
+  padding-right: 2rem;
 }
 
-/* Efectos de texto gradiente mejorados */
-.bg-gradient-to-r.from-blue-600.to-blue-800 {
+.hero-category-tag {
+  display: inline-block;
+  background: rgba(52, 211, 153, 0.1);
+  color: #10b981;
+  padding: 0.5rem 1.5rem;
+  border-left: 4px solid #34d399;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.hero-main-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #2d3748;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-highlight-blue {
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.bg-gradient-to-r.from-green-500.to-green-700 {
-  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+.hero-highlight-green {
+  background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #718096;
+  line-height: 1.7;
+  max-width: 85%;
+}
+
+.hero-visual-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .hero-content-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hero-main-title {
+    font-size: 2.5rem;
+  }
+  
+  .orbit-container {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .hero-visual-section {
+    display: none;
+  }
 } 
