@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
   CarouselApi,
 } from '@/components/ui/carousel';
-import { BarChart3, Zap, Users, TrendingUp, Database, Cog, Award, ArrowRight, Target, Shield, Lightbulb, Monitor, ChevronLeft, ChevronRight, PieChart, FileText, GraduationCap, Brain, Search, Eye } from 'lucide-react';
+import { BarChart3, Zap, Users, TrendingUp, Database, Cog, Award, ArrowRight, Target, Shield, Lightbulb, Monitor, ChevronLeft, ChevronRight, PieChart, FileText, GraduationCap, Brain, Search, Eye, ListChecks } from 'lucide-react';
 import LanguageToggle from './LanguageToggle';
 
 interface DataSmartPresentationProps {
@@ -31,53 +31,53 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
 
   const allServices = [
     {
-      icon: <Cog className="service-icon-modern" />,
+      icon: <Cog className="service-icon-modern service-icon-automation" />,
       title: t('services.automation.title'),
       color: 'from-blue-500 to-blue-600',
       bgColor: 'bg-blue-50',
       borderColor: 'border-blue-200'
     },
     {
-      icon: <PieChart className="service-icon-modern" />,
+      icon: <PieChart className="service-icon-modern service-icon-visualization" />,
       title: t('services.visualization.title'),
       color: 'from-emerald-500 to-emerald-600',
       bgColor: 'bg-emerald-50',
       borderColor: 'border-emerald-200'
     },
     {
-      icon: <FileText className="service-icon-modern" />,
+      icon: <FileText className="service-icon-modern service-icon-extraction" />,
       title: t('services.extraction.title'),
       color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-50',
       borderColor: 'border-purple-200'
     },
     {
-      icon: <Users className="service-icon-modern" />,
-      title: t('services.consulting.title'),
-      color: 'from-orange-500 to-orange-600',
-      bgColor: 'bg-orange-50',
-      borderColor: 'border-orange-200'
-    },
-    {
-      icon: <GraduationCap className="service-icon-modern" />,
-      title: t('services.training.title'),
-      color: 'from-indigo-500 to-indigo-600',
-      bgColor: 'bg-indigo-50',
-      borderColor: 'border-indigo-200'
-    },
-    {
-      icon: <Search className="service-icon-modern" />,
+      icon: <Search className="service-icon-modern service-icon-unstructured" />,
       title: t('services.unstructured.title'),
       color: 'from-rose-500 to-rose-600',
       bgColor: 'bg-rose-50',
       borderColor: 'border-rose-200'
     },
     {
-      icon: <Brain className="service-icon-modern" />,
+      icon: <Brain className="service-icon-modern service-icon-ai" />,
       title: t('services.ai.title'),
       color: 'from-violet-500 to-violet-600',
       bgColor: 'bg-violet-50',
       borderColor: 'border-violet-200'
+    },
+    {
+      icon: <Users className="service-icon-modern service-icon-consulting" />,
+      title: t('services.consulting.title'),
+      color: 'from-orange-500 to-orange-600',
+      bgColor: 'bg-orange-50',
+      borderColor: 'border-orange-200'
+    },
+    {
+      icon: <GraduationCap className="service-icon-modern service-icon-training" />,
+      title: t('services.training.title'),
+      color: 'from-indigo-500 to-indigo-600',
+      bgColor: 'bg-indigo-50',
+      borderColor: 'border-indigo-200'
     }
   ];
 
@@ -264,7 +264,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
 
       {/* Slides Carousel - Ajustado con padding top para el header fijo */}
       <div className={`pt-10 relative z-40 ${isFullscreenActive ? 'pt-16' : ''}`} style={{ padding: '40px 60px 40px 60px' }}>
-        <div className="relative w-full max-w-none mx-auto">
+        <div className={`relative w-full max-w-none mx-auto ${isFullscreenActive ? 'pb-12' : 'pb-16'}`}>
           <Carousel 
             className="w-full"
             setApi={setApi}
@@ -511,41 +511,23 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       </p>
                     </div>
                     
+                    {/* Reemplaza el grid de servicios por una sola cuadrícula */}
                     <div className="services-grid-container max-w-5xl mx-auto">
-                      {/* Primera fila - 4 servicios */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                        {allServices.slice(0, 4).map((service, index) => (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {allServices.map((service, index) => (
                           <div key={index} className={`service-card-modern group ${service.bgColor} ${service.borderColor} border-2 rounded-xl p-4 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
                             <div className={`service-icon-container mb-3 w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}>
                               {React.cloneElement(service.icon, { 
-                                className: "w-6 h-6 text-white drop-shadow-sm" 
+                                className: `w-6 h-6 text-white drop-shadow-sm ${service.icon.props.className}` 
                               })}
                             </div>
-                            <h3 className="text-gray-900 font-semibold text-sm group-hover:text-gray-700 transition-colors duration-300 leading-tight">
+                            <h3 className="text-gray-900 font-semibold text-sm group-hover:text-gray-700 transition-colors duration-300 leading-tight text-center">
                               {service.title}
                             </h3>
                           </div>
                         ))}
                       </div>
-                      
-                      {/* Segunda fila - 3 servicios centrados */}
-                      <div className="flex justify-center">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-                          {allServices.slice(4, 7).map((service, index) => (
-                            <div key={index + 4} className={`service-card-modern group ${service.bgColor} ${service.borderColor} border-2 rounded-xl p-4 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
-                              <div className={`service-icon-container mb-3 w-12 h-12 mx-auto rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300`}>
-                                {React.cloneElement(service.icon, { 
-                                  className: "w-6 h-6 text-white drop-shadow-sm" 
-                                })}
                               </div>
-                              <h3 className="text-gray-900 font-semibold text-sm group-hover:text-gray-700 transition-colors duration-300 leading-tight">
-                                {service.title}
-                              </h3>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </CarouselItem>
@@ -554,39 +536,22 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
               <CarouselItem>
                 <style>
                   {`
-                    .automation-slide-container {
-                      min-height: 68vh;
-                      background: white;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      overflow: hidden;
-                      border-radius: 12px;
-                    }
-                    
-                    .automation-content {
-                      width: 85%;
-                      max-width: 800px;
-                      background: rgba(255, 255, 255, 0.95);
-                      backdrop-filter: blur(20px);
-                      border-radius: 20px;
-                      padding: 40px 35px;
-                      text-align: center;
-                      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+                    .automation-container {
                       position: relative;
-                      overflow: hidden;
+                      width: 100%;
+                      height: 100%;
                     }
                     
-                    .automation-content::before {
+                    .automation-slide::before {
                       content: '';
                       position: absolute;
                       top: 0;
                       left: 0;
                       right: 0;
-                      height: 4px;
-                      background: linear-gradient(90deg, #4A90E2, #5BA2F5, #6BB5FF, #4A90E2);
-                      background-size: 400% 100%;
-                      animation: gradientMove 3s ease-in-out infinite;
+                      height: 8px;
+                      background: #4A90E2;
+                      border-radius: 8px 8px 0 0;
+                      z-index: 10;
                     }
                     
                     @keyframes gradientMove {
@@ -594,43 +559,18 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       50% { background-position: 100% 50%; }
                     }
                     
-                    .automation-icon-container {
-                      margin-bottom: 25px;
+                    .automation-grid {
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 40px;
+                      align-items: start;
+                    }
+                    
+                    .left-section {
                       position: relative;
                     }
                     
-                    .automation-main-icon {
-                      width: 80px;
-                      height: 80px;
-                      background: linear-gradient(45deg, #4A90E2, #5BA2F5);
-                      border-radius: 20px;
-                      display: inline-flex;
-                      align-items: center;
-                      justify-content: center;
-                      box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
-                      position: relative;
-                      z-index: 2;
-                      animation: iconPulse 2s ease-in-out infinite;
-                    }
-                    
-                    @keyframes iconPulse {
-                      0%, 100% { transform: scale(1); }
-                      50% { transform: scale(1.05); }
-                    }
-                    
-                    .automation-gear-icon {
-                      width: 40px;
-                      height: 40px;
-                      color: white;
-                      animation: rotate 6s linear infinite;
-                    }
-                    
-                    @keyframes rotate {
-                      from { transform: rotate(0deg); }
-                      to { transform: rotate(360deg); }
-                    }
-                    
-                    .automation-floating-elements {
+                    .floating-elements {
                       position: absolute;
                       width: 100%;
                       height: 100%;
@@ -640,42 +580,72 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       z-index: 1;
                     }
                     
-                    .automation-floating-element {
+                    .floating-element {
                       position: absolute;
-                      width: 40px;
-                      height: 40px;
-                      background: rgba(74, 144, 226, 0.06);
+                      width: 30px;
+                      height: 30px;
+                      background: rgba(74, 144, 226, 0.08);
                       border-radius: 50%;
-                      animation: floatAnim 4s ease-in-out infinite;
+                      animation: floatAnim 6s ease-in-out infinite;
                     }
                     
-                    .automation-floating-element:nth-child(1) {
+                    .floating-element:nth-child(1) {
                       top: 15%;
                       left: 10%;
                       animation-delay: 0s;
                     }
                     
-                    .automation-floating-element:nth-child(2) {
-                      top: 25%;
+                    .floating-element:nth-child(2) {
+                      top: 60%;
                       right: 15%;
-                      animation-delay: 1s;
-                    }
-                    
-                    .automation-floating-element:nth-child(3) {
-                      bottom: 20%;
-                      left: 8%;
                       animation-delay: 2s;
                     }
                     
-                    .automation-floating-element:nth-child(4) {
-                      bottom: 30%;
-                      right: 12%;
-                      animation-delay: 3s;
+                    .floating-element:nth-child(3) {
+                      bottom: 20%;
+                      left: 20%;
+                      animation-delay: 4s;
                     }
                     
                     @keyframes floatAnim {
-                      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-                      50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
+                      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+                      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+                    }
+                    
+                    .automation-icon-container {
+                      margin-bottom: 20px;
+                      position: relative;
+                      z-index: 2;
+                      text-align: center;
+                    }
+                    
+                    .automation-main-icon {
+                      width: 60px;
+                      height: 60px;
+                      background: linear-gradient(45deg, #4A90E2, #5BA2F5);
+                      border-radius: 16px;
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+                      animation: iconPulse 3s ease-in-out infinite;
+                    }
+                    
+                    @keyframes iconPulse {
+                      0%, 100% { transform: scale(1); }
+                      50% { transform: scale(1.03); }
+                    }
+                    
+                    .automation-gear-icon {
+                      width: 30px;
+                      height: 30px;
+                      color: white;
+                      animation: rotate 8s linear infinite;
+                    }
+                    
+                    @keyframes rotate {
+                      from { transform: rotate(0deg); }
+                      to { transform: rotate(360deg); }
                     }
                     
                     .automation-title {
@@ -685,37 +655,42 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       -webkit-background-clip: text;
                       -webkit-text-fill-color: transparent;
                       background-clip: text;
-                      margin-bottom: 20px;
-                      letter-spacing: -1px;
+                      margin-bottom: 18px;
+                      letter-spacing: -0.5px;
                       line-height: 1.2;
+                      position: relative;
+                      z-index: 2;
+                      text-align: center;
                     }
                     
                     .automation-subtitle {
-                      font-size: 1rem;
+                      font-size: 0.95rem;
                       color: #4A5568;
                       line-height: 1.5;
-                      max-width: 600px;
-                      margin: 0 auto 30px;
+                      margin-bottom: 25px;
                       font-weight: 400;
+                      position: relative;
+                      z-index: 2;
                     }
                     
                     .automation-benefits-container {
                       display: flex;
-                      justify-content: center;
-                      gap: 25px;
-                      margin-top: 30px;
-                      flex-wrap: wrap;
+                      gap: 15px;
+                      margin-top: 20px;
+                      position: relative;
+                      z-index: 2;
                     }
                     
                     .automation-benefit-item {
-                      background: rgba(255, 255, 255, 0.95);
+                      background: rgba(255, 255, 255, 0.9);
                       backdrop-filter: blur(10px);
-                      padding: 18px 22px;
-                      border-radius: 16px;
-                      box-shadow: 0 6px 24px rgba(74, 144, 226, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+                      padding: 15px 12px;
+                      border-radius: 12px;
+                      box-shadow: 0 4px 16px rgba(74, 144, 226, 0.12);
                       border: 1px solid rgba(74, 144, 226, 0.15);
                       transition: all 0.3s ease;
-                      min-width: 160px;
+                      flex: 1;
+                      text-align: center;
                       position: relative;
                       overflow: hidden;
                     }
@@ -736,21 +711,21 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-benefit-item:hover {
-                      transform: translateY(-6px);
-                      box-shadow: 0 10px 36px rgba(74, 144, 226, 0.2), 0 4px 12px rgba(0, 0, 0, 0.12);
+                      transform: translateY(-3px);
+                      box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
                       border: 1px solid rgba(74, 144, 226, 0.25);
                     }
                     
                     .automation-benefit-icon {
-                      width: 45px;
-                      height: 45px;
-                      margin: 0 auto 12px;
+                      width: 40px;
+                      height: 40px;
+                      margin: 0 auto 8px;
                       display: flex;
                       align-items: center;
                       justify-content: center;
-                      border-radius: 12px;
-                      font-size: 20px;
-                      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+                      border-radius: 10px;
+                      font-size: 18px;
+                      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
                     }
                     
                     .automation-benefit-icon.efficiency {
@@ -766,84 +741,219 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     }
                     
                     .automation-benefit-text {
-                      font-size: 0.9rem;
+                      font-size: 0.8rem;
                       color: #4A5568;
-                      font-weight: 500;
+                      font-weight: 600;
                       position: relative;
                       z-index: 2;
                     }
                     
-                    @media (max-width: 768px) {
-                      .automation-content {
-                        padding: 30px 25px;
-                        margin: 15px;
-                        max-width: 90%;
+                    .right-section {
+                      position: relative;
+                    }
+                    
+                    .problems-header {
+                      display: flex;
+                      align-items: center;
+                      margin-bottom: 20px;
+                      gap: 12px;
+                    }
+                    
+                    .problems-icon {
+                      width: 40px;
+                      height: 40px;
+                      background: linear-gradient(135deg, #EF4444, #F87171);
+                      border-radius: 10px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 20px;
+                      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+                    }
+                    
+                    .problems-title {
+                      font-size: 1.6rem;
+                      font-weight: 700;
+                      color: #2D3748;
+                      margin: 0;
+                    }
+                    
+                    .problems-list {
+                      list-style: none;
+                      padding: 0;
+                    }
+                    
+                    .problem-item {
+                      background: rgba(255, 255, 255, 0.7);
+                      backdrop-filter: blur(8px);
+                      margin-bottom: 12px;
+                      padding: 15px 20px;
+                      border-radius: 12px;
+                      border-left: 3px solid #4A90E2;
+                      box-shadow: 0 3px 12px rgba(74, 144, 226, 0.08);
+                      transition: all 0.3s ease;
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    
+                    .problem-item::before {
+                      content: '';
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      bottom: 0;
+                      width: 3px;
+                      background: linear-gradient(180deg, #4A90E2, #5BA2F5);
+                      transition: width 0.3s ease;
+                    }
+                    
+                    .problem-item:hover::before {
+                      width: 6px;
+                    }
+                    
+                    .problem-item:hover {
+                      transform: translateX(6px);
+                      box-shadow: 0 6px 18px rgba(74, 144, 226, 0.15);
+                      background: rgba(255, 255, 255, 0.9);
+                    }
+                    
+                    .problem-content {
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                    }
+                    
+                    .problem-emoji {
+                      font-size: 20px;
+                      opacity: 0.8;
+                    }
+                    
+                    .problem-text {
+                      font-size: 0.9rem;
+                      color: #4A5568;
+                      font-weight: 500;
+                      line-height: 1.4;
+                    }
+                    
+                    @media (max-width: 1024px) {
+                      .automation-grid {
+                        grid-template-columns: 1fr;
+                        gap: 30px;
                       }
                       
                       .automation-title {
                         font-size: 1.8rem;
                       }
                       
-                      .automation-subtitle {
-                        font-size: 0.9rem;
+                      .problems-title {
+                        font-size: 1.4rem;
                       }
                       
                       .automation-benefits-container {
                         flex-direction: column;
-                        align-items: center;
-                        gap: 15px;
+                        gap: 12px;
+                      }
+                    }
+                    
+                    @media (max-width: 768px) {
+                      .automation-title {
+                        font-size: 1.5rem;
                       }
                       
-                      .automation-benefit-item {
-                        width: 100%;
-                        max-width: 250px;
+                      .problems-title {
+                        font-size: 1.2rem;
                       }
                       
-                      .automation-main-icon {
-                        width: 70px;
-                        height: 70px;
+                      .problem-item {
+                        padding: 12px 16px;
                       }
                       
-                      .automation-gear-icon {
-                        width: 35px;
-                        height: 35px;
+                      .problem-content {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
                       }
                     }
                   `}
                 </style>
-                <div className="automation-slide-container datasmart-slide">
-                  <div className="automation-content">
-                    <div className="automation-floating-elements">
-                      <div className="automation-floating-element"></div>
-                      <div className="automation-floating-element"></div>
-                      <div className="automation-floating-element"></div>
-                      <div className="automation-floating-element"></div>
-                    </div>
-                    
-                    <div className="automation-icon-container">
-                      <div className="automation-main-icon">
-                        <Cog className="automation-gear-icon" />
-                      </div>
-                    </div>
-                    
-                    <h1 className="automation-title">{t('services.automation.title')}</h1>
-                    
-                    <p className="automation-subtitle">
-                      {t('services.automation.subtitle')}
-                    </p>
-                    
-                    <div className="automation-benefits-container">
-                      <div className="automation-benefit-item">
-                        <div className="automation-benefit-icon efficiency">⚡</div>
-                        <div className="automation-benefit-text">{t('services.automation.benefits.efficiency')}</div>
-                      </div>
-                      <div className="automation-benefit-item">
-                        <div className="automation-benefit-icon accuracy">🎯</div>
-                        <div className="automation-benefit-text">{t('services.automation.benefits.accuracy')}</div>
-                      </div>
-                      <div className="automation-benefit-item">
-                        <div className="automation-benefit-icon time">🕐</div>
-                        <div className="automation-benefit-text">{t('services.automation.benefits.time')}</div>
+                <div className="datasmart-slide automation-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="automation-container">
+                    <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+                      <div className="automation-grid">
+                        <div className="left-section">
+                          <div className="floating-elements">
+                            <div className="floating-element"></div>
+                            <div className="floating-element"></div>
+                            <div className="floating-element"></div>
+                          </div>
+                          
+                          <div className="automation-icon-container">
+                            <div className="automation-main-icon">
+                              <Cog className="automation-gear-icon" />
+                            </div>
+                          </div>
+                          
+                          <h1 className="automation-title">{t('services.automation.title')}</h1>
+                          
+                          <p className="automation-subtitle">
+                            {t('services.automation.subtitle')}
+                          </p>
+                          
+                          <div className="automation-benefits-container">
+                            <div className="automation-benefit-item">
+                              <div className="automation-benefit-icon efficiency">⚡</div>
+                              <div className="automation-benefit-text">{t('services.automation.benefits.efficiency')}</div>
+                            </div>
+                            <div className="automation-benefit-item">
+                              <div className="automation-benefit-icon accuracy">🎯</div>
+                              <div className="automation-benefit-text">{t('services.automation.benefits.accuracy')}</div>
+                            </div>
+                            <div className="automation-benefit-item">
+                              <div className="automation-benefit-icon time">🕐</div>
+                              <div className="automation-benefit-text">{t('services.automation.benefits.time')}</div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="right-section">
+                          <div className="problems-header">
+                            <div className="problems-icon">⚠️</div>
+                            <h2 className="problems-title">{t('services.automation.problems.title')}</h2>
+                          </div>
+                          
+                          <ul className="problems-list">
+                            <li className="problem-item">
+                              <div className="problem-content">
+                                <span className="problem-emoji">📝</span>
+                                <span className="problem-text">{t('services.automation.problems.data_transfer')}</span>
+                              </div>
+                            </li>
+                            <li className="problem-item">
+                              <div className="problem-content">
+                                <span className="problem-emoji">📊</span>
+                                <span className="problem-text">{t('services.automation.problems.reports')}</span>
+                              </div>
+                            </li>
+                            <li className="problem-item">
+                              <div className="problem-content">
+                                <span className="problem-emoji">📄</span>
+                                <span className="problem-text">{t('services.automation.problems.documents')}</span>
+                              </div>
+                            </li>
+                            <li className="problem-item">
+                              <div className="problem-content">
+                                <span className="problem-emoji">📈</span>
+                                <span className="problem-text">{t('services.automation.problems.monitoring')}</span>
+                              </div>
+                            </li>
+                            <li className="problem-item">
+                              <div className="problem-content">
+                                <span className="problem-emoji">🔄</span>
+                                <span className="problem-text">{t('services.automation.problems.outdated_info')}</span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1110,15 +1220,15 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
                       {/* Desafío */}
                       <div className="bg-red-50 rounded-xl p-5 border border-red-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">!</span>
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
                           </div>
-                          <h3 className="text-lg font-bold text-red-700">
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
                             {t('automation.startup.advanced.challenge')}
                           </h3>
                         </div>
-                        <p className="text-red-800 text-sm leading-relaxed">
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
                           {t('automation.startup.advanced.challenge.desc')}
                         </p>
                       </div>
@@ -1295,18 +1405,422 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
 
               {/* Slide 4: Visualización de Datos */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center shadow-xl">
-                        <PieChart className="w-10 h-10 text-white drop-shadow-sm" />
+                <style>
+                  {`
+                    .visualization-container {
+                      position: relative;
+                      width: 100%;
+                      height: 100%;
+                    }
+                    
+                    .visualization-slide::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      height: 8px;
+                      background: #10B981;
+                      border-radius: 8px 8px 0 0;
+                      z-index: 10;
+                    }
+                    
+                    .visualization-grid {
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 40px;
+                      align-items: start;
+                    }
+                    
+                    .visualization-left-section {
+                      position: relative;
+                    }
+                    
+                    .visualization-floating-elements {
+                      position: absolute;
+                      width: 100%;
+                      height: 100%;
+                      top: 0;
+                      left: 0;
+                      pointer-events: none;
+                      z-index: 1;
+                    }
+                    
+                    .visualization-floating-element {
+                      position: absolute;
+                      width: 30px;
+                      height: 30px;
+                      background: rgba(16, 185, 129, 0.08);
+                      border-radius: 50%;
+                      animation: floatVisualization 6s ease-in-out infinite;
+                    }
+                    
+                    .visualization-floating-element:nth-child(1) {
+                      top: 15%;
+                      left: 10%;
+                      animation-delay: 0s;
+                    }
+                    
+                    .visualization-floating-element:nth-child(2) {
+                      top: 60%;
+                      right: 15%;
+                      animation-delay: 2s;
+                    }
+                    
+                    .visualization-floating-element:nth-child(3) {
+                      bottom: 20%;
+                      left: 20%;
+                      animation-delay: 4s;
+                    }
+                    
+                    @keyframes floatVisualization {
+                      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+                      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+                    }
+                    
+                    .visualization-icon-container {
+                      margin-bottom: 20px;
+                      position: relative;
+                      z-index: 2;
+                      text-align: center;
+                    }
+                    
+                    .visualization-main-icon {
+                      width: 60px;
+                      height: 60px;
+                      background: linear-gradient(45deg, #10B981, #34D399);
+                      border-radius: 16px;
+                      display: inline-flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+                      animation: iconPulseVisualization 3s ease-in-out infinite;
+                    }
+                    
+                    @keyframes iconPulseVisualization {
+                      0%, 100% { transform: scale(1); }
+                      50% { transform: scale(1.03); }
+                    }
+                    
+                    .visualization-chart-icon {
+                      width: 30px;
+                      height: 30px;
+                      color: white;
+                      animation: chartGlow 4s ease-in-out infinite;
+                    }
+                    
+                    @keyframes chartGlow {
+                      0%, 100% { filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+                      50% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.6)); }
+                    }
+                    
+                    .visualization-title {
+                      font-size: 2.2rem;
+                      font-weight: 700;
+                      background: linear-gradient(45deg, #10B981, #047857);
+                      -webkit-background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                      background-clip: text;
+                      margin-bottom: 18px;
+                      letter-spacing: -0.5px;
+                      line-height: 1.2;
+                      position: relative;
+                      z-index: 2;
+                      text-align: center;
+                    }
+                    
+                    .visualization-subtitle {
+                      font-size: 0.95rem;
+                      color: #4A5568;
+                      line-height: 1.5;
+                      margin-bottom: 25px;
+                      font-weight: 400;
+                      position: relative;
+                      z-index: 2;
+                    }
+                    
+                    .visualization-benefits-container {
+                      display: flex;
+                      gap: 15px;
+                      margin-top: 20px;
+                      position: relative;
+                      z-index: 2;
+                    }
+                    
+                    .visualization-benefit-item {
+                      background: rgba(255, 255, 255, 0.9);
+                      backdrop-filter: blur(10px);
+                      padding: 15px 12px;
+                      border-radius: 12px;
+                      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12);
+                      border: 1px solid rgba(16, 185, 129, 0.15);
+                      transition: all 0.3s ease;
+                      flex: 1;
+                      text-align: center;
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    
+                    .visualization-benefit-item::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: -100%;
+                      width: 100%;
+                      height: 100%;
+                      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                      transition: left 0.6s ease;
+                    }
+                    
+                    .visualization-benefit-item:hover::before {
+                      left: 100%;
+                    }
+                    
+                    .visualization-benefit-item:hover {
+                      transform: translateY(-3px);
+                      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+                      border: 1px solid rgba(16, 185, 129, 0.25);
+                    }
+                    
+                    .visualization-benefit-icon {
+                      width: 40px;
+                      height: 40px;
+                      margin: 0 auto 8px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 10px;
+                      font-size: 18px;
+                      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    .visualization-benefit-icon.clarity {
+                      background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+                    }
+                    
+                    .visualization-benefit-icon.insights {
+                      background: linear-gradient(135deg, #F59E0B, #FBBF24);
+                    }
+                    
+                    .visualization-benefit-icon.decisions {
+                      background: linear-gradient(135deg, #10B981, #34D399);
+                    }
+                    
+                    .visualization-benefit-text {
+                      font-size: 0.8rem;
+                      color: #4A5568;
+                      font-weight: 600;
+                      position: relative;
+                      z-index: 2;
+                    }
+                    
+                    .visualization-right-section {
+                      position: relative;
+                    }
+                    
+                    .opportunities-header {
+                      display: flex;
+                      align-items: center;
+                      margin-bottom: 20px;
+                      gap: 12px;
+                    }
+                    
+                    .opportunities-icon {
+                      width: 40px;
+                      height: 40px;
+                      background: linear-gradient(135deg, #10B981, #34D399);
+                      border-radius: 10px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 20px;
+                      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                    }
+                    
+                    .opportunities-title {
+                      font-size: 1.6rem;
+                      font-weight: 700;
+                      color: #2D3748;
+                      margin: 0;
+                    }
+                    
+                    .opportunities-list {
+                      list-style: none;
+                      padding: 0;
+                    }
+                    
+                    .opportunity-item {
+                      background: rgba(255, 255, 255, 0.7);
+                      backdrop-filter: blur(8px);
+                      margin-bottom: 12px;
+                      padding: 15px 20px;
+                      border-radius: 12px;
+                      border-left: 3px solid #10B981;
+                      box-shadow: 0 3px 12px rgba(16, 185, 129, 0.08);
+                      transition: all 0.3s ease;
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    
+                    .opportunity-item::before {
+                      content: '';
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      bottom: 0;
+                      width: 3px;
+                      background: linear-gradient(180deg, #10B981, #34D399);
+                      transition: width 0.3s ease;
+                    }
+                    
+                    .opportunity-item:hover::before {
+                      width: 6px;
+                    }
+                    
+                    .opportunity-item:hover {
+                      transform: translateX(6px);
+                      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.15);
+                      background: rgba(255, 255, 255, 0.9);
+                    }
+                    
+                    .opportunity-content {
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                    }
+                    
+                    .opportunity-emoji {
+                      font-size: 20px;
+                      opacity: 0.8;
+                    }
+                    
+                    .opportunity-text {
+                      font-size: 0.9rem;
+                      color: #4A5568;
+                      font-weight: 500;
+                      line-height: 1.4;
+                    }
+                    
+                    @media (max-width: 1024px) {
+                      .visualization-grid {
+                        grid-template-columns: 1fr;
+                        gap: 30px;
+                      }
+                      
+                      .visualization-title {
+                        font-size: 1.8rem;
+                      }
+                      
+                      .opportunities-title {
+                        font-size: 1.4rem;
+                      }
+                      
+                      .visualization-benefits-container {
+                        flex-direction: column;
+                        gap: 12px;
+                      }
+                    }
+                    
+                    @media (max-width: 768px) {
+                      .visualization-title {
+                        font-size: 1.5rem;
+                      }
+                      
+                      .opportunities-title {
+                        font-size: 1.2rem;
+                      }
+                      
+                      .opportunity-item {
+                        padding: 12px 16px;
+                      }
+                      
+                      .opportunity-content {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                      }
+                    }
+                  `}
+                </style>
+                <div className="datasmart-slide visualization-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="visualization-container">
+                    <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+                      <div className="visualization-grid">
+                        <div className="visualization-left-section">
+                          <div className="visualization-floating-elements">
+                            <div className="visualization-floating-element"></div>
+                            <div className="visualization-floating-element"></div>
+                            <div className="visualization-floating-element"></div>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('services.visualization.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                        {t('services.visualization.desc')}
-                      </p>
+                          
+                          <div className="visualization-icon-container">
+                            <div className="visualization-main-icon">
+                              <PieChart className="visualization-chart-icon" />
+                            </div>
+                          </div>
+                          
+                          <h1 className="visualization-title">{t('services.visualization.title')}</h1>
+                          
+                          <p className="visualization-subtitle">
+                            {t('services.visualization.subtitle')}
+                          </p>
+                          
+                          <div className="visualization-benefits-container">
+                            <div className="visualization-benefit-item">
+                              <div className="visualization-benefit-icon clarity">👁️</div>
+                              <div className="visualization-benefit-text">{t('services.visualization.benefits.clarity')}</div>
+                    </div>
+                            <div className="visualization-benefit-item">
+                              <div className="visualization-benefit-icon insights">💡</div>
+                              <div className="visualization-benefit-text">{t('services.visualization.benefits.insights')}</div>
+                            </div>
+                            <div className="visualization-benefit-item">
+                              <div className="visualization-benefit-icon decisions">🎯</div>
+                              <div className="visualization-benefit-text">{t('services.visualization.benefits.decisions')}</div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="visualization-right-section">
+                          <div className="opportunities-header">
+                            <div className="opportunities-icon"><Database className="w-6 h-6 text-white" /></div>
+                            <h2 className="opportunities-title">{t('services.visualization.opportunities.title')}</h2>
+                          </div>
+                          
+                          <ul className="opportunities-list">
+                            <li className="opportunity-item">
+                              <div className="opportunity-content">
+                                <span className="opportunity-emoji">📊</span>
+                                <span className="opportunity-text">{t('services.visualization.opportunities.dashboards')}</span>
+                              </div>
+                            </li>
+                            <li className="opportunity-item">
+                              <div className="opportunity-content">
+                                <span className="opportunity-emoji">📈</span>
+                                <span className="opportunity-text">{t('services.visualization.opportunities.kpis')}</span>
+                              </div>
+                            </li>
+                            <li className="opportunity-item">
+                              <div className="opportunity-content">
+                                <span className="opportunity-emoji">🔍</span>
+                                <span className="opportunity-text">{t('services.visualization.opportunities.trends')}</span>
+                              </div>
+                            </li>
+                            <li className="opportunity-item">
+                              <div className="opportunity-content">
+                                <span className="opportunity-emoji">🚨</span>
+                                <span className="opportunity-text">{t('services.visualization.opportunities.alerts')}</span>
+                              </div>
+                            </li>
+                            <li className="opportunity-item">
+                              <div className="opportunity-content">
+                                <span className="opportunity-emoji">📖</span>
+                                <span className="opportunity-text">{t('services.visualization.opportunities.storytelling')}</span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1314,230 +1828,670 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
 
               {/* Slide 5: Extracción y Procesamiento */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-xl">
-                        <FileText className="w-10 h-10 text-white drop-shadow-sm" />
+                <style>{`
+                  .extraction-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                  }
+                  .extraction-slide::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 8px;
+                    background: #8B5CF6;
+                    border-radius: 8px 8px 0 0;
+                    z-index: 10;
+                  }
+                  .extraction-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 40px;
+                    align-items: start;
+                  }
+                  .extraction-left-section { position: relative; }
+                  .extraction-floating-elements {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    pointer-events: none;
+                    z-index: 1;
+                  }
+                  .extraction-floating-element {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background: rgba(139, 92, 246, 0.08);
+                    border-radius: 50%;
+                    animation: floatExtraction 6s ease-in-out infinite;
+                  }
+                  .extraction-floating-element:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+                  .extraction-floating-element:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+                  .extraction-floating-element:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+                  @keyframes floatExtraction {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+                    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+                  }
+                  .extraction-icon-container {
+                    margin-bottom: 20px;
+                    position: relative;
+                    z-index: 2;
+                    text-align: center;
+                  }
+                  .extraction-main-icon {
+                    width: 60px;
+                    height: 60px;
+                    background: linear-gradient(45deg, #8B5CF6, #A78BFA);
+                    border-radius: 16px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+                    animation: iconPulseExtraction 3s ease-in-out infinite;
+                  }
+                  @keyframes iconPulseExtraction {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.03); }
+                  }
+                  .extraction-db-icon {
+                    width: 30px;
+                    height: 30px;
+                    color: white;
+                    animation: dbGlow 4s ease-in-out infinite;
+                  }
+                  @keyframes dbGlow {
+                    0%, 100% { filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+                    50% { filter: drop-shadow(0 0 10px rgba(255,255,255,0.6)); }
+                  }
+                  .extraction-title {
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    background: linear-gradient(45deg, #8B5CF6, #6D28D9);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    margin-bottom: 18px;
+                    letter-spacing: -0.5px;
+                    line-height: 1.2;
+                    position: relative;
+                    z-index: 2;
+                    text-align: center;
+                  }
+                  .extraction-subtitle {
+                    font-size: 0.95rem;
+                    color: #4A5568;
+                    line-height: 1.5;
+                    margin-bottom: 25px;
+                    font-weight: 400;
+                    position: relative;
+                    z-index: 2;
+                  }
+                  .extraction-benefits-container {
+                    display: flex;
+                    gap: 15px;
+                    margin-top: 20px;
+                    position: relative;
+                    z-index: 2;
+                  }
+                  .extraction-benefit-item {
+                    background: rgba(255, 255, 255, 0.9);
+                    backdrop-filter: blur(10px);
+                    padding: 15px 12px;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.12);
+                    border: 1px solid rgba(139, 92, 246, 0.15);
+                    transition: all 0.3s ease;
+                    flex: 1;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                  }
+                  .extraction-benefit-item::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                    transition: left 0.6s ease;
+                  }
+                  .extraction-benefit-item:hover::before { left: 100%; }
+                  .extraction-benefit-item:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
+                    border: 1px solid rgba(139, 92, 246, 0.25);
+                  }
+                  .extraction-benefit-icon {
+                    width: 40px;
+                    height: 40px;
+                    margin: 0 auto 8px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px;
+                    font-size: 18px;
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                  }
+                  .extraction-benefit-icon.web {
+                    background: linear-gradient(135deg, #06B6D4, #818CF8);
+                  }
+                  .extraction-benefit-icon.db {
+                    background: linear-gradient(135deg, #A78BFA, #8B5CF6);
+                  }
+                  .extraction-benefit-icon.integration {
+                    background: linear-gradient(135deg, #F59E42, #FBBF24);
+                  }
+                  .extraction-benefit-text {
+                    font-size: 0.8rem;
+                    color: #4A5568;
+                    font-weight: 600;
+                    position: relative;
+                    z-index: 2;
+                  }
+                  .extraction-right-section { position: relative; }
+                  .extraction-opportunities-header {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    gap: 12px;
+                  }
+                  .extraction-opportunities-icon {
+                    width: 40px;
+                    height: 40px;
+                    background: linear-gradient(135deg, #8B5CF6, #A78BFA);
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+                  }
+                  .extraction-opportunities-title {
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    color: #2D3748;
+                    margin: 0;
+                  }
+                  .extraction-opportunities-list {
+                    list-style: none;
+                    padding: 0;
+                  }
+                  .extraction-opportunity-item {
+                    background: rgba(255, 255, 255, 0.7);
+                    backdrop-filter: blur(8px);
+                    margin-bottom: 12px;
+                    padding: 15px 20px;
+                    border-radius: 12px;
+                    border-left: 3px solid #8B5CF6;
+                    box-shadow: 0 3px 12px rgba(139, 92, 246, 0.08);
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                  }
+                  .extraction-opportunity-item::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 3px;
+                    background: linear-gradient(180deg, #8B5CF6, #A78BFA);
+                    transition: width 0.3s ease;
+                  }
+                  .extraction-opportunity-item:hover::before { width: 6px; }
+                  .extraction-opportunity-item:hover {
+                    transform: translateX(6px);
+                    box-shadow: 0 6px 18px rgba(139, 92, 246, 0.15);
+                    background: rgba(255, 255, 255, 0.9);
+                  }
+                  .extraction-opportunity-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                  }
+                  .extraction-opportunity-emoji {
+                    font-size: 20px;
+                    opacity: 0.8;
+                  }
+                  .extraction-opportunity-text {
+                    font-size: 0.9rem;
+                    color: #4A5568;
+                    font-weight: 500;
+                    line-height: 1.4;
+                  }
+                  @media (max-width: 1024px) {
+                    .extraction-grid { grid-template-columns: 1fr; gap: 30px; }
+                    .extraction-title { font-size: 1.8rem; }
+                    .extraction-opportunities-title { font-size: 1.4rem; }
+                    .extraction-benefits-container { flex-direction: column; gap: 12px; }
+                  }
+                  @media (max-width: 768px) {
+                    .extraction-title { font-size: 1.5rem; }
+                    .extraction-opportunities-title { font-size: 1.2rem; }
+                    .extraction-opportunity-item { padding: 12px 16px; }
+                    .extraction-opportunity-content { flex-direction: column; align-items: flex-start; gap: 8px; }
+                  }
+                `}</style>
+                <div className="datasmart-slide extraction-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="extraction-container">
+                    <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+                      <div className="extraction-grid">
+                        <div className="extraction-left-section">
+                          <div className="extraction-floating-elements">
+                            <div className="extraction-floating-element"></div>
+                            <div className="extraction-floating-element"></div>
+                            <div className="extraction-floating-element"></div>
                       </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('services.extraction.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                        {t('services.extraction.desc')}
-                      </p>
+                          <div className="extraction-icon-container">
+                            <div className="extraction-main-icon">
+                              <Database className="extraction-db-icon" />
+                            </div>
+                          </div>
+                          <h1 className="extraction-title">{t('services.extraction.title')}</h1>
+                          <p className="extraction-subtitle">{t('services.extraction.subtitle')}</p>
+                          <div className="extraction-benefits-container">
+                            <div className="extraction-benefit-item">
+                              <div className="extraction-benefit-icon web">🌐</div>
+                              <div className="extraction-benefit-text">{t('services.extraction.benefits.web')}</div>
+                            </div>
+                            <div className="extraction-benefit-item">
+                              <div className="extraction-benefit-icon db">🗄️</div>
+                              <div className="extraction-benefit-text">{t('services.extraction.benefits.db')}</div>
+                            </div>
+                            <div className="extraction-benefit-item">
+                              <div className="extraction-benefit-icon integration">🔗</div>
+                              <div className="extraction-benefit-text">{t('services.extraction.benefits.integration')}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="extraction-right-section">
+                          <div className="extraction-opportunities-header">
+                            <div className="extraction-opportunities-icon"><FileText className="w-6 h-6 text-white" /></div>
+                            <h2 className="extraction-opportunities-title">{t('services.extraction.opportunities.title')}</h2>
+                          </div>
+                          <ul className="extraction-opportunities-list">
+                            <li className="extraction-opportunity-item">
+                              <div className="extraction-opportunity-content">
+                                <span className="extraction-opportunity-emoji">🌐</span>
+                                <span className="extraction-opportunity-text">{t('services.extraction.opportunities.web')}</span>
+                              </div>
+                            </li>
+                            <li className="extraction-opportunity-item">
+                              <div className="extraction-opportunity-content">
+                                <span className="extraction-opportunity-emoji">🗄️</span>
+                                <span className="extraction-opportunity-text">{t('services.extraction.opportunities.db')}</span>
+                              </div>
+                            </li>
+                            <li className="extraction-opportunity-item">
+                              <div className="extraction-opportunity-content">
+                                <span className="extraction-opportunity-emoji">🔗</span>
+                                <span className="extraction-opportunity-text">{t('services.extraction.opportunities.integration')}</span>
+                              </div>
+                            </li>
+                            <li className="extraction-opportunity-item">
+                              <div className="extraction-opportunity-content">
+                                <span className="extraction-opportunity-emoji">⚙️</span>
+                                <span className="extraction-opportunity-text">{t('services.extraction.opportunities.pipeline')}</span>
+                              </div>
+                            </li>
+                            <li className="extraction-opportunity-item">
+                              <div className="extraction-opportunity-content">
+                                <span className="extraction-opportunity-emoji">🧹</span>
+                                <span className="extraction-opportunity-text">{t('services.extraction.opportunities.cleaning')}</span>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </CarouselItem>
 
-              {/* Slide 6: Consultoría en Análisis */}
+              {/* Slide 6: Análisis de Datos No Estructurados */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-xl">
-                        <Users className="w-10 h-10 text-white drop-shadow-sm" />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('services.consulting.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                        {t('services.consulting.desc')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 7: Formación y Capacitación */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-xl">
-                        <GraduationCap className="w-10 h-10 text-white drop-shadow-sm" />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('services.training.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                        {t('services.training.desc')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 8: Análisis de Datos No Estructurados */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-600 flex items-center justify-center shadow-xl">
-                        <Search className="w-10 h-10 text-white drop-shadow-sm" />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('services.unstructured.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                        {t('services.unstructured.desc')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 10: Integración con IA */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
-                  <div className="text-center max-w-4xl mx-auto px-6 py-8 relative z-10">
-                    <div className="mb-8">
-                      <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center shadow-xl">
-                        <Brain className="w-10 h-10 text-white drop-shadow-sm" />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                        {t('services.ai.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                        {t('services.ai.desc')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 11: Proceso de Trabajo */}
-              <CarouselItem>
-                <style>
-                  {`
-                    @keyframes dashedLine {
-                      from {
-                        stroke-dashoffset: 0;
-                      }
-                      to {
-                        stroke-dashoffset: -24;
-                      }
-                    }
-                    .animated-line {
-                      animation: dashedLine 1.5s linear infinite;
-                    }
-                    .pipeline-circle {
-                      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-                    }
-                    .pipeline-circle::after {
+                <div className="datasmart-slide unstructured-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <style>{`
+                    .unstructured-slide::before {
                       content: '';
                       position: absolute;
-                      inset: -1px;
-                      border-radius: 50%;
-                      background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
-                      z-index: 2;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      height: 6px;
+                      background: #F43F5E;
+                      border-radius: 6px 6px 0 0;
                     }
-                  `}
-                </style>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-12">
-                      <div className="hero-category-tag process text-xs inline-block font-medium uppercase tracking-wider mb-4" style={{ color: '#40E6D2', background: 'rgba(64, 230, 210, 0.08)', borderLeft: '3px solid #40E6D2' }}>
-                        Nuestra Metodología
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-blue-500 mb-4">
-                        {t('process.title')}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed max-w-3xl">
-                        {t('process.subtitle')}
-                      </p>
-                    </div>
-                    
-                    <div className="process-pipeline relative px-8 mt-20">
-                      {/* Pasos del proceso */}
-                      <div className="grid grid-cols-4 gap-4 relative">
-                        {/* Línea base */}
-                        <div className="absolute top-[2.5rem] left-[40px] right-[40px] h-[3px] bg-gradient-to-r from-[#6366F1] via-[#10B981] via-[#EC4899] to-[#06B6D4] z-0 rounded-full"></div>
-                        {/* Línea animada */}
-                        <div className="absolute top-[2.5rem] left-[40px] right-[40px] flex z-[1]">
-                          <svg className="w-full h-[2px]" preserveAspectRatio="none">
-                            <line 
-                              x1="0" 
-                              y1="1" 
-                              x2="100%" 
-                              y2="1" 
-                              stroke="white" 
-                              strokeWidth="2" 
-                              strokeDasharray="6,6"
-                              className="animated-line"
-                              strokeOpacity="0.7"
-                            />
-                          </svg>
-                        </div>
-                        
-                        {/* Paso 1 */}
-                        <div className="flex flex-col items-center relative z-10">
-                          <div className="relative pipeline-circle">
-                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#6366F1] to-[#8B5CF6] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
-                              1
-                        </div>
+                  `}</style>
+                  <div className="max-w-6xl mx-auto px-6 py-8 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                      <div className="text-center">
+                        <div className="mb-8">
+                          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-600 flex items-center justify-center shadow-xl">
+                            <Search className="w-7 h-7 text-white drop-shadow-sm animate-[pulse_1s_ease-in-out_infinite]" />
                           </div>
-                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
-                            {t('process.step1.title')}
-                          </h3>
-                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
-                            {t('process.step1.desc')}
+                          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-transparent mb-4">
+                            Análisis de Datos No Estructurados
+                          </h2>
+                          <p className="text-gray-600 text-lg leading-relaxed">
+                            {t('services.unstructured.desc')}
                           </p>
                         </div>
-                        
-                        {/* Paso 2 */}
-                        <div className="flex flex-col items-center relative z-10">
-                          <div className="relative pipeline-circle">
-                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#10B981] to-[#06D6A0] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
-                              2
-                        </div>
-                      </div>
-                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
-                            {t('process.step2.title')}
-                          </h3>
-                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
-                            {t('process.step2.desc')}
-                          </p>
-                        </div>
-                        
-                        {/* Paso 3 */}
-                        <div className="flex flex-col items-center relative z-10">
-                          <div className="relative pipeline-circle">
-                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#EC4899] to-[#EF4444] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
-                              3
-                        </div>
-                      </div>
-                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
-                            {t('process.step3.title')}
-                          </h3>
-                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
-                            {t('process.step3.desc')}
-                      </p>
-                    </div>
-                    
-                        {/* Paso 4 */}
-                        <div className="flex flex-col items-center relative z-10">
-                          <div className="relative pipeline-circle">
-                            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#06B6D4] to-[#3B82F6] text-white flex items-center justify-center text-xl font-bold relative overflow-hidden transform hover:scale-105 transition-all duration-300">
-                              4
-                  </div>
-                </div>
-                          <h3 className="text-lg font-bold text-[#40A0FF] mt-6 mb-3 text-center">
-                            {t('process.step4.title')}
-                    </h3>
-                          <p className="text-gray-600 text-sm text-center leading-relaxed max-w-[180px]">
-                            {t('process.step4.desc')}
-                    </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                          <div className="bg-rose-50 p-4 rounded-xl border border-rose-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">📄</div>
+                            <h3 className="font-semibold text-rose-700 mb-1">{t('services.unstructured.benefits.text')}</h3>
+                          </div>
+                          <div className="bg-rose-50 p-4 rounded-xl border border-rose-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">🖼️</div>
+                            <h3 className="font-semibold text-rose-700 mb-1">{t('services.unstructured.benefits.image')}</h3>
+                          </div>
+                          <div className="bg-rose-50 p-4 rounded-xl border border-rose-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">💬</div>
+                            <h3 className="font-semibold text-rose-700 mb-1">{t('services.unstructured.benefits.communication')}</h3>
                           </div>
                         </div>
+                      </div>
+
+                      <div className="bg-rose-100 rounded-2xl p-6 shadow-lg border border-rose-100">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="bg-gradient-to-br from-rose-500 to-rose-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                            <ListChecks className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">
+                            Oportunidades que Brindamos
+                          </h3>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="bg-white p-4 rounded-xl border border-rose-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">🗣️</span>
+                              <span className="text-gray-700 text-sm">{t('services.unstructured.opportunities.nlp')}</span>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-rose-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">📄</span>
+                              <span className="text-gray-700 text-sm">{t('services.unstructured.opportunities.documents')}</span>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-rose-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">🖼️</span>
+                              <span className="text-gray-700 text-sm">{t('services.unstructured.opportunities.images_video')}</span>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-rose-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">🗺️</span>
+                              <span className="text-gray-700 text-sm">{t('services.unstructured.opportunities.geo')}</span>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-rose-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">🌐</span>
+                              <span className="text-gray-700 text-sm">{t('services.unstructured.opportunities.social')}</span>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-rose-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <span className="text-base">🔊</span>
+                              <span className="text-gray-700 text-sm">{t('services.unstructured.opportunities.audio')}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </CarouselItem>
 
-              {/* Slide 9: Por Qué Elegirnos */}
+              {/* Slide 7: Integración con IA */}
+              <CarouselItem>
+                <div className="datasmart-slide ai-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <style>{`
+                    .ai-slide::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      height: 6px;
+                      background: #8B5CF6;
+                      border-radius: 6px 6px 0 0;
+                    }
+                  `}</style>
+                  <div className="max-w-6xl mx-auto px-6 py-8 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                      <div className="text-center">
+                        <div className="mb-8">
+                          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-xl transform hover:scale-105 transition-transform duration-300">
+                            <Brain className="w-10 h-10 text-white drop-shadow-sm animate-[pulse_2s_ease-in-out_infinite]" />
+                          </div>
+                          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-500 bg-clip-text text-transparent mb-4">
+                            Integración con IA
+                          </h2>
+                          <p className="text-gray-600 text-lg leading-relaxed">
+                            Implementamos soluciones de inteligencia artificial personalizadas que automatizan procesos complejos y mejoran la capacidad predictiva de tu empresa.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                          <div className="bg-purple-50 p-4 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">🤖</div>
+                            <h3 className="font-semibold text-purple-700 mb-1">{t('services.ai.benefits.automation')}</h3>
+                          </div>
+                          <div className="bg-purple-50 p-4 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">📈</div>
+                            <h3 className="font-semibold text-purple-700 mb-1">{t('services.ai.benefits.prediction')}</h3>
+                          </div>
+                          <div className="bg-purple-50 p-4 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">🔗</div>
+                            <h3 className="font-semibold text-purple-700 mb-1">{t('services.ai.benefits.integration')}</h3>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-purple-100 rounded-2xl p-6 shadow-lg border border-purple-100">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                            <ListChecks className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">
+                            Oportunidades que Brindamos
+                          </h3>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="bg-white p-4 rounded-xl border border-purple-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">💬</div>
+                              <p className="text-gray-700">{t('services.ai.opportunities.chatbots')}</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-purple-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">📊</div>
+                              <p className="text-gray-700">{t('services.ai.opportunities.prediction')}</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-purple-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🔒</div>
+                              <p className="text-gray-700">{t('services.ai.opportunities.security')}</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-purple-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🔄</div>
+                              <p className="text-gray-700">{t('services.ai.opportunities.optimization')}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Slide 8: Consultoría en Análisis */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="max-w-6xl mx-auto px-6 py-8 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                      <div className="text-center">
+                        <div className="mb-8">
+                          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-xl transform hover:scale-105 transition-transform duration-300">
+                            <Users className="w-10 h-10 text-white drop-shadow-sm animate-[pulse_2s_ease-in-out_infinite]" />
+                          </div>
+                          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent mb-4">
+                            Consultoría en Análisis
+                          </h2>
+                          <p className="text-gray-600 text-lg leading-relaxed">
+                            Asesoramos y desarrollamos estrategias para implementar una cultura data-driven en tu organización, identificando KPIs clave y oportunidades de mejora.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                          <div className="bg-orange-50 p-4 rounded-xl border border-orange-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">📊</div>
+                            <h3 className="font-semibold text-orange-700 mb-1">Definición de KPIs</h3>
+                          </div>
+                          <div className="bg-orange-50 p-4 rounded-xl border border-orange-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">🧭</div>
+                            <h3 className="font-semibold text-orange-700 mb-1">Estrategia data-driven</h3>
+                          </div>
+                          <div className="bg-orange-50 p-4 rounded-xl border border-orange-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">💡</div>
+                            <h3 className="font-semibold text-orange-700 mb-1">Identificación de oportunidades</h3>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-orange-100 rounded-2xl p-6 shadow-lg border border-orange-100">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="bg-gradient-to-br from-orange-500 to-orange-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                            <ListChecks className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">
+                            Oportunidades que Brindamos
+                          </h3>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="bg-white p-4 rounded-xl border border-orange-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🔍</div>
+                              <p className="text-gray-700">Auditoría y diagnóstico de procesos analíticos</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-orange-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🗺️</div>
+                              <p className="text-gray-700">Definición de roadmap de analítica para la organización</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-orange-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🧑‍💼</div>
+                              <p className="text-gray-700">Capacitación en analítica y toma de decisiones basada en datos</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-orange-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🤝</div>
+                              <p className="text-gray-700">Acompañamiento en la adopción de cultura data-driven</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Slide 9: Formación y Capacitación */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="max-w-6xl mx-auto px-6 py-8 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                      <div className="text-center">
+                        <div className="mb-8">
+                          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center shadow-xl transform hover:scale-105 transition-transform duration-300">
+                            <GraduationCap className="w-10 h-10 text-white drop-shadow-sm animate-[pulse_2s_ease-in-out_infinite]" />
+                          </div>
+                          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-violet-600 to-violet-500 bg-clip-text text-transparent mb-4">
+                            Formación y Capacitación
+                          </h2>
+                          <p className="text-gray-600 text-lg leading-relaxed">
+                            Programas personalizados para que tu equipo desarrolle habilidades analíticas y aproveche al máximo herramientas como Excel, Power BI, Tableau y soluciones de IA para potenciar el análisis de datos.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                          <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">📊</div>
+                            <h3 className="font-semibold text-violet-700 mb-1">Excel, Power BI y Tableau</h3>
+                          </div>
+                          <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">🤖</div>
+                            <h3 className="font-semibold text-violet-700 mb-1">IA aplicada al análisis</h3>
+                          </div>
+                          <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-2xl mb-2">🚀</div>
+                            <h3 className="font-semibold text-violet-700 mb-1">Mejora de performance analítico</h3>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-violet-100 rounded-2xl p-6 shadow-lg border border-violet-100">
+                        <div className="flex items-center gap-3 mb-6">
+                          <div className="bg-gradient-to-br from-violet-500 to-violet-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                            <ListChecks className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">
+                            Oportunidades que Brindamos
+                          </h3>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="bg-white p-4 rounded-xl border border-violet-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">📈</div>
+                              <p className="text-gray-700">Capacitación en Excel, Power BI y Tableau desde nivel básico a avanzado</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-violet-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🤖</div>
+                              <p className="text-gray-700">Uso de herramientas de IA para acelerar el análisis y la toma de decisiones</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-violet-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🧑‍💻</div>
+                              <p className="text-gray-700">Workshops prácticos y resolución de casos reales</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-violet-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🛠️</div>
+                              <p className="text-gray-700">Implementación de mejores prácticas en procesos y análisis de datos</p>
+                            </div>
+                          </div>
+                          <div className="bg-white p-4 rounded-xl border border-violet-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                            <div className="flex items-center gap-3">
+                              <div className="text-xl group-hover:scale-110 transition-transform">🚀</div>
+                              <p className="text-gray-700">Aumento del performance y productividad del equipo</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Slide 10: Por Qué Elegirnos */}
               <CarouselItem>
                 <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
                   <div className="w-full max-w-6xl mx-auto">
@@ -1801,7 +2755,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
             </>
 
           {/* Indicadores de Slides - Números Elegantes con Paginación */}
-          <div className="numbers-indicators flex justify-center items-center mt-12 mb-6 gap-3 z-50 relative">
+          <div className={`numbers-indicators flex justify-center items-center gap-3 z-50 absolute left-1/2 transform -translate-x-1/2 ${isFullscreenActive ? 'bottom-[-30px]' : 'bottom-[-50px]'}`}>
             {/* Botón anterior - sutil */}
             {totalSlides > slidesPerPage && indicatorPage > 0 && (
               <button

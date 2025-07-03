@@ -386,26 +386,26 @@ body {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 32px 0 16px 0;
+  margin: 0;
 }
 
 .number-dot-small {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.85);
   color: #1d4ed8;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.9);
   position: relative;
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 /* Botones de navegación sutiles para indicadores */
@@ -507,9 +507,9 @@ html {
 
   /* Indicadores responsive */
   .number-dot-small {
-    width: 22px;
-    height: 22px;
-    font-size: 0.7rem;
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
   }
   
   .indicator-nav-btn {
@@ -519,7 +519,7 @@ html {
   
   .numbers-indicators {
     gap: 6px;
-    margin: 24px 0 12px 0;
+    margin: 0;
   }
   
   .stat-number {
@@ -878,8 +878,6 @@ html {
     height: 24px;
   }
 }
-
-
 
 /* Hero slide layout */
 .hero-content-container {
@@ -1628,4 +1626,120 @@ html {
   .scale-75 {
     transform: scale(0.6);
   }
+}
+
+/* Animaciones para los iconos de servicios */
+@keyframes rotateGear {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseChart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes floatFile {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes glowSearch {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(225, 29, 72, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(225, 29, 72, 0.4));
+  }
+}
+
+@keyframes pulseBrain {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes bounceUsers {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes floatCap {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(5deg);
+  }
+}
+
+/* Aplicar animaciones directamente a los SVG */
+svg.service-icon-automation {
+  animation: rotateGear 8s linear infinite;
+  transform-origin: center;
+}
+
+svg.service-icon-visualization {
+  animation: pulseChart 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+svg.service-icon-extraction {
+  animation: floatFile 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+svg.service-icon-unstructured {
+  animation: glowSearch 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+svg.service-icon-ai {
+  animation: pulseBrain 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+svg.service-icon-consulting {
+  animation: bounceUsers 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+svg.service-icon-training {
+  animation: floatCap 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Hover effects para las tarjetas de servicios */
+.service-card-modern:hover .service-icon-container {
+  transform: translateY(-2px);
+}
+
+.service-card-modern {
+  transition: all 0.3s ease-in-out;
+}
+
+.service-card-modern:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
