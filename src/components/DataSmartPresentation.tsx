@@ -26,7 +26,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
   const [isFullscreenActive, setIsFullscreenActive] = useState(false);
   const [indicatorPage, setIndicatorPage] = useState(0);
 
-  const totalSlides = 17;
+  const totalSlides = 14;
   const slidesPerPage = 6; // Número de indicadores visibles por página
 
   const allServices = [
@@ -432,7 +432,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       {/* Robot */}
                       <div className="relative animate-robot-float">
                         {/* Helmet */}
-                        <div className="w-16 h-12 bg-gradient-to-br from-gray-50 to-white rounded-[50%_50%_45%_45%] relative shadow-xl border-2 border-gray-200 ring-1 ring-blue-100">
+                        <div className="w-16 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-[50%_50%_45%_45%] relative shadow-xl border-2 border-blue-400 ring-1 ring-blue-300">
                           {/* Face */}
                           <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-8 bg-gradient-to-br from-blue-900 to-blue-700 rounded-[50%_50%_40%_40%] shadow-inner">
                             {/* Eyes */}
@@ -446,7 +446,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                           </div>
                         
                         {/* Body */}
-                        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-11 h-14 bg-gradient-to-br from-gray-50 to-white rounded-xl border-2 border-gray-200 shadow-xl ring-1 ring-blue-100">
+                        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-11 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl border-2 border-blue-400 shadow-xl ring-1 ring-blue-300">
                           {/* Power Button */}
                           <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-br from-cyan-400 to-cyan-500 rounded-full flex items-center justify-center animate-power-glow shadow-lg shadow-cyan-400/60 ring-2 ring-cyan-300">
                             <div className="w-1.5 h-1.5 border border-white border-b-0 rounded-t-md"></div>
@@ -462,20 +462,20 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                       </div>
                         
                         {/* Arms */}
-                        <div className="absolute top-13 -left-4 w-3 h-6 bg-gradient-to-br from-gray-50 to-white rounded-lg border-2 border-gray-200 shadow-lg animate-arm-wave origin-top ring-1 ring-blue-100"></div>
-                        <div className="absolute top-13 -right-4 w-3 h-6 bg-gradient-to-br from-gray-50 to-white rounded-lg border-2 border-gray-200 shadow-lg animate-arm-wave-delay origin-top ring-1 ring-blue-100"></div>
+                        <div className="absolute top-13 -left-4 w-3 h-6 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg border-2 border-blue-400 shadow-lg animate-arm-wave origin-top ring-1 ring-blue-300"></div>
+                        <div className="absolute top-13 -right-4 w-3 h-6 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg border-2 border-blue-400 shadow-lg animate-arm-wave-delay origin-top ring-1 ring-blue-300"></div>
                         
                         {/* Hands */}
-                        <div className="absolute top-18 -left-3 w-2 h-2 bg-gradient-to-br from-gray-50 to-white rounded-full border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
-                        <div className="absolute top-18 -right-3 w-2 h-2 bg-gradient-to-br from-gray-50 to-white rounded-full border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        <div className="absolute top-18 -left-3 w-2 h-2 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full border-2 border-blue-400 shadow-lg ring-1 ring-blue-300"></div>
+                        <div className="absolute top-18 -right-3 w-2 h-2 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full border-2 border-blue-400 shadow-lg ring-1 ring-blue-300"></div>
                         
                         {/* Legs */}
-                        <div className="absolute top-22 left-1.5 w-2.5 h-5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
-                        <div className="absolute top-22 right-1.5 w-2.5 h-5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        <div className="absolute top-22 left-1.5 w-2.5 h-5 bg-gradient-to-br from-blue-100 to-blue-200 rounded-md border-2 border-blue-400 shadow-lg ring-1 ring-blue-300"></div>
+                        <div className="absolute top-22 right-1.5 w-2.5 h-5 bg-gradient-to-br from-blue-100 to-blue-200 rounded-md border-2 border-blue-400 shadow-lg ring-1 ring-blue-300"></div>
                         
                         {/* Feet */}
-                        <div className="absolute top-26 left-0.5 w-3 h-1.5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
-                        <div className="absolute top-26 right-0.5 w-3 h-1.5 bg-gradient-to-br from-gray-50 to-white rounded-md border-2 border-gray-200 shadow-lg ring-1 ring-blue-100"></div>
+                        <div className="absolute top-26 left-0.5 w-3 h-1.5 bg-gradient-to-br from-blue-100 to-blue-200 rounded-md border-2 border-blue-400 shadow-lg ring-1 ring-blue-300"></div>
+                        <div className="absolute top-26 right-0.5 w-3 h-1.5 bg-gradient-to-br from-blue-100 to-blue-200 rounded-md border-2 border-blue-400 shadow-lg ring-1 ring-blue-300"></div>
                     </div>
                       
                       {/* Chat Bubble */}
@@ -528,6 +528,384 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                         ))}
                       </div>
                               </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Casos de Uso - Slide 1: Integración Contable con API */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <div className="mb-4 sm:mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-blue-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(59, 130, 246, 0.08)', borderLeft: '3px solid #3B82F6' }}>
+                        CASO DE USO
+                      </div>
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 mb-1 sm:mb-2 leading-tight">
+                        Integración Contable con API - Reportes Automáticos
+                      </h2>
+                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                        Procesamiento automático de datos contables para dashboards en tiempo real
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
+                            El Desafío
+                          </h3>
+                        </div>
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+                          Información financiera dispersa en diferentes sistemas contables, reportes manuales que consumen tiempo y son propensos a errores.
+                        </p>
+                      </div>
+
+                      <div className="bg-blue-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-blue-200 order-2">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Database className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-blue-700 leading-tight">
+                            Nuestra Solución
+                          </h3>
+                        </div>
+                        <p className="text-blue-800 text-xs sm:text-sm leading-relaxed">
+                          Integración directa con API del software contable, procesamiento automático y generación de dashboards con KPIs en tiempo real.
+                        </p>
+                      </div>
+
+                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
+                            Beneficios Obtenidos
+                          </h3>
+                        </div>
+                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
+                          Visibilidad completa de utilidades, cartera, flujo de caja, comisiones y KPIs financieros actualizados automáticamente.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Casos de Uso - Slide 2: Sistema de Cotizaciones Automáticas */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <div className="mb-4 sm:mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-emerald-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(16, 185, 129, 0.08)', borderLeft: '3px solid #10B981' }}>
+                        CASO DE USO
+                      </div>
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-600 mb-1 sm:mb-2 leading-tight">
+                        Sistema de Cotizaciones Automáticas
+                      </h2>
+                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                        Generación inteligente de propuestas comerciales personalizadas
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
+                            El Desafío
+                          </h3>
+                        </div>
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+                          Proceso manual lento para generar cotizaciones, inconsistencias en precios y tiempo excesivo de respuesta a clientes.
+                        </p>
+                      </div>
+
+                      <div className="bg-emerald-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-emerald-200 order-2">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-emerald-700 leading-tight">
+                            Nuestra Solución
+                          </h3>
+                        </div>
+                        <p className="text-emerald-800 text-xs sm:text-sm leading-relaxed">
+                          Sistema inteligente que genera cotizaciones personalizadas automáticamente basado en parámetros del cliente y histórico de ventas.
+                        </p>
+                      </div>
+
+                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
+                            Beneficios Obtenidos
+                          </h3>
+                        </div>
+                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
+                          Reducción del 90% en tiempo de cotización, consistencia en precios y mejora en tasa de conversión de clientes.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Casos de Uso - Slide 3: Sistema de Seguimiento para Vendedores */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <div className="mb-4 sm:mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-purple-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(147, 51, 234, 0.08)', borderLeft: '3px solid #9333EA' }}>
+                        CASO DE USO
+                      </div>
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-purple-600 mb-1 sm:mb-2 leading-tight">
+                        Sistema de Seguimiento para Vendedores
+                      </h2>
+                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                        Monitoreo inteligente del desempeño comercial y pipeline de ventas
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
+                            El Desafío
+                          </h3>
+                        </div>
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+                          Falta de visibilidad en el pipeline de ventas, seguimiento manual de prospectos y dificultad para identificar oportunidades.
+                        </p>
+                      </div>
+
+                      <div className="bg-purple-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-purple-200 order-2">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Users className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-purple-700 leading-tight">
+                            Nuestra Solución
+                          </h3>
+                        </div>
+                        <p className="text-purple-800 text-xs sm:text-sm leading-relaxed">
+                          Dashboard de seguimiento automático con alertas, métricas de desempeño y predicciones de cierre de ventas.
+                        </p>
+                      </div>
+
+                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
+                            Beneficios Obtenidos
+                          </h3>
+                        </div>
+                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
+                          Aumento del 35% en conversión de leads, mejor gestión del tiempo comercial y identificación temprana de oportunidades.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Casos de Uso - Slide 4: Clasificación de Comunicaciones */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <div className="mb-4 sm:mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-indigo-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(99, 102, 241, 0.08)', borderLeft: '3px solid #6366F1' }}>
+                        CASO DE USO
+                      </div>
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-indigo-600 mb-1 sm:mb-2 leading-tight">
+                        Clasificación Inteligente de Comunicaciones
+                      </h2>
+                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                        Análisis automático de correos y comentarios de redes sociales
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
+                            El Desafío
+                          </h3>
+                        </div>
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+                          Volumen alto de correos y comentarios, clasificación manual lenta y pérdida de mensajes importantes o urgentes.
+                        </p>
+                      </div>
+
+                      <div className="bg-indigo-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-indigo-200 order-2">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-indigo-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Brain className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-indigo-700 leading-tight">
+                            Nuestra Solución
+                          </h3>
+                        </div>
+                        <p className="text-indigo-800 text-xs sm:text-sm leading-relaxed">
+                          IA que clasifica automáticamente correos y comentarios por urgencia, sentimiento y categoría, con alertas inteligentes.
+                        </p>
+                      </div>
+
+                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
+                            Beneficios Obtenidos
+                          </h3>
+                        </div>
+                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
+                          Reducción del 80% en tiempo de gestión de comunicaciones y mejora en tiempo de respuesta a clientes críticos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Casos de Uso - Slide 5: Chatbots Internos para Propuestas */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <div className="mb-4 sm:mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-orange-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(249, 115, 22, 0.08)', borderLeft: '3px solid #F97316' }}>
+                        CASO DE USO
+                      </div>
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-orange-600 mb-1 sm:mb-2 leading-tight">
+                        Chatbots Internos para Generación de Propuestas
+                      </h2>
+                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                        Asistente IA para mejora del performance del equipo comercial
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
+                            El Desafío
+                          </h3>
+                        </div>
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+                          Equipo comercial sin acceso rápido a información técnica y dificultad para generar propuestas personalizadas y precisas.
+                        </p>
+                      </div>
+
+                      <div className="bg-orange-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-orange-200 order-2">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Monitor className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-orange-700 leading-tight">
+                            Nuestra Solución
+                          </h3>
+                        </div>
+                        <p className="text-orange-800 text-xs sm:text-sm leading-relaxed">
+                          Chatbot interno entrenado con knowledge base de la empresa que genera propuestas inteligentes y responde consultas técnicas.
+                        </p>
+                      </div>
+
+                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
+                            Beneficios Obtenidos
+                          </h3>
+                        </div>
+                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
+                          Mejora del 50% en calidad de propuestas, reducción significativa en tiempo de elaboración y mayor confianza del equipo.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Casos de Uso - Slide 6: Sistema de Gestión de Inventarios */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <div className="mb-4 sm:mb-6">
+                      <div className="hero-category-tag text-xs inline-block text-slate-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(71, 85, 105, 0.08)', borderLeft: '3px solid #475569' }}>
+                        CASO DE USO
+                      </div>
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-600 mb-1 sm:mb-2 leading-tight">
+                        Sistema de Gestión de Inventarios con Alertas
+                      </h2>
+                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
+                        Control inteligente de stock con predicción de demanda
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
+                            El Desafío
+                          </h3>
+                        </div>
+                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
+                          Stock outs frecuentes, exceso de inventario, falta de visibilidad en rotación y reposición manual reactiva.
+                        </p>
+                      </div>
+
+                      <div className="bg-slate-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-slate-200 order-2">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-slate-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <ListChecks className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-slate-700 leading-tight">
+                            Nuestra Solución
+                          </h3>
+                        </div>
+                        <p className="text-slate-800 text-xs sm:text-sm leading-relaxed">
+                          Sistema predictivo con alertas automáticas, análisis de patrones de demanda y recomendaciones de reposición inteligente.
+                        </p>
+                      </div>
+
+                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
+                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
+                          </div>
+                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
+                            Beneficios Obtenidos
+                          </h3>
+                        </div>
+                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
+                          Reducción del 60% en stock outs, optimización del capital de trabajo y mejora en disponibilidad de productos.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CarouselItem>
@@ -954,449 +1332,6 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                             </li>
                           </ul>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.1: Introducción a Casos de Automatización */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-8">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-6 sm:mb-8">
-                      <div className="hero-category-tag text-xs inline-block text-blue-600 font-medium uppercase tracking-wider mb-3 sm:mb-4 px-2 py-1 sm:px-3 sm:py-2" style={{ background: 'rgba(59, 130, 246, 0.08)', borderLeft: '3px solid #3B82F6' }}>
-                        {t('automation.case.category')}
-                      </div>
-                      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-600 mb-4 sm:mb-6 leading-tight">
-                        {t('automation.case.problem.title')}
-                      </h2>
-                      <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-4xl mb-3 sm:mb-4">
-                        {t('automation.case.problem.desc')}
-                      </p>
-                      <div className="bg-red-50 border-l-4 border-red-400 p-3 sm:p-4 mb-4 sm:mb-6 rounded-r-lg">
-                        <p className="text-red-800 font-medium text-sm sm:text-base">
-                          {t('automation.case.problem.tasks')}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* Solución */}
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 border border-blue-200">
-                      <h3 className="text-lg sm:text-xl font-bold text-blue-700 mb-2 sm:mb-3">
-                        {t('automation.case.solution.title')}
-                      </h3>
-                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                        {t('automation.case.solution.desc')}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.2: Caso PYME Básico */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-4 sm:mb-6">
-                      <div className="hero-category-tag text-xs inline-block text-blue-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(59, 130, 246, 0.08)', borderLeft: '3px solid #3B82F6' }}>
-                        {t('use_case')}
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 mb-1 sm:mb-2 leading-tight">
-                        {t('automation.pyme.basic.title')}
-                      </h2>
-                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
-                        {t('automation.pyme.basic.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de contenido */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-                      {/* Desafío */}
-                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
-                            {t('automation.pyme.basic.challenge')}
-                          </h3>
-                        </div>
-                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.pyme.basic.challenge.desc')}
-                        </p>
-                      </div>
-
-                      {/* Solución */}
-                      <div className="bg-blue-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-blue-200 order-2">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Cog className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-blue-700 leading-tight">
-                            {t('automation.pyme.basic.solution')}
-                          </h3>
-                        </div>
-                        <p className="text-blue-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.pyme.basic.solution.desc')}
-                        </p>
-                      </div>
-
-                      {/* Beneficios */}
-                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
-                            {t('automation.pyme.basic.benefits')}
-                          </h3>
-                        </div>
-                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.pyme.basic.benefits.desc')}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.3: Caso PYME Intermedio */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-4 sm:mb-6">
-                      <div className="hero-category-tag text-xs inline-block text-emerald-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(16, 185, 129, 0.08)', borderLeft: '3px solid #10B981' }}>
-                        {t('use_case')}
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-600 mb-1 sm:mb-2 leading-tight">
-                        {t('automation.pyme.intermediate.title')}
-                      </h2>
-                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
-                        {t('automation.pyme.intermediate.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de contenido */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-                      {/* Desafío */}
-                      <div className="bg-red-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-red-200 order-1">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
-                            {t('automation.pyme.intermediate.challenge')}
-                          </h3>
-                        </div>
-                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.pyme.intermediate.challenge.desc')}
-                        </p>
-                      </div>
-
-                      {/* Solución */}
-                      <div className="bg-emerald-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-emerald-200 order-2">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <PieChart className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-emerald-700 leading-tight">
-                            {t('automation.pyme.intermediate.solution')}
-                          </h3>
-                        </div>
-                        <p className="text-emerald-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.pyme.intermediate.solution.desc')}
-                        </p>
-                      </div>
-
-                      {/* Beneficios */}
-                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
-                            {t('automation.pyme.intermediate.benefits')}
-                          </h3>
-                        </div>
-                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.pyme.intermediate.benefits.desc')}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.4: Caso Startup Intermedio */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-4 sm:mb-6">
-                      <div className="hero-category-tag text-xs inline-block text-purple-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(147, 51, 234, 0.08)', borderLeft: '3px solid #9333EA' }}>
-                        {t('use_case')}
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-purple-600 mb-1 sm:mb-2 leading-tight">
-                        {t('automation.startup.intermediate.title')}
-                      </h2>
-                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
-                        {t('automation.startup.intermediate.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de contenido */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-                      {/* Desafío */}
-                      <div className="bg-red-50 rounded-xl p-5 border border-red-200">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
-                            {t('automation.startup.intermediate.challenge')}
-                          </h3>
-                        </div>
-                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.startup.intermediate.challenge.desc')}
-                        </p>
-                      </div>
-
-                      {/* Solución */}
-                      <div className="bg-purple-50 rounded-xl p-5 border border-purple-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center">
-                            <FileText className="w-4 h-4 text-white" />
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-purple-700 leading-tight">
-                            {t('automation.startup.intermediate.solution')}
-                          </h3>
-                        </div>
-                        <p className="text-purple-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.startup.intermediate.solution.desc')}
-                        </p>
-                      </div>
-
-                      {/* Beneficios */}
-                      <div className="bg-green-50 rounded-xl p-3 sm:p-4 lg:p-5 border border-green-200 order-3 md:col-span-2 lg:col-span-1">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">✓</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-green-700 leading-tight">
-                            {t('automation.startup.intermediate.benefits')}
-                          </h3>
-                        </div>
-                        <p className="text-green-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.startup.intermediate.benefits.desc')}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.5: Caso Startup Avanzado */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-4 sm:mb-6">
-                      <div className="hero-category-tag text-xs inline-block text-indigo-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(99, 102, 241, 0.08)', borderLeft: '3px solid #6366F1' }}>
-                        {t('use_case')}
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-indigo-600 mb-1 sm:mb-2 leading-tight">
-                        {t('automation.startup.advanced.title')}
-                      </h2>
-                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
-                        {t('automation.startup.advanced.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de contenido */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-                      {/* Desafío */}
-                      <div className="bg-red-50 rounded-xl p-5 border border-red-200">
-                        <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <span className="text-white text-xs sm:text-sm font-bold">!</span>
-                          </div>
-                          <h3 className="text-sm sm:text-base lg:text-lg font-bold text-red-700 leading-tight">
-                            {t('automation.startup.advanced.challenge')}
-                          </h3>
-                        </div>
-                        <p className="text-red-800 text-xs sm:text-sm leading-relaxed">
-                          {t('automation.startup.advanced.challenge.desc')}
-                        </p>
-                      </div>
-
-                      {/* Solución */}
-                      <div className="bg-indigo-50 rounded-xl p-5 border border-indigo-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center">
-                            <Users className="w-4 h-4 text-white" />
-                          </div>
-                          <h3 className="text-lg font-bold text-indigo-700">
-                            {t('automation.startup.advanced.solution')}
-                          </h3>
-                        </div>
-                        <p className="text-indigo-800 text-sm leading-relaxed">
-                          {t('automation.startup.advanced.solution.desc')}
-                        </p>
-                      </div>
-
-                      {/* Beneficios */}
-                      <div className="bg-green-50 rounded-xl p-5 border border-green-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">✓</span>
-                          </div>
-                          <h3 className="text-lg font-bold text-green-700">
-                            {t('automation.startup.advanced.benefits')}
-                          </h3>
-                        </div>
-                        <p className="text-green-800 text-sm leading-relaxed">
-                          {t('automation.startup.advanced.benefits.desc')}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.6: Caso Empresa en Crecimiento */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-4 sm:mb-6">
-                      <div className="hero-category-tag text-xs inline-block text-orange-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(249, 115, 22, 0.08)', borderLeft: '3px solid #F97316' }}>
-                        {t('use_case')}
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-orange-600 mb-1 sm:mb-2 leading-tight">
-                        {t('automation.growing.advanced.title')}
-                      </h2>
-                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
-                        {t('automation.growing.advanced.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de contenido */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-                      {/* Desafío */}
-                      <div className="bg-red-50 rounded-xl p-5 border border-red-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">!</span>
-                          </div>
-                          <h3 className="text-lg font-bold text-red-700">
-                            {t('automation.growing.advanced.challenge')}
-                          </h3>
-                        </div>
-                        <p className="text-red-800 text-sm leading-relaxed">
-                          {t('automation.growing.advanced.challenge.desc')}
-                        </p>
-                      </div>
-
-                      {/* Solución */}
-                      <div className="bg-orange-50 rounded-xl p-5 border border-orange-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-                            <GraduationCap className="w-4 h-4 text-white" />
-                          </div>
-                          <h3 className="text-lg font-bold text-orange-700">
-                            {t('automation.growing.advanced.solution')}
-                          </h3>
-                        </div>
-                        <p className="text-orange-800 text-sm leading-relaxed">
-                          {t('automation.growing.advanced.solution.desc')}
-                        </p>
-                      </div>
-
-                      {/* Beneficios */}
-                      <div className="bg-green-50 rounded-xl p-5 border border-green-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">✓</span>
-                          </div>
-                          <h3 className="text-lg font-bold text-green-700">
-                            {t('automation.growing.advanced.benefits')}
-                          </h3>
-                        </div>
-                        <p className="text-green-800 text-sm leading-relaxed">
-                          {t('automation.growing.advanced.benefits.desc')}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-
-              {/* Slide 3.7: Caso Departamento Corporativo */}
-              <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-4 sm:p-6 lg:p-8 overflow-y-auto">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-4 sm:mb-6">
-                      <div className="hero-category-tag text-xs inline-block text-slate-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(71, 85, 105, 0.08)', borderLeft: '3px solid #475569' }}>
-                        {t('use_case')}
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-600 mb-1 sm:mb-2 leading-tight">
-                        {t('automation.corporate.premium.title')}
-                      </h2>
-                      <p className="text-gray-500 text-xs sm:text-sm font-medium">
-                        {t('automation.corporate.premium.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de contenido */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-                      {/* Desafío */}
-                      <div className="bg-red-50 rounded-xl p-5 border border-red-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">!</span>
-                          </div>
-                          <h3 className="text-lg font-bold text-red-700">
-                            {t('automation.corporate.premium.challenge')}
-                          </h3>
-                        </div>
-                        <p className="text-red-800 text-sm leading-relaxed">
-                          {t('automation.corporate.premium.challenge.desc')}
-                        </p>
-                      </div>
-
-                      {/* Solución */}
-                      <div className="bg-slate-50 rounded-xl p-5 border border-slate-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-slate-500 rounded-lg flex items-center justify-center">
-                            <Search className="w-4 h-4 text-white" />
-                          </div>
-                          <h3 className="text-lg font-bold text-slate-700">
-                            {t('automation.corporate.premium.solution')}
-                          </h3>
-                        </div>
-                        <p className="text-slate-800 text-sm leading-relaxed">
-                          {t('automation.corporate.premium.solution.desc')}
-                        </p>
-                      </div>
-
-                      {/* Beneficios */}
-                      <div className="bg-green-50 rounded-xl p-5 border border-green-200">
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">✓</span>
-                          </div>
-                          <h3 className="text-lg font-bold text-green-700">
-                            {t('automation.corporate.premium.benefits')}
-                          </h3>
-                        </div>
-                        <p className="text-green-800 text-sm leading-relaxed">
-                          {t('automation.corporate.premium.benefits.desc')}
-                        </p>
                       </div>
                     </div>
                   </div>
