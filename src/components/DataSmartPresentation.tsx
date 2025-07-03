@@ -205,7 +205,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch(err => {
-        console.log('Error al entrar en pantalla completa:', err);
+        console.log(t('fullscreen.error'), err);
       });
     } else {
       document.exitFullscreen();
@@ -244,14 +244,14 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
           <div className="logo-premium">
             Data<span>Smart</span>
           </div>
-          <div className="tagline-premium">Transformando datos en decisiones inteligentes</div>
+          <div className="tagline-premium">{t('company.tagline')}</div>
         </div>
         
         <div className="controls-premium">
           {/* Botón de Pantalla Completa */}
           <button 
             className="control-btn-premium" 
-            data-tooltip={isFullscreenActive ? "Salir de pantalla completa" : "Pantalla completa"}
+            data-tooltip={isFullscreenActive ? t('fullscreen.exit') : t('fullscreen.enter')}
             onClick={toggleFullscreen}
           >
             <Monitor className="w-4 h-4" />
@@ -1002,7 +1002,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     {/* Encabezado */}
                     <div className="mb-4 sm:mb-6">
                       <div className="hero-category-tag text-xs inline-block text-blue-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(59, 130, 246, 0.08)', borderLeft: '3px solid #3B82F6' }}>
-                        Caso de Uso
+                        {t('use_case')}
                       </div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 mb-1 sm:mb-2 leading-tight">
                         {t('automation.pyme.basic.title')}
@@ -1070,7 +1070,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     {/* Encabezado */}
                     <div className="mb-4 sm:mb-6">
                       <div className="hero-category-tag text-xs inline-block text-emerald-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(16, 185, 129, 0.08)', borderLeft: '3px solid #10B981' }}>
-                        Caso de Uso
+                        {t('use_case')}
                       </div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-600 mb-1 sm:mb-2 leading-tight">
                         {t('automation.pyme.intermediate.title')}
@@ -1138,7 +1138,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     {/* Encabezado */}
                     <div className="mb-4 sm:mb-6">
                       <div className="hero-category-tag text-xs inline-block text-purple-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(147, 51, 234, 0.08)', borderLeft: '3px solid #9333EA' }}>
-                        Caso de Uso
+                        {t('use_case')}
                       </div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-purple-600 mb-1 sm:mb-2 leading-tight">
                         {t('automation.startup.intermediate.title')}
@@ -1206,7 +1206,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     {/* Encabezado */}
                     <div className="mb-4 sm:mb-6">
                       <div className="hero-category-tag text-xs inline-block text-indigo-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(99, 102, 241, 0.08)', borderLeft: '3px solid #6366F1' }}>
-                        Caso de Uso
+                        {t('use_case')}
                       </div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-indigo-600 mb-1 sm:mb-2 leading-tight">
                         {t('automation.startup.advanced.title')}
@@ -1274,7 +1274,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     {/* Encabezado */}
                     <div className="mb-4 sm:mb-6">
                       <div className="hero-category-tag text-xs inline-block text-orange-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(249, 115, 22, 0.08)', borderLeft: '3px solid #F97316' }}>
-                        Caso de Uso
+                        {t('use_case')}
                       </div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-orange-600 mb-1 sm:mb-2 leading-tight">
                         {t('automation.growing.advanced.title')}
@@ -1342,7 +1342,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     {/* Encabezado */}
                     <div className="mb-4 sm:mb-6">
                       <div className="hero-category-tag text-xs inline-block text-slate-600 font-medium uppercase tracking-wider mb-2 sm:mb-3 px-2 py-1" style={{ background: 'rgba(71, 85, 105, 0.08)', borderLeft: '3px solid #475569' }}>
-                        Caso de Uso
+                        {t('use_case')}
                       </div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-600 mb-1 sm:mb-2 leading-tight">
                         {t('automation.corporate.premium.title')}
@@ -2176,7 +2176,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                             <Search className="w-7 h-7 text-white drop-shadow-sm animate-[pulse_1s_ease-in-out_infinite]" />
                           </div>
                           <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-transparent mb-4">
-                            Análisis de Datos No Estructurados
+                            {t('unstructured_data_analysis')}
                           </h2>
                           <p className="text-gray-600 text-lg leading-relaxed">
                             {t('services.unstructured.desc')}
@@ -2204,7 +2204,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                             <ListChecks className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-gray-800">
-                            Oportunidades que Brindamos
+                            {t('opportunities_we_provide')}
                           </h3>
                         </div>
                         <div className="space-y-4">
@@ -2274,7 +2274,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                             <Brain className="w-10 h-10 text-white drop-shadow-sm animate-[pulse_2s_ease-in-out_infinite]" />
                           </div>
                           <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-500 bg-clip-text text-transparent mb-4">
-                            Integración con IA
+                            {t('services.ai.title')}
                           </h2>
                           <p className="text-gray-600 text-lg leading-relaxed">
                             Implementamos soluciones de inteligencia artificial personalizadas que automatizan procesos complejos y mejoran la capacidad predictiva de tu empresa.
@@ -2302,7 +2302,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                             <ListChecks className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-gray-800">
-                            Oportunidades que Brindamos
+                            {t('opportunities_we_provide')}
                           </h3>
                         </div>
                         <div className="space-y-4">
@@ -2339,7 +2339,20 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
 
               {/* Slide 8: Consultoría en Análisis */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                <div className="datasmart-slide consulting-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg relative overflow-hidden">
+                  <style>{`
+                    .consulting-slide::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      height: 6px;
+                      background: linear-gradient(90deg, #fb923c, #f97316);
+                      border-radius: 6px 6px 0 0;
+                      z-index: 10;
+                    }
+                  `}</style>
                   <div className="max-w-6xl mx-auto px-6 py-8 w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                       <div className="text-center">
@@ -2348,7 +2361,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                             <Users className="w-10 h-10 text-white drop-shadow-sm animate-[pulse_2s_ease-in-out_infinite]" />
                           </div>
                           <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent mb-4">
-                            Consultoría en Análisis
+                            {t('services.consulting.title')}
                           </h2>
                           <p className="text-gray-600 text-lg leading-relaxed">
                             Asesoramos y desarrollamos estrategias para implementar una cultura data-driven en tu organización, identificando KPIs clave y oportunidades de mejora.
@@ -2413,40 +2426,53 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
 
               {/* Slide 9: Formación y Capacitación */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                <div className="datasmart-slide training-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg relative overflow-hidden">
+                  <style>{`
+                    .training-slide::before {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      height: 6px;
+                      background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+                      border-radius: 6px 6px 0 0;
+                      z-index: 10;
+                    }
+                  `}</style>
                   <div className="max-w-6xl mx-auto px-6 py-8 w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                       <div className="text-center">
                         <div className="mb-8">
-                          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center shadow-xl transform hover:scale-105 transition-transform duration-300">
+                          <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-xl transform hover:scale-105 transition-transform duration-300">
                             <GraduationCap className="w-10 h-10 text-white drop-shadow-sm animate-[pulse_2s_ease-in-out_infinite]" />
                           </div>
-                          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-violet-600 to-violet-500 bg-clip-text text-transparent mb-4">
-                            Formación y Capacitación
+                          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-500 bg-clip-text text-transparent mb-4">
+                            {t('services.training.title')}
                           </h2>
                           <p className="text-gray-600 text-lg leading-relaxed">
                             Programas personalizados para que tu equipo desarrolle habilidades analíticas y aproveche al máximo herramientas como Excel, Power BI, Tableau y soluciones de IA para potenciar el análisis de datos.
                           </p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                          <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                          <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-2xl mb-2">📊</div>
-                            <h3 className="font-semibold text-violet-700 mb-1">Excel, Power BI y Tableau</h3>
+                            <h3 className="font-semibold text-indigo-700 mb-1">Excel, Power BI y Tableau</h3>
                           </div>
-                          <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                          <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-2xl mb-2">🤖</div>
-                            <h3 className="font-semibold text-violet-700 mb-1">IA aplicada al análisis</h3>
+                            <h3 className="font-semibold text-indigo-700 mb-1">IA aplicada al análisis</h3>
                           </div>
-                          <div className="bg-violet-50 p-4 rounded-xl border border-violet-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                          <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-2xl mb-2">🚀</div>
-                            <h3 className="font-semibold text-violet-700 mb-1">Mejora de performance analítico</h3>
+                            <h3 className="font-semibold text-indigo-700 mb-1">Mejora de performance analítico</h3>
                           </div>
                         </div>
                       </div>
 
-                      <div className="bg-violet-100 rounded-2xl p-6 shadow-lg border border-violet-100">
+                      <div className="bg-indigo-100 rounded-2xl p-6 shadow-lg border border-indigo-100">
                         <div className="flex items-center gap-3 mb-6">
-                          <div className="bg-gradient-to-br from-violet-500 to-violet-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
+                          <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg">
                             <ListChecks className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-gray-800">
@@ -2454,7 +2480,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                           </h3>
                         </div>
                         <div className="space-y-4">
-                          <div className="bg-white p-4 rounded-xl border border-violet-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
+                          <div className="bg-white p-4 rounded-xl border border-indigo-100 hover:shadow-md transition-all duration-300 hover:translate-x-2 group">
                             <div className="flex items-center gap-3">
                               <div className="text-xl group-hover:scale-110 transition-transform">📈</div>
                               <p className="text-gray-700">Capacitación en Excel, Power BI y Tableau desde nivel básico a avanzado</p>

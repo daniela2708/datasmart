@@ -26,6 +26,9 @@ const translations = {
     'nav.services': 'Servicios',
     'nav.about': 'Nosotros',
     'nav.contact': 'Contacto',
+    'fullscreen.enter': 'Pantalla completa',
+    'fullscreen.exit': 'Salir de pantalla completa',
+    'fullscreen.error': 'Error al entrar en pantalla completa:',
     'hero.category': 'ANÁLISIS DE DATOS Y AUTOMATIZACIÓN',
     'hero.title': 'Transformamos tus datos en decisiones inteligentes',
     'hero.subtitle': 'Ofrecemos soluciones personalizadas de análisis de datos y automatización adaptadas a tu negocio, ayudándote a optimizar procesos, reducir costos y mejorar la toma de decisiones.',
@@ -237,7 +240,10 @@ const translations = {
     'services.ai.opportunities.chatbots': 'Chatbots y asistentes virtuales personalizados',
     'services.ai.opportunities.prediction': 'Análisis predictivo y recomendaciones automáticas',
     'services.ai.opportunities.security': 'Automatización de seguridad y detección de fraudes',
-    'services.ai.opportunities.optimization': 'Optimización de procesos mediante IA'
+    'services.ai.opportunities.optimization': 'Optimización de procesos mediante IA',
+    'use_case': 'Caso de Uso',
+    'unstructured_data_analysis': 'Análisis de Datos No Estructurados',
+    'opportunities_we_provide': 'Oportunidades que Brindamos'
   },
   en: {
     'company.name': 'DataSmart',
@@ -246,6 +252,9 @@ const translations = {
     'nav.services': 'Services',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'fullscreen.enter': 'Full screen',
+    'fullscreen.exit': 'Exit full screen',
+    'fullscreen.error': 'Error entering full screen:',
     'hero.category': 'DATA ANALYSIS AND AUTOMATION',
     'hero.title': 'We transform your data into smart decisions',
     'hero.subtitle': 'We offer personalized data analysis and automation solutions tailored to your business, helping you optimize processes, reduce costs and improve decision making.',
@@ -457,7 +466,10 @@ const translations = {
     'services.ai.opportunities.chatbots': 'Personalized Chatbots and Virtual Assistants',
     'services.ai.opportunities.prediction': 'Predictive Analysis and Automatic Recommendations',
     'services.ai.opportunities.security': 'Security Automation and Fraud Detection',
-    'services.ai.opportunities.optimization': 'Process Optimization with AI'
+    'services.ai.opportunities.optimization': 'Process Optimization with AI',
+    'use_case': 'Use Case',
+    'unstructured_data_analysis': 'Unstructured Data Analysis',
+    'opportunities_we_provide': 'Opportunities We Provide'
   }
 };
 
