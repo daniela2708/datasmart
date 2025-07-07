@@ -243,7 +243,77 @@ const translations = {
     'services.ai.opportunities.optimization': 'Optimización de procesos mediante IA',
     'use_case': 'Caso de Uso',
     'unstructured_data_analysis': 'Análisis de Datos No Estructurados',
-    'opportunities_we_provide': 'Oportunidades que Brindamos'
+    'opportunities_we_provide': 'Oportunidades que Brindamos',
+    
+    // Casos de uso específicos hardcodeados
+    'use_case.accounting_api.title': 'Integración Contable con API - Reportes Automáticos',
+    'use_case.accounting_api.subtitle': 'Procesamiento automático de datos contables para dashboards en tiempo real',
+    'use_case.quotation_system.title': 'Sistema de Cotizaciones Automáticas',
+    'use_case.quotation_system.subtitle': 'Generación inteligente de propuestas comerciales personalizadas',
+    'use_case.sales_tracking.title': 'Sistema de Seguimiento para Vendedores',
+    'use_case.sales_tracking.subtitle': 'Monitoreo inteligente del desempeño comercial y pipeline de ventas',
+    'use_case.communication_classification.title': 'Clasificación Inteligente de Comunicaciones',
+    'use_case.communication_classification.subtitle': 'Análisis automático de correos y comentarios de redes sociales',
+    'use_case.chatbot_proposals.title': 'Chatbots Internos para Generación de Propuestas',
+    'use_case.chatbot_proposals.subtitle': 'Asistente IA para mejora del performance del equipo comercial',
+    'use_case.inventory_management.title': 'Sistema de Gestión de Inventarios con Alertas',
+    'use_case.inventory_management.subtitle': 'Control inteligente de stock con predicción de demanda',
+    
+    // Secciones comunes de casos de uso
+    'use_case.challenge': 'El Desafío',
+    'use_case.solution': 'Nuestra Solución',
+    'use_case.benefits': 'Beneficios Obtenidos',
+    
+    // Contenido específico de cada caso de uso
+    'use_case.accounting_api.challenge.desc': 'Información financiera dispersa en diferentes sistemas contables, reportes manuales que consumen tiempo y son propensos a errores.',
+    'use_case.accounting_api.solution.desc': 'Integración directa con API del software contable, procesamiento automático y generación de dashboards con KPIs en tiempo real.',
+    'use_case.accounting_api.benefits.desc': 'Visibilidad completa de utilidades, cartera, flujo de caja, comisiones y KPIs financieros actualizados automáticamente.',
+    
+    'use_case.quotation_system.challenge.desc': 'Proceso manual lento para generar cotizaciones, inconsistencias en precios y tiempo excesivo de respuesta a clientes.',
+    'use_case.quotation_system.solution.desc': 'Sistema inteligente que genera cotizaciones personalizadas automáticamente basado en parámetros del cliente y histórico de ventas.',
+    'use_case.quotation_system.benefits.desc': 'Reducción del 90% en tiempo de cotización, consistencia en precios y mejora en tasa de conversión de clientes.',
+    
+    'use_case.sales_tracking.challenge.desc': 'Falta de visibilidad en el pipeline de ventas, seguimiento manual de prospectos y dificultad para identificar oportunidades.',
+    'use_case.sales_tracking.solution.desc': 'Dashboard de seguimiento automático con alertas, métricas de desempeño y predicciones de cierre de ventas.',
+    'use_case.sales_tracking.benefits.desc': 'Aumento del 35% en conversión de leads, mejor gestión del tiempo comercial y identificación temprana de oportunidades.',
+    
+    'use_case.communication_classification.challenge.desc': 'Volumen alto de correos y comentarios, clasificación manual lenta y pérdida de mensajes importantes o urgentes.',
+    'use_case.communication_classification.solution.desc': 'IA que clasifica automáticamente correos y comentarios por urgencia, sentimiento y categoría, con alertas inteligentes.',
+    'use_case.communication_classification.benefits.desc': 'Reducción del 80% en tiempo de clasificación, respuesta más rápida a urgencias y mejor seguimiento de la satisfacción del cliente.',
+    
+    'use_case.chatbot_proposals.challenge.desc': 'Equipos comerciales con acceso limitado a información técnica y dificultad para crear propuestas consistentes y competitivas.',
+    'use_case.chatbot_proposals.solution.desc': 'Chatbot interno entrenado con datos de la empresa que asiste al equipo comercial en la creación de propuestas personalizadas.',
+    'use_case.chatbot_proposals.benefits.desc': 'Mejora del 50% en calidad de propuestas, reducción del tiempo de preparación y estandarización de procesos comerciales.',
+    
+    'use_case.inventory_management.challenge.desc': 'Control manual de inventarios, falta de alertas automáticas y dificultad para predecir demanda futura.',
+    'use_case.inventory_management.solution.desc': 'Sistema automatizado con alertas de stock mínimo, predicción de demanda y optimización automática de pedidos.',
+    'use_case.inventory_management.benefits.desc': 'Reducción del 25% en costos de inventario, eliminación de roturas de stock y mejora en la planificación de compras.',
+    
+    // Sección de formación y capacitación
+    'training.description': 'Programas personalizados para que tu equipo desarrolle habilidades analíticas y aproveche al máximo herramientas como Excel, Power BI, Tableau y soluciones de IA para potenciar el análisis de datos.',
+    'training.excel_powerbi_tableau': 'Excel, Power BI y Tableau',
+    'training.ai_analysis': 'IA aplicada al análisis',
+    'training.performance_improvement': 'Mejora de performance analítico',
+    'training.opportunities.excel_training': 'Capacitación en Excel, Power BI y Tableau desde nivel básico a avanzado',
+    'training.opportunities.ai_tools': 'Uso de herramientas de IA para acelerar el análisis y la toma de decisiones',
+    'training.opportunities.workshops': 'Workshops prácticos y resolución de casos reales',
+    'training.opportunities.best_practices': 'Implementación de mejores prácticas en procesos y análisis de datos',
+    'training.opportunities.performance_boost': 'Aumento del performance y productividad del equipo',
+    
+    // Slide introductorio de casos de uso
+    'use_cases_intro.category': 'CASOS DE USO REALES',
+    'use_cases_intro.title': 'Casos de Éxito',
+    'use_cases_intro.subtitle': 'Descubre cómo hemos ayudado a empresas como la tuya',
+    'use_cases_intro.description': 'Estos son ejemplos reales de cómo nuestras soluciones han transformado los procesos de nuestros clientes, generando resultados medibles y mejorando su eficiencia operativa.',
+    'use_cases_intro.next_slides': 'A continuación, te presentamos casos específicos organizados por tipo de solución',
+    'use_cases_intro.accounting': 'Integración Contable',
+    'use_cases_intro.quotations': 'Cotizaciones Automáticas',
+    'use_cases_intro.sales_tracking': 'Seguimiento Comercial',
+    'use_cases_intro.ai_classification': 'Clasificación IA',
+    'use_cases_intro.chatbots': 'Chatbots Internos',
+    'use_cases_intro.inventory': 'Gestión de Inventarios',
+    'final_leverage.title': 'Cómo Diferentes Empresas Aprovechan sus Datos',
+    'final_leverage.subtitle': 'Inspírate con ejemplos reales de transformación y crecimiento impulsados por el análisis de datos.'
   },
   en: {
     'company.name': 'DataSmart',
@@ -469,7 +539,77 @@ const translations = {
     'services.ai.opportunities.optimization': 'Process Optimization with AI',
     'use_case': 'Use Case',
     'unstructured_data_analysis': 'Unstructured Data Analysis',
-    'opportunities_we_provide': 'Opportunities We Provide'
+    'opportunities_we_provide': 'Opportunities We Provide',
+    
+    // Specific hardcoded use cases
+    'use_case.accounting_api.title': 'Accounting API Integration - Automated Reports',
+    'use_case.accounting_api.subtitle': 'Automatic processing of accounting data for real-time dashboards',
+    'use_case.quotation_system.title': 'Automated Quotation System',
+    'use_case.quotation_system.subtitle': 'Intelligent generation of personalized commercial proposals',
+    'use_case.sales_tracking.title': 'Sales Tracking System',
+    'use_case.sales_tracking.subtitle': 'Intelligent monitoring of commercial performance and sales pipeline',
+    'use_case.communication_classification.title': 'Intelligent Communication Classification',
+    'use_case.communication_classification.subtitle': 'Automatic analysis of emails and social media comments',
+    'use_case.chatbot_proposals.title': 'Internal Chatbots for Proposal Generation',
+    'use_case.chatbot_proposals.subtitle': 'AI assistant to improve commercial team performance',
+    'use_case.inventory_management.title': 'Inventory Management System with Alerts',
+    'use_case.inventory_management.subtitle': 'Intelligent stock control with demand prediction',
+    
+    // Common use case sections
+    'use_case.challenge': 'The Challenge',
+    'use_case.solution': 'Our Solution',
+    'use_case.benefits': 'Benefits Obtained',
+    
+    // Specific content for each use case
+    'use_case.accounting_api.challenge.desc': 'Financial information scattered across different accounting systems, manual reports that consume time and are prone to errors.',
+    'use_case.accounting_api.solution.desc': 'Direct integration with accounting software API, automatic processing and generation of dashboards with real-time KPIs.',
+    'use_case.accounting_api.benefits.desc': 'Complete visibility of profits, portfolio, cash flow, commissions and financial KPIs automatically updated.',
+    
+    'use_case.quotation_system.challenge.desc': 'Slow manual process for generating quotes, price inconsistencies and excessive customer response time.',
+    'use_case.quotation_system.solution.desc': 'Intelligent system that automatically generates personalized quotes based on customer parameters and sales history.',
+    'use_case.quotation_system.benefits.desc': '90% reduction in quotation time, price consistency and improvement in customer conversion rate.',
+    
+    'use_case.sales_tracking.challenge.desc': 'Lack of visibility in sales pipeline, manual prospect tracking and difficulty identifying opportunities.',
+    'use_case.sales_tracking.solution.desc': 'Automatic tracking dashboard with alerts, performance metrics and sales closing predictions.',
+    'use_case.sales_tracking.benefits.desc': '35% increase in lead conversion, better commercial time management and early opportunity identification.',
+    
+    'use_case.communication_classification.challenge.desc': 'High volume of emails and comments, slow manual classification and loss of important or urgent messages.',
+    'use_case.communication_classification.solution.desc': 'AI that automatically classifies emails and comments by urgency, sentiment and category, with intelligent alerts.',
+    'use_case.communication_classification.benefits.desc': '80% reduction in classification time, faster response to urgencies and better customer satisfaction tracking.',
+    
+    'use_case.chatbot_proposals.challenge.desc': 'Commercial teams with limited access to technical information and difficulty creating consistent and competitive proposals.',
+    'use_case.chatbot_proposals.solution.desc': 'Internal chatbot trained with company data that assists the commercial team in creating personalized proposals.',
+    'use_case.chatbot_proposals.benefits.desc': '50% improvement in proposal quality, reduction in preparation time and standardization of commercial processes.',
+    
+    'use_case.inventory_management.challenge.desc': 'Manual inventory control, lack of automatic alerts and difficulty predicting future demand.',
+    'use_case.inventory_management.solution.desc': 'Automated system with minimum stock alerts, demand prediction and automatic order optimization.',
+    'use_case.inventory_management.benefits.desc': '25% reduction in inventory costs, elimination of stockouts and improvement in purchasing planning.',
+    
+    // Training and capacity building section
+    'training.description': 'Personalized programs for your team to develop analytical skills and make the most of tools like Excel, Power BI, Tableau and AI solutions to enhance data analysis.',
+    'training.excel_powerbi_tableau': 'Excel, Power BI and Tableau',
+    'training.ai_analysis': 'AI applied to analysis',
+    'training.performance_improvement': 'Analytical performance improvement',
+    'training.opportunities.excel_training': 'Training in Excel, Power BI and Tableau from basic to advanced level',
+    'training.opportunities.ai_tools': 'Use of AI tools to accelerate analysis and decision making',
+    'training.opportunities.workshops': 'Practical workshops and real case resolution',
+    'training.opportunities.best_practices': 'Implementation of best practices in data processes and analysis',
+    'training.opportunities.performance_boost': 'Increase team performance and productivity',
+    
+    // Use cases intro slide
+    'use_cases_intro.category': 'REAL USE CASES',
+    'use_cases_intro.title': 'Success Stories',
+    'use_cases_intro.subtitle': 'Discover how we have helped companies like yours',
+    'use_cases_intro.description': 'These are real examples of how our solutions have transformed our clients\' processes, generating measurable results and improving their operational efficiency.',
+    'use_cases_intro.next_slides': 'Below, we present specific cases organized by solution type',
+    'use_cases_intro.accounting': 'Accounting Integration',
+    'use_cases_intro.quotations': 'Automated Quotations',
+    'use_cases_intro.sales_tracking': 'Sales Tracking',
+    'use_cases_intro.ai_classification': 'AI Classification',
+    'use_cases_intro.chatbots': 'Internal Chatbots',
+    'use_cases_intro.inventory': 'Inventory Management',
+    'final_leverage.title': 'How Different Companies Leverage Their Data',
+    'final_leverage.subtitle': 'Get inspired by real-world examples of transformation and growth powered by data analytics.'
   }
 };
 
