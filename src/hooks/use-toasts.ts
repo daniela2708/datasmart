@@ -38,7 +38,7 @@ export const useToasts = () => {
     }
 
     return id
-  }, [])
+  }, [removeToast])
 
   const removeToast = useCallback((id: string) => {
     setToasts(prev => prev.filter(toast => toast.id !== id))
@@ -112,7 +112,7 @@ export const useToasts = () => {
     }: {
       loading: ToastInput
       success: (data: T) => ToastInput
-      error: (error: any) => ToastInput
+      error: (error: Error | unknown) => ToastInput
     }
   ) => {
     const loadingId = addToast(loadingToast)

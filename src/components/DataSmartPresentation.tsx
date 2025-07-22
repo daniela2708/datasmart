@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -26,7 +26,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
   const [isFullscreenActive, setIsFullscreenActive] = useState(false);
   const [indicatorPage, setIndicatorPage] = useState(0);
 
-  const totalSlides = 18;
+  const totalSlides = 19;
   const slidesPerPage = 6; // Número de indicadores visibles por página
 
   const allServices = [
@@ -138,7 +138,20 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
     };
   }, []);
 
-  // Navegación por teclado y funciones manuales
+  // Funciones de navegación manual
+  const navigateNext = useCallback(() => {
+    if (api) {
+      api.scrollNext();
+    }
+  }, [api]);
+
+  const navigatePrev = useCallback(() => {
+    if (api) {
+      api.scrollPrev();
+    }
+  }, [api]);
+
+  // Navegación por teclado
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       // Prevenir navegación si hay un input enfocado
@@ -169,20 +182,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown, true);
     };
-  }, [api]);
-
-  // Funciones de navegación manual
-  const navigateNext = () => {
-    if (api) {
-      api.scrollNext();
-    }
-  };
-
-  const navigatePrev = () => {
-    if (api) {
-      api.scrollPrev();
-    }
-  };
+  }, [api, navigateNext, navigatePrev]);
 
   const goToSlide = (index: number) => {
     // Efecto visual de transición
@@ -263,7 +263,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
       </header>
 
       {/* Slides Carousel - Ajustado con padding top para el header fijo */}
-      <div className={`pt-10 relative z-40 ${isFullscreenActive ? 'pt-16' : ''}`} style={{ padding: '40px 60px 40px 60px' }}>
+      <div className={`pt-10 px-4 sm:px-8 lg:px-16 xl:px-20 relative z-40 ${isFullscreenActive ? 'pt-16' : ''}`}>
         <div className={`relative w-full max-w-none mx-auto ${isFullscreenActive ? 'pb-12' : 'pb-16'}`}>
           <Carousel 
             className="w-full"
@@ -495,7 +495,194 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                 </div>
               </CarouselItem>
 
-              {/* Slide 2: Services Overview - Elegant Display */}
+              {/* Slide 2: ¿Qué hacemos? - La esencia de DataSmart */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="max-w-6xl mx-auto px-6 py-8 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                      {/* Contenido principal */}
+                      <div className="space-y-6">
+                        <div className="hero-category-tag text-xs inline-block text-emerald-500 font-medium uppercase tracking-wider mb-2">
+                          {t('what_we_do.category')}
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                          {t('what_we_do.title')}
+                        </h2>
+                        <p className="text-gray-600 text-lg leading-relaxed">
+                          {t('what_we_do.subtitle')}
+                        </p>
+                        
+                        {/* Ejemplos de soluciones */}
+                        <div className="space-y-4 mt-8">
+                          <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-6 rounded-xl border-l-4 border-emerald-500">
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                              <span className="text-2xl">📊</span>
+                              {t('what_we_do.advertising.title')}
+                            </h3>
+                            <p className="text-gray-700">
+                              {t('what_we_do.advertising.desc')}
+                            </p>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-500">
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                              <span className="text-2xl">💼</span>
+                              {t('what_we_do.accounting.title')}
+                            </h3>
+                            <p className="text-gray-700">
+                              {t('what_we_do.accounting.desc')}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Visual side */}
+                      <div className="flex justify-center">
+                        <div className="relative">
+                          {/* Dashboard visual */}
+                          <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl border border-gray-200 p-6 max-w-md">
+                            <div className="mb-4">
+                              <h4 className="text-lg font-bold bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
+                                {t('what_we_do.dashboard.title')}
+                              </h4>
+                            </div>
+                            
+                            {/* Mock data cards */}
+                            <div className="space-y-3">
+                              <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                                <div className="text-sm text-emerald-700 font-semibold">{t('what_we_do.dashboard.diagnosis')}</div>
+                                <div className="text-xs text-emerald-600 mt-1">{t('what_we_do.dashboard.diagnosis_status')}</div>
+                              </div>
+                              
+                              <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                                <div className="text-sm text-blue-700 font-semibold">{t('what_we_do.dashboard.insights')}</div>
+                                <div className="text-xs text-blue-600 mt-1">{t('what_we_do.dashboard.insights_status')}</div>
+                              </div>
+                              
+                              <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                                <div className="text-sm text-purple-700 font-semibold">{t('what_we_do.dashboard.delivery')}</div>
+                                <div className="text-xs text-purple-600 mt-1">{t('what_we_do.dashboard.delivery_status')}</div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Floating icons */}
+                          <div className="absolute -top-4 -left-4 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white animate-float">
+                            📊
+                          </div>
+                          <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white animate-float-delay-2">
+                            💡
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Slide 3: Enfoque Diferenciado - Por Qué Elegirnos */}
+              <CarouselItem>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
+                  <div className="w-full max-w-6xl mx-auto">
+                    {/* Encabezado */}
+                    <div className="mb-8">
+                      <div className="hero-category-tag text-xs inline-block text-emerald-500 font-medium uppercase tracking-wider mb-2">
+                        Nuestro enfoque diferenciado
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-blue-500 mb-3">
+                        Por qué elegirnos
+                      </h2>
+                      <p className="text-gray-600 text-base leading-relaxed max-w-3xl">
+                        Nuestro enfoque único combina experiencia técnica con visión estratégica para entregar soluciones que realmente transforman tu negocio.
+                      </p>
+                    </div>
+                    
+                    {/* Grid de características */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {/* Soluciones Escalables */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M20 12V8H4V12M20 12V16H4V12M20 12H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">Soluciones Escalables</h3>
+                      </div>
+                        <p className="text-gray-600 text-sm">Diseñamos soluciones que crecen con tu negocio</p>
+                        </div>
+
+                      {/* Enfoque Integral */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                      </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">Enfoque Integral</h3>
+                        </div>
+                        <p className="text-gray-600 text-sm">Abordamos todas las dimensiones de tus datos</p>
+                      </div>
+
+                      {/* Procesamiento Inteligente */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-purple-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 2L2 7V17C2 17.5304 2.21071 18.0391 2.58579 18.4142C2.96086 18.7893 3.46957 19 4 19H20C20.5304 19 21.0391 18.7893 21.4142 18.4142C21.7893 18.0391 22 17.5304 22 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                      </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">Procesamiento Inteligente</h3>
+                      </div>
+                        <p className="text-gray-600 text-sm">IA avanzada para insights precisos</p>
+                    </div>
+
+                      {/* Desarrollo a Medida */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-orange-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14.7 6.3A1 1 0 0 0 13 5H5A1 1 0 0 0 4 6V18A1 1 0 0 0 5 19H19A1 1 0 0 0 20 18V10A1 1 0 0 0 19.7 9.3L14.7 6.3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                      </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">Desarrollo a Medida</h3>
+                </div>
+                        <p className="text-gray-600 text-sm">Soluciones personalizadas para tu industria</p>
+                      </div>
+
+                      {/* Acompañamiento Continuo */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M8 12L10.5 14.5L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                    </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">Acompañamiento Continuo</h3>
+                    </div>
+                        <p className="text-gray-600 text-sm">Soporte técnico y estratégico permanente</p>
+                          </div>
+
+                      {/* Resultados Medibles */}
+                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="flex-shrink-0 w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                            <svg className="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                      </div>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">Resultados Medibles</h3>
+                        </div>
+                        <p className="text-gray-600 text-sm">ROI comprobable desde el primer mes</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+
+              {/* Slide 4: Services Overview - Elegant Display */}
               <CarouselItem>
                 <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
                   <div className="text-center max-w-6xl mx-auto px-6 py-8 relative z-10">
@@ -2161,104 +2348,72 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                 </div>
               </CarouselItem>
 
-              {/* Slide 11: Por Qué Elegirnos */}
+              {/* Slide 4: Nuestro Cliente - La información es el nuevo petróleo */}
               <CarouselItem>
-                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-start justify-start rounded-lg p-8">
-                  <div className="w-full max-w-6xl mx-auto">
-                    {/* Encabezado */}
-                    <div className="mb-8">
-                      <div className="hero-category-tag text-xs inline-block text-emerald-500 font-medium uppercase tracking-wider mb-2">
-                        {t('why_us.category')}
-                      </div>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-blue-500 mb-3">
-                        {t('why_us.title')}
-                      </h2>
-                      <p className="text-gray-600 text-base leading-relaxed max-w-3xl">
-                        {t('why_us.subtitle')}
-                      </p>
-                    </div>
-                    
-                    {/* Grid de características */}
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                      {/* Soluciones Escalables */}
-                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M20 12V8H4V12M20 12V16H4V12M20 12H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                <div className="datasmart-slide bg-white min-h-[68vh] sm:min-h-[72vh] flex items-center justify-center rounded-lg">
+                  <div className="max-w-6xl mx-auto px-6 py-8 w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                      {/* Contenido principal */}
+                      <div className="space-y-6">
+                        <div className="hero-category-tag text-xs inline-block text-emerald-500 font-medium uppercase tracking-wider mb-2">
+                          Nuestro cliente ideal
                         </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.scalable.title')}</h3>
-                      </div>
-                        <p className="text-gray-600 text-sm">{t('why_us.scalable.desc')}</p>
+                        <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                          ¿Quién es nuestro cliente?
+                        </h2>
+                        <div className="bg-gradient-to-r from-emerald-500 to-blue-500 p-6 rounded-xl text-white">
+                          <h3 className="text-2xl font-bold mb-3 flex items-center gap-2">
+                            <span className="text-3xl">🛢️</span>
+                            La información es el nuevo petróleo
+                          </h3>
+                          <p className="text-emerald-100 text-lg">
+                            Cualquiera que genere, procese o necesite datos para tomar decisiones estratégicas.
+                          </p>
                         </div>
-
-                      {/* Enfoque Integral */}
-                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                        
+                        <p className="text-gray-600 text-lg leading-relaxed">
+                          Trabajamos con organizaciones de todos los tamaños que entienden el valor de sus datos 
+                          y buscan transformarlos en ventajas competitivas reales.
+                        </p>
                       </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.integral.title')}</h3>
+                      
+                      {/* Grid de sectores */}
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl border border-green-200 hover:shadow-lg transition-all duration-300">
+                          <div className="text-3xl mb-2">🐄</div>
+                          <h4 className="font-bold text-green-700 mb-1">Ganadería</h4>
+                          <p className="text-green-600 text-sm">Control de inventario, seguimiento de ganado, optimización de recursos</p>
                         </div>
-                        <p className="text-gray-600 text-sm">{t('why_us.integral.desc')}</p>
-                      </div>
-
-                      {/* Procesamiento Inteligente */}
-                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-5 h-5 text-purple-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M19.4 15C19.1277 15.6171 19.0717 16.3081 19.2401 16.9584C19.4085 17.6087 19.7933 18.1807 20.3348 18.5858C20.8762 18.9909 21.5401 19.2063 22.2186 19.1993C22.8971 19.1923 23.5557 18.9633 24.0876 18.5473C24.0876 18.5473 21.8876 22.4473 19.3876 21.0473C16.8876 19.6473 19.4 15 19.4 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                        
+                        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-300">
+                          <div className="text-3xl mb-2">🏥</div>
+                          <h4 className="font-bold text-blue-700 mb-1">Salud</h4>
+                          <p className="text-blue-600 text-sm">Gestión de pacientes, análisis epidemiológico, optimización de recursos</p>
                         </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.processing.title')}</h3>
-                      </div>
-                        <p className="text-gray-600 text-sm">{t('why_us.processing.desc')}</p>
-                    </div>
-
-                      {/* Desarrollo a Medida */}
-                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-5 h-5 text-orange-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.development.title')}</h3>
-                </div>
-                        <p className="text-gray-600 text-sm">{t('why_us.development.desc')}</p>
-                      </div>
-
-                      {/* Acompañamiento Continuo */}
-                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex-shrink-0 w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-5 h-5 text-pink-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M17 20H7C5.89543 20 5 19.1046 5 18V9C5 7.89543 5.89543 7 7 7H17C18.1046 7 19 7.89543 19 9V18C19 19.1046 18.1046 20 17 20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M12 14V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                      </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.support.title')}</h3>
-                    </div>
-                        <p className="text-gray-600 text-sm">{t('why_us.support.desc')}</p>
-                          </div>
-
-                      {/* Resultados Medibles */}
-                      <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="flex-shrink-0 w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-                            <svg className="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M16 8V16M12 11V16M8 14V16M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                        
+                        <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl border border-purple-200 hover:shadow-lg transition-all duration-300">
+                          <div className="text-3xl mb-2">🏛️</div>
+                          <h4 className="font-bold text-purple-700 mb-1">Gobierno</h4>
+                          <p className="text-purple-600 text-sm">Transparencia de datos, servicios ciudadanos, gestión pública eficiente</p>
                         </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.results.title')}</h3>
+                        
+                        <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl border border-orange-200 hover:shadow-lg transition-all duration-300">
+                          <div className="text-3xl mb-2">🛒</div>
+                          <h4 className="font-bold text-orange-700 mb-1">Consumo</h4>
+                          <p className="text-orange-600 text-sm">Análisis de comportamiento, personalización, predicción de demanda</p>
                         </div>
-                        <p className="text-gray-600 text-sm">{t('why_us.results.desc')}</p>
+                        
+                        <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-xl border border-red-200 hover:shadow-lg transition-all duration-300">
+                          <div className="text-3xl mb-2">🏭</div>
+                          <h4 className="font-bold text-red-700 mb-1">Producción</h4>
+                          <p className="text-red-600 text-sm">Optimización de procesos, control de calidad, mantenimiento predictivo</p>
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-4 rounded-xl border border-indigo-200 hover:shadow-lg transition-all duration-300">
+                          <div className="text-3xl mb-2">💼</div>
+                          <h4 className="font-bold text-indigo-700 mb-1">Empresas</h4>
+                          <p className="text-indigo-600 text-sm">Automatización, reportes ejecutivos, toma de decisiones basada en datos</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2969,7 +3124,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                     </div>
                     
                     {/* Grid de características */}
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       {/* Soluciones Escalables */}
                       <div className="feature-card p-4 rounded-lg bg-white border border-gray-100 hover:shadow-md transition-all duration-300">
                         <div className="flex items-center gap-3 mb-2">
@@ -2978,7 +3133,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                               <path d="M20 12V8H4V12M20 12V16H4V12M20 12H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.scalable.title')}</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">{t('why_us.scalable.title')}</h3>
                       </div>
                         <p className="text-gray-600 text-sm">{t('why_us.scalable.desc')}</p>
                         </div>
@@ -2991,7 +3146,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                               <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                       </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.integral.title')}</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">{t('why_us.integral.title')}</h3>
                         </div>
                         <p className="text-gray-600 text-sm">{t('why_us.integral.desc')}</p>
                       </div>
@@ -3005,7 +3160,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                               <path d="M19.4 15C19.1277 15.6171 19.0717 16.3081 19.2401 16.9584C19.4085 17.6087 19.7933 18.1807 20.3348 18.5858C20.8762 18.9909 21.5401 19.2063 22.2186 19.1993C22.8971 19.1923 23.5557 18.9633 24.0876 18.5473C24.0876 18.5473 21.8876 22.4473 19.3876 21.0473C16.8876 19.6473 19.4 15 19.4 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.processing.title')}</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">{t('why_us.processing.title')}</h3>
                       </div>
                         <p className="text-gray-600 text-sm">{t('why_us.processing.desc')}</p>
                     </div>
@@ -3018,7 +3173,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                               <path d="M10 20L14 4M18 8L22 12L18 16M6 16L2 12L6 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.development.title')}</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">{t('why_us.development.title')}</h3>
                 </div>
                         <p className="text-gray-600 text-sm">{t('why_us.development.desc')}</p>
                       </div>
@@ -3033,7 +3188,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                               <path d="M12 14V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                       </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.support.title')}</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">{t('why_us.support.title')}</h3>
                     </div>
                         <p className="text-gray-600 text-sm">{t('why_us.support.desc')}</p>
                           </div>
@@ -3046,7 +3201,7 @@ const DataSmartPresentation: React.FC<DataSmartPresentationProps> = ({
                               <path d="M16 8V16M12 11V16M8 14V16M6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                         </div>
-                          <h3 className="text-lg font-semibold text-gray-900">{t('why_us.results.title')}</h3>
+                          <h3 className="text-base sm:text-lg font-semibold text-gray-900">{t('why_us.results.title')}</h3>
                         </div>
                         <p className="text-gray-600 text-sm">{t('why_us.results.desc')}</p>
                       </div>

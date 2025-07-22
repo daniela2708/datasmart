@@ -475,6 +475,32 @@ html {
 }
 
 /* Responsive Design */
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .header-premium {
+    padding: 10px 16px;
+  }
+  
+  .logo-premium {
+    font-size: 1.3rem;
+  }
+  
+  .orbit-container {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .hero-content-container {
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .hero-main-title {
+    font-size: 2.4rem;
+  }
+}
+
+/* Móviles grandes y tablets pequeñas */
 @media (max-width: 768px) {
   .header-premium {
     padding: 12px 16px;
@@ -482,8 +508,8 @@ html {
   }
   
   .logo-premium {
-    font-size: 1.5rem;
-    padding-left: 24px;
+    font-size: 1.2rem;
+    padding-left: 20px;
   }
   
   .tagline-premium {
@@ -523,7 +549,7 @@ html {
   }
   
   .stat-number {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .service-icon {
@@ -532,12 +558,193 @@ html {
   }
   
   .feature-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
   
   .btn-modern {
-    padding: 0.8rem 1.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Hero section mobile */
+  .hero-content-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .hero-main-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .hero-text-section {
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .orbit-container {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .hero-visual-section {
+    order: -1;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .header-premium {
+    padding: 8px 12px;
+  }
+  
+  .logo-premium {
+    font-size: 1.1rem;
+    padding-left: 18px;
+  }
+  
+  .control-btn-premium,
+  .language-btn-premium {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+  
+  .hero-main-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .hero-category-tag {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.7rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+  }
+  
+  .orbit-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-visual-section {
+    display: none;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .btn-modern {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .number-dot-small {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+  
+  .numbers-indicators {
+    gap: 4px;
+  }
+}
+
+/* Pantallas extra pequeñas */
+@media (max-width: 360px) {
+  .hero-main-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.8rem;
+  }
+  
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .feature-card {
+    padding: 0.75rem;
+  }
+  
+  .logo-premium {
     font-size: 1rem;
+  }
+}
+
+/* Touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Optimizaciones específicas para dispositivos táctiles */
+  .control-btn-premium,
+  .language-btn-premium {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .number-dot-small {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  .feature-card {
+    cursor: default;
+  }
+  
+  .btn-modern {
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* Mejores áreas de toque para navegación */
+  .indicator-nav-btn {
+    min-width: 32px;
+    min-height: 32px;
+  }
+  
+  /* Hover effects disabled on touch */
+  .feature-card:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .service-icon:hover {
+    transform: none;
+  }
+  
+  .control-btn-premium:hover {
+    transform: none;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-main-title {
+    font-size: 1.8rem;
+  }
+  
+  .header-premium {
+    padding: 8px 16px;
+  }
+  
+  .orbit-container {
+    width: 240px;
+    height: 240px;
   }
 }
 
